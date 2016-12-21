@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB31D9891E09E64C00D85946 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D9881E09E64C00D85946 /* SignInViewController.swift */; };
+		DB31D98B1E09E65F00D85946 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */; };
+		DB31D98D1E09E67600D85946 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */; };
 		DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5708831E08A31B005AA367 /* AppDelegate.swift */; };
-		DB5708861E08A31B005AA367 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5708851E08A31B005AA367 /* ViewController.swift */; };
 		DB5708891E08A31B005AA367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5708871E08A31B005AA367 /* Main.storyboard */; };
 		DB57088B1E08A31B005AA367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB57088A1E08A31B005AA367 /* Assets.xcassets */; };
 		DB57088E1E08A31B005AA367 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB57088C1E08A31B005AA367 /* LaunchScreen.storyboard */; };
@@ -24,13 +26,14 @@
 		DB5708A91E08A44B005AA367 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708A81E08A44B005AA367 /* SystemConfiguration.framework */; };
 		DB5708AC1E08A504005AA367 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708AA1E08A504005AA367 /* Bolts.framework */; };
 		DB5708AD1E08A504005AA367 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708AB1E08A504005AA367 /* Parse.framework */; };
-		DB5708AF1E08B349005AA367 /* us.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB5708AE1E08B349005AA367 /* us.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB31D9881E09E64C00D85946 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DB5708801E08A31B005AA367 /* one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5708831E08A31B005AA367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB5708851E08A31B005AA367 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB5708881E08A31B005AA367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB57088A1E08A31B005AA367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB57088D1E08A31B005AA367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,7 +50,6 @@
 		DB5708A81E08A44B005AA367 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DB5708AA1E08A504005AA367 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		DB5708AB1E08A504005AA367 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		DB5708AE1E08B349005AA367 /* us.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = us.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,11 +96,12 @@
 			isa = PBXGroup;
 			children = (
 				DB5708831E08A31B005AA367 /* AppDelegate.swift */,
-				DB5708851E08A31B005AA367 /* ViewController.swift */,
-				DB5708AE1E08B349005AA367 /* us.jpg */,
 				DB5708871E08A31B005AA367 /* Main.storyboard */,
 				DB57088A1E08A31B005AA367 /* Assets.xcassets */,
 				DB57088C1E08A31B005AA367 /* LaunchScreen.storyboard */,
+				DB31D9881E09E64C00D85946 /* SignInViewController.swift */,
+				DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */,
+				DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */,
 				DB57088F1E08A31B005AA367 /* Info.plist */,
 			);
 			path = one;
@@ -183,7 +186,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB57088E1E08A31B005AA367 /* LaunchScreen.storyboard in Resources */,
-				DB5708AF1E08B349005AA367 /* us.jpg in Resources */,
 				DB57088B1E08A31B005AA367 /* Assets.xcassets in Resources */,
 				DB5708891E08A31B005AA367 /* Main.storyboard in Resources */,
 			);
@@ -196,8 +198,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB5708861E08A31B005AA367 /* ViewController.swift in Sources */,
+				DB31D98B1E09E65F00D85946 /* SignUpViewController.swift in Sources */,
+				DB31D9891E09E64C00D85946 /* SignInViewController.swift in Sources */,
 				DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */,
+				DB31D98D1E09E67600D85946 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +371,7 @@
 				DB5708941E08A31B005AA367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

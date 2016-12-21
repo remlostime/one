@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Parse.initialize(with: parseConfig)
 
+//        login()
+
         return true
     }
 
@@ -55,6 +57,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // MARK: Helpers
+    func login() {
+        let username = UserDefaults.standard.string(forKey: "username")
+        if (username != nil) {
+            let storyboard = UIStoryboard(name: "Main",
+                                          bundle: nil)
+            let oneTabBarVC = storyboard.instantiateViewController(withIdentifier: "oneTabBar") as? UITabBarController
+            window?.rootViewController = oneTabBarVC
+        }
+    }
 
 }
 
