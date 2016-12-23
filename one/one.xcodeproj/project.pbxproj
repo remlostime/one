@@ -27,6 +27,9 @@
 		DB5708AC1E08A504005AA367 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708AA1E08A504005AA367 /* Bolts.framework */; };
 		DB5708AD1E08A504005AA367 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708AB1E08A504005AA367 /* Parse.framework */; };
 		DBAAABC51E0B557B004BE2C3 /* one_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBAAABC41E0B557B004BE2C3 /* one_background.jpg */; };
+		DBF0C5FC1E0CDC6D00046E55 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */; };
+		DBF0C5FE1E0CDCAC00046E55 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0C5FD1E0CDCAC00046E55 /* PictureCollectionViewCell.swift */; };
+		DBF0C6001E0CDCEE00046E55 /* HomeHeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0C5FF1E0CDCEE00046E55 /* HomeHeaderCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		DB5708AB1E08A504005AA367 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		DBAAABC41E0B557B004BE2C3 /* one_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = one_background.jpg; sourceTree = "<group>"; };
 		DBAAABC61E0B5662004BE2C3 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		DBF0C5FD1E0CDCAC00046E55 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBF0C5FF1E0CDCEE00046E55 /* HomeHeaderCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,15 +104,18 @@
 		DB5708821E08A31B005AA367 /* one */ = {
 			isa = PBXGroup;
 			children = (
-				DB5708831E08A31B005AA367 /* AppDelegate.swift */,
 				DB5708871E08A31B005AA367 /* Main.storyboard */,
-				DB57088A1E08A31B005AA367 /* Assets.xcassets */,
-				DBAAABC61E0B5662004BE2C3 /* Pacifico.ttf */,
-				DBAAABC41E0B557B004BE2C3 /* one_background.jpg */,
 				DB57088C1E08A31B005AA367 /* LaunchScreen.storyboard */,
+				DB5708831E08A31B005AA367 /* AppDelegate.swift */,
+				DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */,
 				DB31D9881E09E64C00D85946 /* SignInViewController.swift */,
 				DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */,
 				DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */,
+				DBF0C5FD1E0CDCAC00046E55 /* PictureCollectionViewCell.swift */,
+				DBF0C5FF1E0CDCEE00046E55 /* HomeHeaderCollectionView.swift */,
+				DB57088A1E08A31B005AA367 /* Assets.xcassets */,
+				DBAAABC61E0B5662004BE2C3 /* Pacifico.ttf */,
+				DBAAABC41E0B557B004BE2C3 /* one_background.jpg */,
 				DB57088F1E08A31B005AA367 /* Info.plist */,
 			);
 			path = one;
@@ -207,6 +216,9 @@
 				DB31D98B1E09E65F00D85946 /* SignUpViewController.swift in Sources */,
 				DB31D9891E09E64C00D85946 /* SignInViewController.swift in Sources */,
 				DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */,
+				DBF0C6001E0CDCEE00046E55 /* HomeHeaderCollectionView.swift in Sources */,
+				DBF0C5FE1E0CDCAC00046E55 /* PictureCollectionViewCell.swift in Sources */,
+				DBF0C5FC1E0CDC6D00046E55 /* HomeCollectionViewController.swift in Sources */,
 				DB31D98D1E09E67600D85946 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
