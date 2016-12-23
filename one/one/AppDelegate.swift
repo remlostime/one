@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Parse.initialize(with: parseConfig)
 
-//        login()
+        login()
 
         return true
     }
