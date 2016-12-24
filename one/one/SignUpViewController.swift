@@ -79,11 +79,11 @@ class SignUpViewController: UIViewController {
     }
 
     func showKeyboard(notification: NSNotification) {
-        let keyboard = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
-
-        UIView.animate(withDuration: 0.4, animations: { () -> Void in
-            self.scrollView.frame.size.height = self.scrollViewHeight - keyboard.height
-        })
+//        let keyboard = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
+//
+//        UIView.animate(withDuration: 0.4, animations: { () -> Void in
+//            self.scrollView.frame.size.height = self.scrollViewHeight - keyboard.height
+//        })
     }
 
     func hideKeyboard(notification: NSNotification) {

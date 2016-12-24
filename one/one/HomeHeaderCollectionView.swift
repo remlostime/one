@@ -17,4 +17,5 @@ class HomeHeaderCollectionView: UICollectionReusableView {
     @IBOutlet var followersNumLabel: UILabel!
     @IBOutlet var followingNumLabel: UILabel!
     @IBOutlet var editButton: UIButton!
+
 }
