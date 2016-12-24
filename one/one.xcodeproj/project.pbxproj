@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10465F3D1E0DF7C800095983 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10465F3C1E0DF7C800095983 /* FollowersViewController.swift */; };
+		10465F3F1E0DF7DA00095983 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10465F3E1E0DF7DA00095983 /* FollowingViewController.swift */; };
 		DB31D9891E09E64C00D85946 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D9881E09E64C00D85946 /* SignInViewController.swift */; };
 		DB31D98B1E09E65F00D85946 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */; };
 		DB31D98D1E09E67600D85946 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10465F3C1E0DF7C800095983 /* FollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		10465F3E1E0DF7DA00095983 /* FollowingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		DB31D9881E09E64C00D85946 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */,
 				DBF0C5FD1E0CDCAC00046E55 /* PictureCollectionViewCell.swift */,
 				DBF0C5FF1E0CDCEE00046E55 /* HomeHeaderCollectionView.swift */,
+				10465F3C1E0DF7C800095983 /* FollowersViewController.swift */,
+				10465F3E1E0DF7DA00095983 /* FollowingViewController.swift */,
 				DB57088A1E08A31B005AA367 /* Assets.xcassets */,
 				DBAAABC61E0B5662004BE2C3 /* Pacifico.ttf */,
 				DBAAABC41E0B557B004BE2C3 /* one_background.jpg */,
@@ -217,8 +223,10 @@
 				DB31D9891E09E64C00D85946 /* SignInViewController.swift in Sources */,
 				DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */,
 				DBF0C6001E0CDCEE00046E55 /* HomeHeaderCollectionView.swift in Sources */,
+				10465F3D1E0DF7C800095983 /* FollowersViewController.swift in Sources */,
 				DBF0C5FE1E0CDCAC00046E55 /* PictureCollectionViewCell.swift in Sources */,
 				DBF0C5FC1E0CDC6D00046E55 /* HomeCollectionViewController.swift in Sources */,
+				10465F3F1E0DF7DA00095983 /* FollowingViewController.swift in Sources */,
 				DB31D98D1E09E67600D85946 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,10 +355,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = one/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.one;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -363,10 +373,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = one/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.one;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
