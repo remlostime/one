@@ -7,47 +7,85 @@
 //
 
 import UIKit
+import Parse
 
 class FollowingViewController: UITableViewController {
+    
+    var followings = [String]()
+    var usernames = [String]()
+    var profileImages = [PFFile]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Following"
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        loadFollowing()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func loadFollowing() {
+        let followingQuery = PFQuery(className: "Follow")
+        let currentUsername = (PFUser.current()?.username)!
+        followingQuery.whereKey("follower", equalTo: currentUsername)
+        followingQuery.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                self.followings.removeAll()
+                
+                for object in objects! {
+                    self.followings.append(object.value(forKey: "following") as! String)
+                }
+                
+                let query = PFUser.query()
+                query?.whereKey("username", containedIn: self.followings)
+                query?.addDescendingOrder("createdAt")
+                query?.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
+                    if error == nil {
+                        self.usernames.removeAll()
+                        self.profileImages.removeAll()
+                        
+                        for object in objects! {
+                            self.usernames.append(object.object(forKey: "username") as! String)
+                            self.profileImages.append(object.object(forKey: "profile_image") as! PFFile)
+                        }
+                        
+                        self.tableView.reloadData()
+                    } else {
+                        print("error:\(error!.localizedDescription)")
+                    }
+                })
+            }
+        }
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return usernames.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "followViewCell", for: indexPath) as? FollowViewCell
+        
+        cell?.tag = indexPath.row
+        let username = usernames[indexPath.row]
+        cell?.usernameLabel?.text = username
+        
+        if followings.contains(username) {
+            cell?.followingButton.setTitle("following", for: .normal)
+            cell?.followingButton.backgroundColor = .blue
+        } else {
+            cell?.followingButton.setTitle("follow", for: .normal)
+            cell?.followingButton.backgroundColor = .gray
+        }
+        
+        let pfFile = profileImages[indexPath.row]
+        pfFile.getDataInBackground { (data: Data?, error: Error?) in
+            let image = UIImage(data: data!)
+            cell?.profielImageView?.image = image
+        }
 
-        // Configure the cell...
-
-        return cell
+        return cell!
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
