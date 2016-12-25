@@ -66,12 +66,22 @@ class FollowingViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "followViewCell", for: indexPath) as? FollowViewCell
         
-        cell?.usernameLabel.text = usernames[indexPath.row]
+        cell?.tag = indexPath.row
+        let username = usernames[indexPath.row]
+        cell?.usernameLabel?.text = username
+        
+        if followings.contains(username) {
+            cell?.followingButton.setTitle("following", for: .normal)
+            cell?.followingButton.backgroundColor = .blue
+        } else {
+            cell?.followingButton.setTitle("follow", for: .normal)
+            cell?.followingButton.backgroundColor = .gray
+        }
         
         let pfFile = profileImages[indexPath.row]
         pfFile.getDataInBackground { (data: Data?, error: Error?) in
             let image = UIImage(data: data!)
-            cell?.profielImageView.image = image
+            cell?.profielImageView?.image = image
         }
 
         return cell!

@@ -8,3 +8,4 @@ One is my own project that mocks Instagram iOS app. Just for fun!
 * Fix Keyboard show up crash
 * Fix all crashes
 * Fix all optional, guard let, force unwrapped issue
+* Follow Cell 'follow' button does not work on following page
