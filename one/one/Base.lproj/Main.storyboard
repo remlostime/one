@@ -240,7 +240,7 @@
         <scene sceneID="tJy-Tr-Uw1">
             <objects>
                 <collectionViewController id="kXB-iV-UEx" customClass="HomeCollectionViewController" customModule="one" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="pRB-29-ONP">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pRB-29-ONP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -377,18 +377,55 @@
         <scene sceneID="BeD-hL-txf">
             <objects>
                 <tableViewController storyboardIdentifier="followerVC" id="DQn-4a-f3d" customClass="FollowersViewController" customModule="one" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="r0J-hf-DNQ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="r0J-hf-DNQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="z23-JO-lrZ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="followViewCell" rowHeight="100" id="nBm-bW-6PH" customClass="FollowViewCell" customModule="one" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z23-JO-lrZ" id="R4E-jJ-Wxg">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nBm-bW-6PH" id="f34-Md-MTG">
+                                    <frame key="frameInset" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile_image" translatesAutoresizingMaskIntoConstraints="NO" id="j8v-k8-3p8">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="NwY-Rm-XQ9"/>
+                                                <constraint firstAttribute="height" constant="80" id="vpZ-Jp-1NW"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdk-ue-Nr3">
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OG-8K-6zQ">
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" title="Following">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="followingButtonTapped:" destination="nBm-bW-6PH" eventType="touchUpInside" id="2fk-Tg-gLN"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="cdk-ue-Nr3" firstAttribute="leading" secondItem="j8v-k8-3p8" secondAttribute="trailing" constant="10" id="1cq-z6-1g5"/>
+                                        <constraint firstItem="j8v-k8-3p8" firstAttribute="centerY" secondItem="f34-Md-MTG" secondAttribute="centerY" id="3zD-nU-2CX"/>
+                                        <constraint firstItem="9OG-8K-6zQ" firstAttribute="centerY" secondItem="f34-Md-MTG" secondAttribute="centerY" id="MeM-wP-Gbi"/>
+                                        <constraint firstItem="cdk-ue-Nr3" firstAttribute="centerY" secondItem="f34-Md-MTG" secondAttribute="centerY" id="Sr6-PT-Dbd"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9OG-8K-6zQ" secondAttribute="trailing" constant="10" id="av5-Pk-pf8"/>
+                                        <constraint firstItem="j8v-k8-3p8" firstAttribute="leading" secondItem="f34-Md-MTG" secondAttribute="leadingMargin" constant="10" id="vNN-CN-9gJ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="followingButton" destination="9OG-8K-6zQ" id="OnF-5z-1nZ"/>
+                                    <outlet property="profielImageView" destination="j8v-k8-3p8" id="rpG-vj-5xx"/>
+                                    <outlet property="usernameLabel" destination="cdk-ue-Nr3" id="80K-r5-Yl2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -399,24 +436,58 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beg-Nj-Vhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="-267"/>
+            <point key="canvasLocation" x="2152.5" y="-267.5"/>
         </scene>
         <!--Following View Controller-->
         <scene sceneID="EGe-pg-CWP">
             <objects>
                 <tableViewController storyboardIdentifier="followingVC" id="PdX-Qy-Bwj" customClass="FollowingViewController" customModule="one" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="non-06-8XW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="non-06-8XW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5DD-U3-BtL">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="followViewCell" rowHeight="100" id="5DD-U3-BtL" customClass="FollowViewCell" customModule="one" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5DD-U3-BtL" id="TBs-Dc-BhN">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile_image" translatesAutoresizingMaskIntoConstraints="NO" id="CqL-Og-kJH">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="j0O-Lr-FHN"/>
+                                                <constraint firstAttribute="width" constant="80" id="rSx-Z9-EoR"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6e-eD-udg">
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbq-8g-eLJ">
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" title="Following">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="r6e-eD-udg" firstAttribute="leading" secondItem="CqL-Og-kJH" secondAttribute="trailing" constant="10" id="OMU-CF-jHH"/>
+                                        <constraint firstItem="CqL-Og-kJH" firstAttribute="centerY" secondItem="TBs-Dc-BhN" secondAttribute="centerY" id="bsA-Bx-IjJ"/>
+                                        <constraint firstItem="CqL-Og-kJH" firstAttribute="leading" secondItem="TBs-Dc-BhN" secondAttribute="leadingMargin" constant="10" id="jNr-Wb-wRM"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Hbq-8g-eLJ" secondAttribute="trailing" constant="10" id="pOK-rO-qki"/>
+                                        <constraint firstItem="r6e-eD-udg" firstAttribute="centerY" secondItem="TBs-Dc-BhN" secondAttribute="centerY" id="s95-cL-wjz"/>
+                                        <constraint firstItem="Hbq-8g-eLJ" firstAttribute="centerY" secondItem="TBs-Dc-BhN" secondAttribute="centerY" id="vWs-bN-5Li"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="followingButton" destination="Hbq-8g-eLJ" id="VJt-iE-e9o"/>
+                                    <outlet property="profielImageView" destination="CqL-Og-kJH" id="yVq-uX-YsD"/>
+                                    <outlet property="usernameLabel" destination="r6e-eD-udg" id="BG9-Bv-7mg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -427,7 +498,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cvk-3R-k55" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="513"/>
+            <point key="canvasLocation" x="2152.5" y="512.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Bdb-EZ-Acf">
@@ -514,7 +585,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rbk-Qt-0rv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fjw-Hw-8DP"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d2z-gY-Mn1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d2z-gY-Mn1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
