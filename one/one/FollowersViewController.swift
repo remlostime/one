@@ -107,6 +107,22 @@ class FollowersViewController: UITableViewController {
         return cell!
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as? FollowViewCell
+    
+        let username = cell?.usernameLabel.text
+        if username == (PFUser.current()?.username)! {
+            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVC") as? HomeCollectionViewController
+            self.navigationController?.pushViewController(homeVC!, animated: true)
+        } else {
+            let guestVC = self.storyboard?.instantiateViewController(withIdentifier: "guestVC") as? GuestCollectionViewController
+            guestVC?.guestname = username!
+            self.navigationController?.pushViewController(guestVC!, animated: true)
+        }
+        
+        
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
