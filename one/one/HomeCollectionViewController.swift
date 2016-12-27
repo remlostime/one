@@ -130,6 +130,19 @@ class HomeCollectionViewController: UICollectionViewController {
     
     // MARK: Actions
     
+    @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
+        PFUser.logOutInBackground { (error: Error?) in
+            if error == nil {
+                UserDefaults.standard.removeObject(forKey: "username")
+                UserDefaults.standard.synchronize()
+                
+                let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "signInVC") as? SignInViewController
+                let appDelegate: AppDelegate = (UIApplication.shared.delegate as? AppDelegate)!
+                appDelegate.window?.rootViewController = signInVC
+            }
+        }
+    }
+    
     func postLabelTapped() {
         if !pictures.isEmpty {
             let indexPath = NSIndexPath(row: 0, section: 0)
