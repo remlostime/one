@@ -31,6 +31,7 @@
 		DB5708AC1E08A504005AA367 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708AA1E08A504005AA367 /* Bolts.framework */; };
 		DB5708AD1E08A504005AA367 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708AB1E08A504005AA367 /* Parse.framework */; };
 		DBAAABC51E0B557B004BE2C3 /* one_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBAAABC41E0B557B004BE2C3 /* one_background.jpg */; };
+		DBAB99A91E1335C0005EC6BE /* UserConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB99A81E1335C0005EC6BE /* UserConstant.swift */; };
 		DBF0C5FC1E0CDC6D00046E55 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */; };
 		DBF0C5FE1E0CDCAC00046E55 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0C5FD1E0CDCAC00046E55 /* PictureCollectionViewCell.swift */; };
 		DBF0C6001E0CDCEE00046E55 /* HomeHeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0C5FF1E0CDCEE00046E55 /* HomeHeaderCollectionView.swift */; };
@@ -64,6 +65,7 @@
 		DB5708AB1E08A504005AA367 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		DBAAABC41E0B557B004BE2C3 /* one_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = one_background.jpg; sourceTree = "<group>"; };
 		DBAAABC61E0B5662004BE2C3 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		DBAB99A81E1335C0005EC6BE /* UserConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConstant.swift; sourceTree = "<group>"; };
 		DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		DBF0C5FD1E0CDCAC00046E55 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBF0C5FF1E0CDCEE00046E55 /* HomeHeaderCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderCollectionView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				DB5708871E08A31B005AA367 /* Main.storyboard */,
 				DB57088C1E08A31B005AA367 /* LaunchScreen.storyboard */,
+				DBAB99A81E1335C0005EC6BE /* UserConstant.swift */,
 				DB5708831E08A31B005AA367 /* AppDelegate.swift */,
 				DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */,
 				100EB1601E11A62600CD98F7 /* GuestCollectionViewController.swift */,
@@ -231,6 +234,7 @@
 				DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */,
 				DBF0C6001E0CDCEE00046E55 /* HomeHeaderCollectionView.swift in Sources */,
 				10465F3D1E0DF7C800095983 /* FollowersViewController.swift in Sources */,
+				DBAB99A91E1335C0005EC6BE /* UserConstant.swift in Sources */,
 				100EB1611E11A62600CD98F7 /* GuestCollectionViewController.swift in Sources */,
 				DBF0C5FE1E0CDCAC00046E55 /* PictureCollectionViewCell.swift in Sources */,
 				DBF0C5FC1E0CDC6D00046E55 /* HomeCollectionViewController.swift in Sources */,

@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Parse.initialize(with: parseConfig)
 
-        login()
+        let username = UserDefaults.standard.string(forKey: "username")
+        login(withUserName: username)
 
         return true
     }
@@ -58,15 +59,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: Helpers
-    func login() {
-        let username = UserDefaults.standard.string(forKey: "username")
-        if (username != nil) {
+    func login(withUserName username: String?) {
+        if let _ = username {
+            // Store logged user in userDefaults
+            UserDefaults.standard.set(username, forKey: kOneUserModelUserName)
+            UserDefaults.standard.synchronize()
+
             let storyboard = UIStoryboard(name: "Main",
                                           bundle: nil)
             let oneTabBarVC = storyboard.instantiateViewController(withIdentifier: "oneTabBar") as? UITabBarController
             window?.rootViewController = oneTabBarVC
         }
     }
-
 }
 

@@ -21,6 +21,11 @@ class HomeHeaderCollectionView: UICollectionReusableView {
     
     var guestname: String = ""
 
+    func config() {
+        // TODO: IB does not work, any other good method like init to do this?
+        profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2
+    }
+
     @IBAction func buttonTapped(_ sender: UIButton) {
         let title = editButton.title(for: .normal)
         
