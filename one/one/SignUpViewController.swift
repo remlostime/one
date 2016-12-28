@@ -18,7 +18,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet var passwordAgainTextField: UITextField!
     @IBOutlet var fullNameTextField: UITextField!
     @IBOutlet var bioTextField: UITextField!
-    @IBOutlet var websiteTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
 
     @IBOutlet var signUpButton: UIButton!
@@ -56,13 +55,9 @@ class SignUpViewController: UIViewController {
         self.view.isUserInteractionEnabled = true
         self.view.addGestureRecognizer(hideTapGesture)
 
-        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-        profileImageView.clipsToBounds = true
-
         let profileImageTapGesture = UITapGestureRecognizer(target: self,
                                                             action: #selector(profileImageTapped(recognizer:)))
         profileImageTapGesture.numberOfTapsRequired = 1
-        profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(profileImageTapGesture)
     }
 
@@ -79,11 +74,11 @@ class SignUpViewController: UIViewController {
     }
 
     func showKeyboard(notification: NSNotification) {
-//        let keyboard = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
-//
-//        UIView.animate(withDuration: 0.4, animations: { () -> Void in
-//            self.scrollView.frame.size.height = self.scrollViewHeight - keyboard.height
-//        })
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            UIView.animate(withDuration: 0.4, animations: { () -> Void in
+                self.scrollView.frame.size.height = self.scrollViewHeight - keyboardSize.height
+            })
+        }
     }
 
     func hideKeyboard(notification: NSNotification) {
@@ -125,7 +120,6 @@ class SignUpViewController: UIViewController {
         user.password = passwordTextField.text
         user["fullname"] = fullNameTextField.text?.lowercased()
         user["bio"] = bioTextField.text
-        user["website"] = websiteTextField.text?.lowercased()
         user["tel"] = ""
         user["gender"] = ""
 
@@ -169,7 +163,6 @@ class SignUpViewController: UIViewController {
             passwordAgainTextField.text!.isEmpty ||
             fullNameTextField.text!.isEmpty ||
             bioTextField.text!.isEmpty ||
-            websiteTextField.text!.isEmpty ||
             emailTextField.text!.isEmpty)
     }
 }
