@@ -22,9 +22,6 @@ class HomeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         self.navigationItem.title = PFUser.current()?.username
         
         let ptr = UIRefreshControl()
@@ -39,16 +36,6 @@ class HomeCollectionViewController: UICollectionViewController {
         
         ptr.endRefreshing()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -56,7 +43,11 @@ class HomeCollectionViewController: UICollectionViewController {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                          withReuseIdentifier: "homeHeaderView",
                                                                          for: indexPath) as? HomeHeaderCollectionView
-        headerView?.profileImageView.layer.cornerRadius = (headerView?.profileImageView.frame.size.width)! / 2
+
+        
+
+//        headerView?.profileImageView.layer.cornerRadius = (headerView?.profileImageView.frame.size.width)! / 2
+//        headerView?.clipsToBounds
         headerView?.userNameLabel.text = (PFUser.current()?.object(forKey: "fullname")) as? String
         headerView?.bioLabel.text = (PFUser.current()?.object(forKey: "bio")) as? String
 
@@ -133,10 +124,10 @@ class HomeCollectionViewController: UICollectionViewController {
     @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
         PFUser.logOutInBackground { (error: Error?) in
             if error == nil {
-                UserDefaults.standard.removeObject(forKey: "username")
+                UserDefaults.standard.removeObject(forKey: kOneUserModelUserName)
                 UserDefaults.standard.synchronize()
                 
-                let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "signInVC") as? SignInViewController
+                let signInVC = self.storyboard?.instantiateViewController(withIdentifier: kOneSignInVCIdentifier) as? SignInViewController
                 let appDelegate: AppDelegate = (UIApplication.shared.delegate as? AppDelegate)!
                 appDelegate.window?.rootViewController = signInVC
             }
@@ -184,36 +175,4 @@ class HomeCollectionViewController: UICollectionViewController {
             }
         }
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }

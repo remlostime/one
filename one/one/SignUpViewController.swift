@@ -137,15 +137,10 @@ class SignUpViewController: UIViewController {
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success {
                 print("successfully signup")
-
-                // Store logged user
-                UserDefaults.standard.set(user.username, forKey: "username")
-                UserDefaults.standard.synchronize()
-
                 // Call login func from AppDelegate
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-                appDelegate?.login()
+                appDelegate?.login(withUserName: user.username)
             } else {
                 print("error:\(error)")
             }
