@@ -11,6 +11,8 @@
 		10465F3D1E0DF7C800095983 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10465F3C1E0DF7C800095983 /* FollowersViewController.swift */; };
 		10465F3F1E0DF7DA00095983 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10465F3E1E0DF7DA00095983 /* FollowingViewController.swift */; };
 		10465F411E0F5F8700095983 /* FollowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10465F401E0F5F8700095983 /* FollowViewCell.swift */; };
+		DB282F8B1E14836E00A12D64 /* FollowConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB282F8A1E14836E00A12D64 /* FollowConstant.swift */; };
+		DB282F8D1E14871C00A12D64 /* InfoConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB282F8C1E14871C00A12D64 /* InfoConstant.swift */; };
 		DB31D9891E09E64C00D85946 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D9881E09E64C00D85946 /* SignInViewController.swift */; };
 		DB31D98B1E09E65F00D85946 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */; };
 		DB31D98D1E09E67600D85946 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */; };
@@ -42,6 +44,8 @@
 		10465F3C1E0DF7C800095983 /* FollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		10465F3E1E0DF7DA00095983 /* FollowingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		10465F401E0F5F8700095983 /* FollowViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowViewCell.swift; sourceTree = "<group>"; };
+		DB282F8A1E14836E00A12D64 /* FollowConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowConstant.swift; sourceTree = "<group>"; };
+		DB282F8C1E14871C00A12D64 /* InfoConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoConstant.swift; sourceTree = "<group>"; };
 		DB31D9881E09E64C00D85946 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +120,9 @@
 			children = (
 				DB5708871E08A31B005AA367 /* Main.storyboard */,
 				DB57088C1E08A31B005AA367 /* LaunchScreen.storyboard */,
+				DB282F8A1E14836E00A12D64 /* FollowConstant.swift */,
 				DBAB99A81E1335C0005EC6BE /* UserConstant.swift */,
+				DB282F8C1E14871C00A12D64 /* InfoConstant.swift */,
 				DB5708831E08A31B005AA367 /* AppDelegate.swift */,
 				DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */,
 				100EB1601E11A62600CD98F7 /* GuestCollectionViewController.swift */,
@@ -237,9 +243,11 @@
 				DBAB99A91E1335C0005EC6BE /* UserConstant.swift in Sources */,
 				100EB1611E11A62600CD98F7 /* GuestCollectionViewController.swift in Sources */,
 				DBF0C5FE1E0CDCAC00046E55 /* PictureCollectionViewCell.swift in Sources */,
+				DB282F8B1E14836E00A12D64 /* FollowConstant.swift in Sources */,
 				DBF0C5FC1E0CDC6D00046E55 /* HomeCollectionViewController.swift in Sources */,
 				10465F3F1E0DF7DA00095983 /* FollowingViewController.swift in Sources */,
 				DB31D98D1E09E67600D85946 /* ResetPasswordViewController.swift in Sources */,
+				DB282F8D1E14871C00A12D64 /* InfoConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

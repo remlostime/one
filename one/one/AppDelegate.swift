@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func login(withUserName username: String?) {
         if let _ = username {
             // Store logged user in userDefaults
-            UserDefaults.standard.set(username, forKey: kOneUserModelUserName)
+            UserDefaults.standard.set(username, forKey: User.id.rawValue)
             UserDefaults.standard.synchronize()
 
             let storyboard = UIStoryboard(name: "Main",
