@@ -44,10 +44,6 @@ class HomeCollectionViewController: UICollectionViewController {
                                                                          withReuseIdentifier: "homeHeaderView",
                                                                          for: indexPath) as? HomeHeaderCollectionView
 
-        
-
-//        headerView?.profileImageView.layer.cornerRadius = (headerView?.profileImageView.frame.size.width)! / 2
-//        headerView?.clipsToBounds
         headerView?.userNameLabel.text = (PFUser.current()?.object(forKey: "fullname")) as? String
         headerView?.bioLabel.text = (PFUser.current()?.object(forKey: "bio")) as? String
 
@@ -124,7 +120,7 @@ class HomeCollectionViewController: UICollectionViewController {
     @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
         PFUser.logOutInBackground { (error: Error?) in
             if error == nil {
-                UserDefaults.standard.removeObject(forKey: kOneUserModelUserName)
+                UserDefaults.standard.removeObject(forKey: User.id.rawValue)
                 UserDefaults.standard.synchronize()
                 
                 let signInVC = self.storyboard?.instantiateViewController(withIdentifier: kOneSignInVCIdentifier) as? SignInViewController

@@ -8,4 +8,8 @@
 
 import Foundation
 
-let kOneUserModelUserName = "username"
+enum User: String {
+    case id = "username"
+    case profileImage = "profile_image"
+}
+
