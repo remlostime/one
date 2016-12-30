@@ -42,13 +42,13 @@ class GuestCollectionViewController: UICollectionViewController {
     // MARK: Helpers
     
     func loadPosts() {
-        let query = PFQuery(className: "Post")
-        query.whereKey("username", equalTo: guestname)
+        let query = PFQuery(className: Post.modelName.rawValue)
+        query.whereKey(User.id.rawValue, equalTo: guestname)
         query.limit = numberOfPostsPerPage
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             if error == nil {
                 for object in objects! {
-                    self.uuids.append(object.value(forKey: "uuid") as! String)
+                    self.uuids.append(object.value(forKey: User.uuid.rawValue) as! String)
                     self.posts.append(object.value(forKey: "picture") as! PFFile)
                 }
                 
@@ -60,16 +60,6 @@ class GuestCollectionViewController: UICollectionViewController {
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -77,7 +67,7 @@ class GuestCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath) as? PictureCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.pictureCell.rawValue, for: indexPath) as? PictureCollectionViewCell
     
         let post = posts[indexPath.row]
         
@@ -93,16 +83,19 @@ class GuestCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "homeHeaderView", for: indexPath) as? HomeHeaderCollectionView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.homeHeaderView.rawValue, for: indexPath) as? HomeHeaderCollectionView
+
+        headerView?.guestname = guestname
+        headerView?.config()
         
         let query = PFUser.query()
-        query?.whereKey("username", equalTo: guestname)
+        query?.whereKey(User.id.rawValue, equalTo: guestname)
         query?.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
             if error == nil {
                 let object = objects?.first
-                headerView?.userNameLabel.text = object?.object(forKey: "fullname") as? String
-                headerView?.bioLabel.text = object?.object(forKey: "bio") as? String
-                let profileImageFile = object?.object(forKey: "profile_image") as? PFFile
+                headerView?.userNameLabel.text = object?.object(forKey: User.fullname.rawValue) as? String
+                headerView?.bioLabel.text = object?.object(forKey: User.bio.rawValue) as? String
+                let profileImageFile = object?.object(forKey: User.profileImage.rawValue) as? PFFile
                 profileImageFile?.getDataInBackground(block: { (data: Data?, error: Error?) in
                     headerView?.profileImageView.image = UIImage(data: data!)
                 })
@@ -111,27 +104,9 @@ class GuestCollectionViewController: UICollectionViewController {
             }
         })
         
-        // Show current user follow the guest or not
-        let followQuery = PFQuery(className: "Follow")
-        followQuery.whereKey("follower", equalTo: (PFUser.current()?.username)!)
-        followQuery.whereKey("following", equalTo: guestname)
-        followQuery.countObjectsInBackground { (count: Int32, error: Error?) in
-            if error == nil {
-                if count == 0 {
-                    headerView?.editButton.setTitle("Follow", for: .normal)
-                    headerView?.editButton.backgroundColor = .blue
-                } else {
-                    headerView?.editButton.setTitle("Following", for: .normal)
-                    headerView?.editButton.backgroundColor = .gray
-                }
-            } else {
-                print("error:\(error?.localizedDescription)")
-            }
-        }
-        
         // Post count
-        let postQuery = PFQuery(className: "Post")
-        postQuery.whereKey("username", equalTo: guestname)
+        let postQuery = PFQuery(className: Post.modelName.rawValue)
+        postQuery.whereKey(User.id.rawValue, equalTo: guestname)
         postQuery.countObjectsInBackground { (count: Int32, error: Error?) in
             if error == nil {
                 headerView?.postsNumLabel.text = "\(count)"
@@ -141,8 +116,8 @@ class GuestCollectionViewController: UICollectionViewController {
         }
         
         // Followers count
-        let followerQuery = PFQuery(className: "Follow")
-        followerQuery.whereKey("following", equalTo: guestname)
+        let followerQuery = PFQuery(className: Follow.modelName.rawValue)
+        followerQuery.whereKey(Follow.following.rawValue, equalTo: guestname)
         followerQuery.countObjectsInBackground { (count: Int32, error: Error?) in
             if error == nil {
                 headerView?.followersNumLabel.text = "\(count)"
@@ -152,8 +127,8 @@ class GuestCollectionViewController: UICollectionViewController {
         }
         
         // Following count
-        let followingQuery = PFQuery(className: "Follow")
-        followingQuery.whereKey("follower", equalTo: guestname)
+        let followingQuery = PFQuery(className: Follow.modelName.rawValue)
+        followingQuery.whereKey(Follow.follower.rawValue, equalTo: guestname)
         followingQuery.countObjectsInBackground { (count: Int32, error: Error?) in
             if error == nil {
                 headerView?.followingNumLabel.text = "\(count)"
@@ -184,47 +159,13 @@ class GuestCollectionViewController: UICollectionViewController {
     }
     
     func followerTapped() {
-        let followerVC = self.storyboard?.instantiateViewController(withIdentifier: "followerVC") as? FollowersViewController
+        let followerVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.followerVC.rawValue) as? FollowersViewController
         
         self.navigationController?.pushViewController(followerVC!, animated: true)
     }
     
     func followingTapped() {
-        let followingVC = self.storyboard?.instantiateViewController(withIdentifier: "followingVC") as? FollowingViewController
+        let followingVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.followingVC.rawValue) as? FollowingViewController
         self.navigationController?.pushViewController(followingVC!, animated: true)
     }
-    
-    
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }

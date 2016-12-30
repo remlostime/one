@@ -118,15 +118,13 @@ class SignUpViewController: UIViewController {
         user.username = userNameTextField.text?.lowercased()
         user.email = emailTextField.text?.lowercased()
         user.password = passwordTextField.text
-        user["fullname"] = fullNameTextField.text?.lowercased()
-        user["bio"] = bioTextField.text
-        user["tel"] = ""
-        user["gender"] = ""
+        user[User.fullname.rawValue] = fullNameTextField.text?.lowercased()
+        user[User.bio.rawValue] = bioTextField.text
 
         let profileData = UIImagePNGRepresentation(profileImageView.image!)
         let profileFile = PFFile(name: "profile.png",
                                  data: profileData!)
-        user["profile_image"] = profileFile
+        user[User.profileImage.rawValue] = profileFile
 
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success {

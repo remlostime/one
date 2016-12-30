@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Parse.initialize(with: parseConfig)
 
-        let username = UserDefaults.standard.string(forKey: "username")
+        let username = UserDefaults.standard.string(forKey: User.id.rawValue)
         login(withUserName: username)
 
         return true

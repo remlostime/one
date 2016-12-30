@@ -9,8 +9,6 @@
 import UIKit
 import Parse
 
-let kOneSignInVCIdentifier = "OneSignInVCIdentifier"
-
 class SignInViewController: UIViewController {
     @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!

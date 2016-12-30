@@ -11,5 +11,8 @@ import Foundation
 enum User: String {
     case id = "username"
     case profileImage = "profile_image"
+    case fullname = "fullname"
+    case bio = "bio"
+    case uuid = "uuid"
 }
 
