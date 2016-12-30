@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 
-private let reuseIdentifier = "pictureCell"
 private let numberOfPicsPerPage = 10
 
 class HomeCollectionViewController: UICollectionViewController {
@@ -41,13 +40,15 @@ class HomeCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                         withReuseIdentifier: "homeHeaderView",
+                                                                         withReuseIdentifier: Identifier.homeHeaderView.rawValue,
                                                                          for: indexPath) as? HomeHeaderCollectionView
+        // UI setup
+        headerView?.config()
 
-        headerView?.userNameLabel.text = (PFUser.current()?.object(forKey: "fullname")) as? String
-        headerView?.bioLabel.text = (PFUser.current()?.object(forKey: "bio")) as? String
+        headerView?.userNameLabel.text = (PFUser.current()?.object(forKey: User.fullname.rawValue)) as? String
+        headerView?.bioLabel.text = (PFUser.current()?.object(forKey: User.bio.rawValue)) as? String
 
-        let profileImageQuery = PFUser.current()?.object(forKey: "profile_image") as! PFFile
+        let profileImageQuery = PFUser.current()?.object(forKey: User.profileImage.rawValue) as! PFFile
         profileImageQuery.getDataInBackground { (data: Data?, error: Error?) in
             let image = UIImage(data: data!)
             headerView?.profileImageView.image = image
@@ -55,24 +56,24 @@ class HomeCollectionViewController: UICollectionViewController {
         
         // Posts, followers and followings calculate
         
-        let postsQuery = PFQuery(className: "Post")
-        postsQuery.whereKey("username", equalTo: (PFUser.current()?.username)!)
+        let postsQuery = PFQuery(className: Post.modelName.rawValue)
+        postsQuery.whereKey(User.id.rawValue, equalTo: (PFUser.current()?.username)!)
         postsQuery.countObjectsInBackground { (count: Int32, error: Error?) in
             if error == nil {
                 headerView?.postsNumLabel.text = "\(count)"
             }
         }
         
-        let followersQuery = PFQuery(className: "Follow")
-        followersQuery.whereKey("following", equalTo: (PFUser.current()?.username)!)
+        let followersQuery = PFQuery(className: Follow.modelName.rawValue)
+        followersQuery.whereKey(Follow.following.rawValue, equalTo: (PFUser.current()?.username)!)
         followersQuery.countObjectsInBackground { (count: Int32, error: Error?) in
             if error == nil {
                 headerView?.followersNumLabel.text = "\(count)"
             }
         }
         
-        let followingQuery = PFQuery(className: "Follow")
-        followingQuery.whereKey("follower", equalTo: (PFUser.current()?.username)!)
+        let followingQuery = PFQuery(className: Follow.modelName.rawValue)
+        followingQuery.whereKey(Follow.follower.rawValue, equalTo: (PFUser.current()?.username)!)
         followingQuery.countObjectsInBackground { (count: Int32, error: Error?) in
             if error == nil {
                 headerView?.followingNumLabel.text = "\(count)"
@@ -102,7 +103,7 @@ class HomeCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PictureCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.pictureCell.rawValue, for: indexPath) as! PictureCollectionViewCell
         
         pictures[indexPath.row].getDataInBackground { (data: Data?, error: Error?) in
             if error == nil {
@@ -123,7 +124,7 @@ class HomeCollectionViewController: UICollectionViewController {
                 UserDefaults.standard.removeObject(forKey: User.id.rawValue)
                 UserDefaults.standard.synchronize()
                 
-                let signInVC = self.storyboard?.instantiateViewController(withIdentifier: kOneSignInVCIdentifier) as? SignInViewController
+                let signInVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.signInViewController.rawValue) as? SignInViewController
                 let appDelegate: AppDelegate = (UIApplication.shared.delegate as? AppDelegate)!
                 appDelegate.window?.rootViewController = signInVC
             }
@@ -138,13 +139,13 @@ class HomeCollectionViewController: UICollectionViewController {
     }
     
     func followingLabelTapped() {
-        let followingVC = self.storyboard?.instantiateViewController(withIdentifier: "followingVC") as! FollowingViewController
+        let followingVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.followingVC.rawValue) as! FollowingViewController
         
         self.navigationController?.pushViewController(followingVC, animated: true)
     }
     
     func followerLabelTapped() {
-        let followerVC = self.storyboard?.instantiateViewController(withIdentifier: "followerVC") as! FollowersViewController
+        let followerVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.followerVC.rawValue) as! FollowersViewController
         
         self.navigationController?.pushViewController(followerVC, animated: true)
     }
@@ -152,8 +153,8 @@ class HomeCollectionViewController: UICollectionViewController {
     // MARK: Helpers
     
     func loadPosts() {
-        let query = PFQuery(className: "Post")
-        query.whereKey("username", equalTo: (PFUser.current()?.username)!)
+        let query = PFQuery(className: Post.modelName.rawValue)
+        query.whereKey(User.id.rawValue, equalTo: (PFUser.current()?.username)!)
         query.limit = numberOfPicsPerPage
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             if error == nil {
@@ -161,8 +162,8 @@ class HomeCollectionViewController: UICollectionViewController {
                 self.pictures.removeAll()
                 
                 for object in objects! {
-                    self.uuids.append(object.value(forKey: "uuid") as! String)
-                    self.pictures.append(object.value(forKey: "picture") as! PFFile)
+                    self.uuids.append(object.value(forKey: User.uuid.rawValue) as! String)
+                    self.pictures.append(object.value(forKey: Post.picture.rawValue) as! PFFile)
                 }
                 
                 self.collectionView?.reloadData()

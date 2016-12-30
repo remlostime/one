@@ -105,7 +105,7 @@ class FollowViewCell: UITableViewCell {
             followingButton.setTitleColor(.white, for: .normal)
             followingButton.layer.borderWidth = 0
             followingButton.setTitleColor(.white, for: .normal)
-            followingButton.backgroundColor = .blue
+            followingButton.backgroundColor = .followButtonLightBlue
         }
     }
 }

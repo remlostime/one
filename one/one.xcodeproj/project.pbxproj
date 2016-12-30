@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		100EB1611E11A62600CD98F7 /* GuestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100EB1601E11A62600CD98F7 /* GuestCollectionViewController.swift */; };
-		10465F3D1E0DF7C800095983 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10465F3C1E0DF7C800095983 /* FollowersViewController.swift */; };
-		10465F3F1E0DF7DA00095983 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10465F3E1E0DF7DA00095983 /* FollowingViewController.swift */; };
-		10465F411E0F5F8700095983 /* FollowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10465F401E0F5F8700095983 /* FollowViewCell.swift */; };
-		DB282F8B1E14836E00A12D64 /* FollowConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB282F8A1E14836E00A12D64 /* FollowConstant.swift */; };
-		DB282F8D1E14871C00A12D64 /* InfoConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB282F8C1E14871C00A12D64 /* InfoConstant.swift */; };
-		DB31D9891E09E64C00D85946 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D9881E09E64C00D85946 /* SignInViewController.swift */; };
-		DB31D98B1E09E65F00D85946 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */; };
-		DB31D98D1E09E67600D85946 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */; };
 		DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5708831E08A31B005AA367 /* AppDelegate.swift */; };
 		DB5708891E08A31B005AA367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5708871E08A31B005AA367 /* Main.storyboard */; };
 		DB57088B1E08A31B005AA367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB57088A1E08A31B005AA367 /* Assets.xcassets */; };
@@ -32,23 +23,25 @@
 		DB5708A91E08A44B005AA367 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708A81E08A44B005AA367 /* SystemConfiguration.framework */; };
 		DB5708AC1E08A504005AA367 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708AA1E08A504005AA367 /* Bolts.framework */; };
 		DB5708AD1E08A504005AA367 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708AB1E08A504005AA367 /* Parse.framework */; };
-		DBAAABC51E0B557B004BE2C3 /* one_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBAAABC41E0B557B004BE2C3 /* one_background.jpg */; };
-		DBAB99A91E1335C0005EC6BE /* UserConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB99A81E1335C0005EC6BE /* UserConstant.swift */; };
-		DBF0C5FC1E0CDC6D00046E55 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */; };
-		DBF0C5FE1E0CDCAC00046E55 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0C5FD1E0CDCAC00046E55 /* PictureCollectionViewCell.swift */; };
-		DBF0C6001E0CDCEE00046E55 /* HomeHeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF0C5FF1E0CDCEE00046E55 /* HomeHeaderCollectionView.swift */; };
+		DBD444641E15C15D00BCE97A /* FollowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444611E15C15D00BCE97A /* FollowViewCell.swift */; };
+		DBD444651E15C15D00BCE97A /* HomeHeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444621E15C15D00BCE97A /* HomeHeaderCollectionView.swift */; };
+		DBD444661E15C15D00BCE97A /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444631E15C15D00BCE97A /* PictureCollectionViewCell.swift */; };
+		DBD4446A1E15C16500BCE97A /* FollowConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444671E15C16500BCE97A /* FollowConstant.swift */; };
+		DBD4446B1E15C16500BCE97A /* InfoConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444681E15C16500BCE97A /* InfoConstant.swift */; };
+		DBD4446C1E15C16500BCE97A /* UserConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444691E15C16500BCE97A /* UserConstant.swift */; };
+		DBD444741E15C16F00BCE97A /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4446D1E15C16F00BCE97A /* FollowingViewController.swift */; };
+		DBD444751E15C16F00BCE97A /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4446E1E15C16F00BCE97A /* HomeCollectionViewController.swift */; };
+		DBD444761E15C16F00BCE97A /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4446F1E15C16F00BCE97A /* FollowersViewController.swift */; };
+		DBD444771E15C16F00BCE97A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444701E15C16F00BCE97A /* SignUpViewController.swift */; };
+		DBD444781E15C16F00BCE97A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444711E15C16F00BCE97A /* SignInViewController.swift */; };
+		DBD444791E15C16F00BCE97A /* GuestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444721E15C16F00BCE97A /* GuestCollectionViewController.swift */; };
+		DBD4447A1E15C16F00BCE97A /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444731E15C16F00BCE97A /* ResetPasswordViewController.swift */; };
+		DBD4447D1E15C2F100BCE97A /* UIColor+OneColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4447C1E15C2F100BCE97A /* UIColor+OneColor.swift */; };
+		DBD4447F1E15CA4200BCE97A /* IdentifierConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4447E1E15CA4200BCE97A /* IdentifierConstant.swift */; };
+		DBD444811E15CFF500BCE97A /* PostConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444801E15CFF500BCE97A /* PostConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		100EB1601E11A62600CD98F7 /* GuestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestCollectionViewController.swift; sourceTree = "<group>"; };
-		10465F3C1E0DF7C800095983 /* FollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
-		10465F3E1E0DF7DA00095983 /* FollowingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
-		10465F401E0F5F8700095983 /* FollowViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowViewCell.swift; sourceTree = "<group>"; };
-		DB282F8A1E14836E00A12D64 /* FollowConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowConstant.swift; sourceTree = "<group>"; };
-		DB282F8C1E14871C00A12D64 /* InfoConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoConstant.swift; sourceTree = "<group>"; };
-		DB31D9881E09E64C00D85946 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DB5708801E08A31B005AA367 /* one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5708831E08A31B005AA367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5708881E08A31B005AA367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,12 +60,22 @@
 		DB5708A81E08A44B005AA367 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DB5708AA1E08A504005AA367 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		DB5708AB1E08A504005AA367 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		DBAAABC41E0B557B004BE2C3 /* one_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = one_background.jpg; sourceTree = "<group>"; };
-		DBAAABC61E0B5662004BE2C3 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
-		DBAB99A81E1335C0005EC6BE /* UserConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConstant.swift; sourceTree = "<group>"; };
-		DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
-		DBF0C5FD1E0CDCAC00046E55 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
-		DBF0C5FF1E0CDCEE00046E55 /* HomeHeaderCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderCollectionView.swift; sourceTree = "<group>"; };
+		DBD444611E15C15D00BCE97A /* FollowViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FollowViewCell.swift; path = Views/FollowViewCell.swift; sourceTree = "<group>"; };
+		DBD444621E15C15D00BCE97A /* HomeHeaderCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeHeaderCollectionView.swift; path = Views/HomeHeaderCollectionView.swift; sourceTree = "<group>"; };
+		DBD444631E15C15D00BCE97A /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PictureCollectionViewCell.swift; path = Views/PictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBD444671E15C16500BCE97A /* FollowConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FollowConstant.swift; path = Models/FollowConstant.swift; sourceTree = "<group>"; };
+		DBD444681E15C16500BCE97A /* InfoConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoConstant.swift; path = Models/InfoConstant.swift; sourceTree = "<group>"; };
+		DBD444691E15C16500BCE97A /* UserConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserConstant.swift; path = Models/UserConstant.swift; sourceTree = "<group>"; };
+		DBD4446D1E15C16F00BCE97A /* FollowingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FollowingViewController.swift; path = ViewControllers/FollowingViewController.swift; sourceTree = "<group>"; };
+		DBD4446E1E15C16F00BCE97A /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeCollectionViewController.swift; path = ViewControllers/HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		DBD4446F1E15C16F00BCE97A /* FollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FollowersViewController.swift; path = ViewControllers/FollowersViewController.swift; sourceTree = "<group>"; };
+		DBD444701E15C16F00BCE97A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ViewControllers/SignUpViewController.swift; sourceTree = "<group>"; };
+		DBD444711E15C16F00BCE97A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
+		DBD444721E15C16F00BCE97A /* GuestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuestCollectionViewController.swift; path = ViewControllers/GuestCollectionViewController.swift; sourceTree = "<group>"; };
+		DBD444731E15C16F00BCE97A /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = ViewControllers/ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		DBD4447C1E15C2F100BCE97A /* UIColor+OneColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+OneColor.swift"; path = "Helpers/UIColor+OneColor.swift"; sourceTree = "<group>"; };
+		DBD4447E1E15CA4200BCE97A /* IdentifierConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdentifierConstant.swift; path = Helpers/IdentifierConstant.swift; sourceTree = "<group>"; };
+		DBD444801E15CFF500BCE97A /* PostConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostConstant.swift; path = Models/PostConstant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,25 +121,14 @@
 		DB5708821E08A31B005AA367 /* one */ = {
 			isa = PBXGroup;
 			children = (
+				DBD4447B1E15C25400BCE97A /* Helpers */,
+				DBD444601E15C0C100BCE97A /* Views */,
+				DBD4445F1E15C0BA00BCE97A /* Models */,
+				DBD4445E1E15C0AD00BCE97A /* ViewControllers */,
 				DB5708871E08A31B005AA367 /* Main.storyboard */,
 				DB57088C1E08A31B005AA367 /* LaunchScreen.storyboard */,
-				DB282F8A1E14836E00A12D64 /* FollowConstant.swift */,
-				DBAB99A81E1335C0005EC6BE /* UserConstant.swift */,
-				DB282F8C1E14871C00A12D64 /* InfoConstant.swift */,
 				DB5708831E08A31B005AA367 /* AppDelegate.swift */,
-				DBF0C5FB1E0CDC6D00046E55 /* HomeCollectionViewController.swift */,
-				100EB1601E11A62600CD98F7 /* GuestCollectionViewController.swift */,
-				DB31D9881E09E64C00D85946 /* SignInViewController.swift */,
-				DB31D98A1E09E65F00D85946 /* SignUpViewController.swift */,
-				DB31D98C1E09E67600D85946 /* ResetPasswordViewController.swift */,
-				DBF0C5FD1E0CDCAC00046E55 /* PictureCollectionViewCell.swift */,
-				DBF0C5FF1E0CDCEE00046E55 /* HomeHeaderCollectionView.swift */,
-				10465F3C1E0DF7C800095983 /* FollowersViewController.swift */,
-				10465F3E1E0DF7DA00095983 /* FollowingViewController.swift */,
-				10465F401E0F5F8700095983 /* FollowViewCell.swift */,
 				DB57088A1E08A31B005AA367 /* Assets.xcassets */,
-				DBAAABC61E0B5662004BE2C3 /* Pacifico.ttf */,
-				DBAAABC41E0B557B004BE2C3 /* one_background.jpg */,
 				DB57088F1E08A31B005AA367 /* Info.plist */,
 			);
 			path = one;
@@ -159,6 +151,50 @@
 				DB5708961E08A412005AA367 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBD4445E1E15C0AD00BCE97A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBD4446D1E15C16F00BCE97A /* FollowingViewController.swift */,
+				DBD4446E1E15C16F00BCE97A /* HomeCollectionViewController.swift */,
+				DBD4446F1E15C16F00BCE97A /* FollowersViewController.swift */,
+				DBD444701E15C16F00BCE97A /* SignUpViewController.swift */,
+				DBD444711E15C16F00BCE97A /* SignInViewController.swift */,
+				DBD444721E15C16F00BCE97A /* GuestCollectionViewController.swift */,
+				DBD444731E15C16F00BCE97A /* ResetPasswordViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DBD4445F1E15C0BA00BCE97A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DBD444671E15C16500BCE97A /* FollowConstant.swift */,
+				DBD444681E15C16500BCE97A /* InfoConstant.swift */,
+				DBD444691E15C16500BCE97A /* UserConstant.swift */,
+				DBD444801E15CFF500BCE97A /* PostConstant.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		DBD444601E15C0C100BCE97A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DBD444611E15C15D00BCE97A /* FollowViewCell.swift */,
+				DBD444621E15C15D00BCE97A /* HomeHeaderCollectionView.swift */,
+				DBD444631E15C15D00BCE97A /* PictureCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		DBD4447B1E15C25400BCE97A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DBD4447C1E15C2F100BCE97A /* UIColor+OneColor.swift */,
+				DBD4447E1E15CA4200BCE97A /* IdentifierConstant.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +258,6 @@
 			files = (
 				DB57088E1E08A31B005AA367 /* LaunchScreen.storyboard in Resources */,
 				DB57088B1E08A31B005AA367 /* Assets.xcassets in Resources */,
-				DBAAABC51E0B557B004BE2C3 /* one_background.jpg in Resources */,
 				DB5708891E08A31B005AA367 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,20 +269,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10465F411E0F5F8700095983 /* FollowViewCell.swift in Sources */,
-				DB31D98B1E09E65F00D85946 /* SignUpViewController.swift in Sources */,
-				DB31D9891E09E64C00D85946 /* SignInViewController.swift in Sources */,
+				DBD4447F1E15CA4200BCE97A /* IdentifierConstant.swift in Sources */,
+				DBD444791E15C16F00BCE97A /* GuestCollectionViewController.swift in Sources */,
+				DBD444771E15C16F00BCE97A /* SignUpViewController.swift in Sources */,
+				DBD444751E15C16F00BCE97A /* HomeCollectionViewController.swift in Sources */,
+				DBD444741E15C16F00BCE97A /* FollowingViewController.swift in Sources */,
+				DBD444761E15C16F00BCE97A /* FollowersViewController.swift in Sources */,
 				DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */,
-				DBF0C6001E0CDCEE00046E55 /* HomeHeaderCollectionView.swift in Sources */,
-				10465F3D1E0DF7C800095983 /* FollowersViewController.swift in Sources */,
-				DBAB99A91E1335C0005EC6BE /* UserConstant.swift in Sources */,
-				100EB1611E11A62600CD98F7 /* GuestCollectionViewController.swift in Sources */,
-				DBF0C5FE1E0CDCAC00046E55 /* PictureCollectionViewCell.swift in Sources */,
-				DB282F8B1E14836E00A12D64 /* FollowConstant.swift in Sources */,
-				DBF0C5FC1E0CDC6D00046E55 /* HomeCollectionViewController.swift in Sources */,
-				10465F3F1E0DF7DA00095983 /* FollowingViewController.swift in Sources */,
-				DB31D98D1E09E67600D85946 /* ResetPasswordViewController.swift in Sources */,
-				DB282F8D1E14871C00A12D64 /* InfoConstant.swift in Sources */,
+				DBD444661E15C15D00BCE97A /* PictureCollectionViewCell.swift in Sources */,
+				DBD444811E15CFF500BCE97A /* PostConstant.swift in Sources */,
+				DBD444641E15C15D00BCE97A /* FollowViewCell.swift in Sources */,
+				DBD4446B1E15C16500BCE97A /* InfoConstant.swift in Sources */,
+				DBD444781E15C16F00BCE97A /* SignInViewController.swift in Sources */,
+				DBD4447D1E15C2F100BCE97A /* UIColor+OneColor.swift in Sources */,
+				DBD4446C1E15C16500BCE97A /* UserConstant.swift in Sources */,
+				DBD4446A1E15C16500BCE97A /* FollowConstant.swift in Sources */,
+				DBD444651E15C15D00BCE97A /* HomeHeaderCollectionView.swift in Sources */,
+				DBD4447A1E15C16F00BCE97A /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
