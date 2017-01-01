@@ -17,4 +17,6 @@ enum Identifier: String {
     case followingVC = "followingVC"
     case followerVC = "followerVC"
     case signInViewController = "signInVC"
+    case profileUserImageViewCell = "profileUserImageViewCell"
+    case userInfoViewCell = "userInfoViewCell"
 }
