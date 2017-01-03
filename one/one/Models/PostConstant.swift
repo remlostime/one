@@ -11,4 +11,5 @@ import Foundation
 enum Post: String {
     case modelName = "Post"
     case picture = "picture"
+    case title = "title"
 }

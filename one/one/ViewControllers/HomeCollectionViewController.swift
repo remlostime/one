@@ -13,7 +13,7 @@ private let numberOfPicsPerPage = 10
 
 class HomeCollectionViewController: UICollectionViewController {
     
-    var uuids = [String]()
+//    var uuids = [String]()
     var pictures = [PFFile]()
     
     var ptr: UIRefreshControl!
@@ -158,11 +158,11 @@ class HomeCollectionViewController: UICollectionViewController {
         query.limit = numberOfPicsPerPage
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             if error == nil {
-                self.uuids.removeAll()
+//                self.uuids.removeAll()
                 self.pictures.removeAll()
                 
                 for object in objects! {
-                    self.uuids.append(object.value(forKey: User.uuid.rawValue) as! String)
+//                    self.uuids.append(object.value(forKey: User.uuid.rawValue) as! String)
                     self.pictures.append(object.value(forKey: Post.picture.rawValue) as! PFFile)
                 }
                 
