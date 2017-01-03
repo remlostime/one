@@ -9,12 +9,14 @@
 import UIKit
 import Parse
 
-private let numberOfPicsPerPage = 10
+private let numberOfPicsPerPage = 12
 
 class HomeCollectionViewController: UICollectionViewController {
     
 //    var uuids = [String]()
     var pictures = [PFFile]()
+
+    var numberOfPosts = numberOfPicsPerPage
     
     var ptr: UIRefreshControl!
 
@@ -26,7 +28,7 @@ class HomeCollectionViewController: UICollectionViewController {
         let ptr = UIRefreshControl()
         ptr.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         collectionView?.addSubview(ptr)
-        
+
         loadPosts()
     }
     
@@ -34,6 +36,12 @@ class HomeCollectionViewController: UICollectionViewController {
         collectionView?.reloadData()
         
         ptr.endRefreshing()
+    }
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= scrollView.contentSize.height - self.view.frame.size.height {
+            loadPosts()
+        }
     }
 
     // MARK: UICollectionViewDataSource
@@ -155,18 +163,24 @@ class HomeCollectionViewController: UICollectionViewController {
     func loadPosts() {
         let query = PFQuery(className: Post.modelName.rawValue)
         query.whereKey(User.id.rawValue, equalTo: (PFUser.current()?.username)!)
-        query.limit = numberOfPicsPerPage
-        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+        query.limit = numberOfPosts
+        query.findObjectsInBackground { [weak self](objects: [PFObject]?, error: Error?) in
+            guard let strongSelf = self else {
+                return
+            }
+
             if error == nil {
 //                self.uuids.removeAll()
-                self.pictures.removeAll()
+                strongSelf.pictures.removeAll()
                 
                 for object in objects! {
 //                    self.uuids.append(object.value(forKey: User.uuid.rawValue) as! String)
-                    self.pictures.append(object.value(forKey: Post.picture.rawValue) as! PFFile)
+                    strongSelf.pictures.append(object.value(forKey: Post.picture.rawValue) as! PFFile)
                 }
                 
-                self.collectionView?.reloadData()
+                strongSelf.collectionView?.reloadData()
+
+                strongSelf.numberOfPosts += numberOfPicsPerPage
             } else {
                 print(error!.localizedDescription)
             }

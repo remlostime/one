@@ -9,9 +9,11 @@
 import UIKit
 import Parse
 
+private let numberOfPicsPerPage = 12
+
 class GuestCollectionViewController: UICollectionViewController {
     
-    let numberOfPostsPerPage = 10
+    var numberOfPosts = numberOfPicsPerPage
     
     var ptr: UIRefreshControl!
     
@@ -31,6 +33,12 @@ class GuestCollectionViewController: UICollectionViewController {
         
         loadPosts()
     }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= scrollView.contentSize.height - self.view.frame.size.height {
+            loadPosts()
+        }
+    }
     
     // MARK: Action
     
@@ -44,15 +52,19 @@ class GuestCollectionViewController: UICollectionViewController {
     func loadPosts() {
         let query = PFQuery(className: Post.modelName.rawValue)
         query.whereKey(User.id.rawValue, equalTo: guestname)
-        query.limit = numberOfPostsPerPage
-        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+        query.limit = numberOfPosts
+        query.findObjectsInBackground { [weak self](objects: [PFObject]?, error: Error?) in
+            guard let strongSelf = self else {
+                return
+            }
             if error == nil {
                 for object in objects! {
-                    self.uuids.append(object.value(forKey: User.uuid.rawValue) as! String)
-                    self.posts.append(object.value(forKey: "picture") as! PFFile)
+//                    strongSelf.uuids.append(object.value(forKey: User.uuid.rawValue) as! String)
+                    strongSelf.posts.append(object.value(forKey: "picture") as! PFFile)
                 }
                 
-                self.collectionView?.reloadData()
+                strongSelf.collectionView?.reloadData()
+                strongSelf.numberOfPosts += numberOfPicsPerPage
             } else {
                 print("error:\(error?.localizedDescription)")
             }
