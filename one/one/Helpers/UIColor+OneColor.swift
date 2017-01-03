@@ -12,6 +12,10 @@ extension UIColor {
     class var followButtonLightBlue: UIColor {
         return UIColor.rgb(fromHex: 0x0693E3)
     }
+    
+    class var sharePostButtonColor: UIColor {
+        return UIColor.rgb(fromHex: 0x0080FF)
+    }
 
     class func rgb(fromHex: Int) -> UIColor {
         let red =   CGFloat((fromHex & 0xFF0000) >> 16) / 0xFF

@@ -12,6 +12,7 @@
 		105977AA1E16EC4D00FB3E73 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105977A91E16EC4D00FB3E73 /* EditUserInfoViewController.swift */; };
 		10DD850E1E188AB80081ECAD /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD850D1E188AB80081ECAD /* String+Validation.swift */; };
 		10DD85101E188E480081ECAD /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD850F1E188E480081ECAD /* AlertHelper.swift */; };
+		10DD85121E1B04430081ECAD /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD85111E1B04430081ECAD /* SharePostViewController.swift */; };
 		DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5708831E08A31B005AA367 /* AppDelegate.swift */; };
 		DB5708891E08A31B005AA367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5708871E08A31B005AA367 /* Main.storyboard */; };
 		DB57088B1E08A31B005AA367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB57088A1E08A31B005AA367 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		105977A91E16EC4D00FB3E73 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditUserInfoViewController.swift; path = ViewControllers/EditUserInfoViewController.swift; sourceTree = "<group>"; };
 		10DD850D1E188AB80081ECAD /* String+Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Validation.swift"; path = "Helpers/String+Validation.swift"; sourceTree = "<group>"; };
 		10DD850F1E188E480081ECAD /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertHelper.swift; path = Helpers/AlertHelper.swift; sourceTree = "<group>"; };
+		10DD85111E1B04430081ECAD /* SharePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharePostViewController.swift; path = ViewControllers/SharePostViewController.swift; sourceTree = "<group>"; };
 		DB5708801E08A31B005AA367 /* one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5708831E08A31B005AA367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5708881E08A31B005AA367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				DBD444721E15C16F00BCE97A /* GuestCollectionViewController.swift */,
 				DBD444731E15C16F00BCE97A /* ResetPasswordViewController.swift */,
 				105977A91E16EC4D00FB3E73 /* EditUserInfoViewController.swift */,
+				10DD85111E1B04430081ECAD /* SharePostViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				DBD4446C1E15C16500BCE97A /* UserInfoHelpers.swift in Sources */,
 				DBD4446A1E15C16500BCE97A /* FollowConstant.swift in Sources */,
 				DBD444651E15C15D00BCE97A /* HomeHeaderCollectionView.swift in Sources */,
+				10DD85121E1B04430081ECAD /* SharePostViewController.swift in Sources */,
 				DBD4447A1E15C16F00BCE97A /* ResetPasswordViewController.swift in Sources */,
 				105977AA1E16EC4D00FB3E73 /* EditUserInfoViewController.swift in Sources */,
 				101142511E16E661004E2E5B /* UserInfoViewCell.swift in Sources */,
