@@ -12,4 +12,7 @@ enum Post: String {
     case modelName = "Post"
     case picture = "picture"
     case title = "title"
+    case uuid = "uuid"
+    case profileImage = "profile_image"
+    case username = "username"
 }
