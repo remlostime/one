@@ -34,7 +34,7 @@ class GuestCollectionViewController: UICollectionViewController {
         loadPosts()
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y >= scrollView.contentSize.height - self.view.frame.size.height {
             loadPosts()
         }
