@@ -64,8 +64,8 @@ class PostHeaderViewCell: UITableViewCell {
             let username = object[Post.username.rawValue] as? String
             strongSelf.profileUsernameButton.setTitle(username, for: .normal)
 
-            let createTime = object[Info.createTime.rawValue] as? Date
-            strongSelf.postTimeLabel.text = createTime?.description
+            let createTime = object.createdAt
+            strongSelf.postTimeLabel.text = strongSelf.timeDescription(createTime!)
 
             let postImageFile = object[Post.picture.rawValue] as? PFFile
             postImageFile?.getDataInBackground(block: { (data: Data?, error: Error?) in
@@ -81,5 +81,32 @@ class PostHeaderViewCell: UITableViewCell {
             let title = object[Post.title.rawValue] as? String
             strongSelf.titleLabel.text = title
         }
+    }
+
+    func timeDescription(_ postTime: Date) -> String {
+        let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
+        let diff = NSCalendar.current.dateComponents(components, from: postTime)
+
+        if diff.second! <= 0 {
+            return "now"
+        }
+
+        if diff.minute == 0 {
+            return "\(diff.second)s"
+        }
+
+        if diff.hour == 0 {
+            return "\(diff.minute)m"
+        }
+
+        if diff.day == 0 {
+            return "\(diff.hour)h"
+        }
+
+        if diff.weekOfMonth == 0 {
+            return "\(diff.day)d"
+        }
+
+        return "\(diff.weekOfMonth)w"
     }
 }
