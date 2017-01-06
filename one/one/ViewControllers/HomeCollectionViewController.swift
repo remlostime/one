@@ -13,7 +13,7 @@ private let numberOfPicsPerPage = 12
 
 class HomeCollectionViewController: UICollectionViewController {
     
-//    var uuids = [String]()
+    var uuids = [String]()
     var pictures = [PFFile]()
 
     var numberOfPosts = numberOfPicsPerPage
@@ -123,6 +123,14 @@ class HomeCollectionViewController: UICollectionViewController {
     
         return cell
     }
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let uuid = uuids[indexPath.row] as? String
+        let postViewController = self.storyboard?.instantiateViewController(withIdentifier: Identifier.postViewController.rawValue) as? PostViewController
+        postViewController?.postUUID = uuid
+
+        navigationController?.pushViewController(postViewController!, animated: true)
+    }
     
     // MARK: Actions
     
@@ -170,11 +178,11 @@ class HomeCollectionViewController: UICollectionViewController {
             }
 
             if error == nil {
-//                self.uuids.removeAll()
+                strongSelf.uuids.removeAll()
                 strongSelf.pictures.removeAll()
                 
                 for object in objects! {
-//                    self.uuids.append(object.value(forKey: User.uuid.rawValue) as! String)
+                    strongSelf.uuids.append(object.value(forKey: Post.uuid.rawValue) as! String)
                     strongSelf.pictures.append(object.value(forKey: Post.picture.rawValue) as! PFFile)
                 }
                 

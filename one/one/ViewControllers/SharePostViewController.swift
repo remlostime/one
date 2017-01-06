@@ -51,6 +51,8 @@ class SharePostViewController: UIViewController {
         let imageData = UIImagePNGRepresentation(imageView.image!)
         let imageFile = PFFile(name: "post.png", data: imageData!)
         object[Post.picture.rawValue] = imageFile
+
+        object[Post.uuid.rawValue] = UUID().uuidString
         
         object.saveInBackground { (success: Bool, error: Error?) in
             if error == nil {
