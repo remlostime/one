@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PostViewController: UITableViewController {
 
@@ -32,7 +33,10 @@ class PostViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.postHeaderViewCell.rawValue, for: indexPath) as? PostHeaderViewCell
 
+        cell?.delegate = self
+
         cell?.config(postUUID!)
+
 
         return cell!
     }
@@ -82,4 +86,20 @@ class PostViewController: UITableViewController {
     }
     */
 
+}
+
+extension PostViewController: PostHeaderViewCellDelegate {
+    func navigateToUserPage(_ username: String?) {
+        guard let username = username else {
+            return
+        }
+
+        if username == PFUser.current()?.username! {
+            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.homeViewController.rawValue) as? HomeCollectionViewController
+            self.navigationController?.pushViewController(homeVC!, animated: true)
+        } else {
+            let guestVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.guestViewController.rawValue)
+            self.navigationController?.pushViewController(guestVC!, animated: true)
+        }
+    }
 }
