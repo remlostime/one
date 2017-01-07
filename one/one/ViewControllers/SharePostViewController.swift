@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class SharePostViewController: UIViewController {
 
@@ -54,11 +55,17 @@ class SharePostViewController: UIViewController {
 
         object[Post.uuid.rawValue] = UUID().uuidString
         
-        object.saveInBackground { (success: Bool, error: Error?) in
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        object.saveInBackground { [weak self](success: Bool, error: Error?) in
+            guard let strongSelf = self else {
+                return
+            }
+            
             if error == nil {
-                // TODO: NSNotification to tell home page to reload
-                
-                self.tabBarController?.selectedIndex = 1
+                MBProgressHUD.hide(for: strongSelf.view, animated: true)
+                NotificationCenter.default.post(name: .newPostIsSent, object: nil)
+                strongSelf.tabBarController?.selectedIndex = 0
             }
         }
     }
