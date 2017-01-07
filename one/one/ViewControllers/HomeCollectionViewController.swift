@@ -137,7 +137,7 @@ class HomeCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let uuid = uuids[indexPath.row] as? String
+        let uuid = uuids[indexPath.row]
         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: Identifier.postViewController.rawValue) as? PostViewController
         postViewController?.postUUID = uuid
 
