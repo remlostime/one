@@ -22,25 +22,31 @@ class HomeCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .newPostIsSent, object: nil)
 
         self.navigationItem.title = PFUser.current()?.username
         
-        let ptr = UIRefreshControl()
+        ptr = UIRefreshControl()
         ptr.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         collectionView?.addSubview(ptr)
 
-        loadPosts()
+        loadPosts(false)
+    }
+    
+    func reloadData() {
+        loadPosts(false)
     }
     
     func pullToRefresh() {
-        collectionView?.reloadData()
-        
         ptr.endRefreshing()
+        
+        loadPosts(false)
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y >= scrollView.contentSize.height - self.view.frame.size.height {
-            loadPosts()
+            loadPosts(true)
         }
     }
 
@@ -113,9 +119,15 @@ class HomeCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.pictureCell.rawValue, for: indexPath) as! PictureCollectionViewCell
         
+        cell.tag = indexPath.row
+        
         pictures[indexPath.row].getDataInBackground { (data: Data?, error: Error?) in
             if error == nil {
-                cell.imageView.image = UIImage(data: data!)
+                DispatchQueue.main.async {
+                    if cell.tag == indexPath.row {
+                        cell.imageView.image = UIImage(data: data!)
+                    }
+                }
             } else {
                 print("error:\(error?.localizedDescription)")
             }
@@ -168,9 +180,12 @@ class HomeCollectionViewController: UICollectionViewController {
     
     // MARK: Helpers
     
-    func loadPosts() {
+    func loadPosts(_ loadingMore: Bool) {
         let query = PFQuery(className: Post.modelName.rawValue)
         query.whereKey(User.id.rawValue, equalTo: (PFUser.current()?.username)!)
+        if (!loadingMore) {
+            numberOfPosts = numberOfPicsPerPage
+        }
         query.limit = numberOfPosts
         query.findObjectsInBackground { [weak self](objects: [PFObject]?, error: Error?) in
             guard let strongSelf = self else {
