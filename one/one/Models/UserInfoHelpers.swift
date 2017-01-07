@@ -10,6 +10,7 @@ import Foundation
 import Parse
 
 enum User: String {
+    case modelName = "_User"
     case id = "username"
     case profileImage = "profile_image"
     case fullname = "fullname"
@@ -25,7 +26,14 @@ class UserInfo {
     
     init(_ withUsername: String?) {
         if let username = withUsername {
-            //
+            let query = PFQuery(className: User.modelName.rawValue)
+            query.whereKey(User.id.rawValue, equalTo: username)
+            query.findObjectsInBackground(block: { [weak self](objects: [PFObject]?, error: Error?) in
+                guard let strongSelf = self else {
+                    return
+                }
+                strongSelf.user = objects?.first as! PFUser?
+            })
         } else {
             user = PFUser.current()
         }
