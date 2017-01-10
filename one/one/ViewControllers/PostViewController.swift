@@ -76,15 +76,18 @@ class PostViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        guard let id = segue.identifier else {
+            return
+        }
+        if id == Identifier.commentViewController.rawValue {
+            let dstVC = segue.destination as? CommentViewController
+            dstVC?.hidesBottomBarWhenPushed = true
+        }
     }
-    */
 
 }
 

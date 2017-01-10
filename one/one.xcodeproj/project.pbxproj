@@ -15,6 +15,8 @@
 		10DD85121E1B04430081ECAD /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD85111E1B04430081ECAD /* SharePostViewController.swift */; };
 		10FD1D811E21B127008EB854 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FD1D801E21B127008EB854 /* Notification+Name.swift */; };
 		CBBB29A49887E2D6F57721FD /* Pods_one.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA397AD4C3420AC88AEE05D9 /* Pods_one.framework */; };
+		DB37518B1E24587B00D3EBDE /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37518A1E24587B00D3EBDE /* CommentViewController.swift */; };
+		DB37518D1E24591F00D3EBDE /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37518C1E24591F00D3EBDE /* CommentViewCell.swift */; };
 		DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5708831E08A31B005AA367 /* AppDelegate.swift */; };
 		DB5708891E08A31B005AA367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5708871E08A31B005AA367 /* Main.storyboard */; };
 		DB57088B1E08A31B005AA367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB57088A1E08A31B005AA367 /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		10FD1D801E21B127008EB854 /* Notification+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		3FD74BFA1DB80BFC214F4C5C /* Pods-one.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-one.release.xcconfig"; path = "Pods/Target Support Files/Pods-one/Pods-one.release.xcconfig"; sourceTree = "<group>"; };
 		AA397AD4C3420AC88AEE05D9 /* Pods_one.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_one.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB37518A1E24587B00D3EBDE /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentViewController.swift; path = ViewControllers/CommentViewController.swift; sourceTree = "<group>"; };
+		DB37518C1E24591F00D3EBDE /* CommentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentViewCell.swift; path = Views/CommentViewCell.swift; sourceTree = "<group>"; };
 		DB5708801E08A31B005AA367 /* one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5708831E08A31B005AA367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5708881E08A31B005AA367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				10DD85111E1B04430081ECAD /* SharePostViewController.swift */,
 				DB6240E01E1C623D000B5CA9 /* PostViewController.swift */,
 				DBD8D8181E1F063500CF6685 /* TabBarController.swift */,
+				DB37518A1E24587B00D3EBDE /* CommentViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				101142501E16E661004E2E5B /* UserInfoViewCell.swift */,
 				105977A71E16EB5700FB3E73 /* ProfileUserImageViewCell.swift */,
 				DB6240E21E1C654E000B5CA9 /* PostHeaderViewCell.swift */,
+				DB37518C1E24591F00D3EBDE /* CommentViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB37518D1E24591F00D3EBDE /* CommentViewCell.swift in Sources */,
 				DB6240E11E1C623D000B5CA9 /* PostViewController.swift in Sources */,
 				DBD8D8191E1F063500CF6685 /* TabBarController.swift in Sources */,
 				DBD4447F1E15CA4200BCE97A /* IdentifierConstant.swift in Sources */,
@@ -392,6 +399,7 @@
 				DBD4446C1E15C16500BCE97A /* UserInfoHelpers.swift in Sources */,
 				DBD4446A1E15C16500BCE97A /* FollowConstant.swift in Sources */,
 				DBD444651E15C15D00BCE97A /* HomeHeaderCollectionView.swift in Sources */,
+				DB37518B1E24587B00D3EBDE /* CommentViewController.swift in Sources */,
 				10DD85121E1B04430081ECAD /* SharePostViewController.swift in Sources */,
 				DBD4447A1E15C16F00BCE97A /* ResetPasswordViewController.swift in Sources */,
 				10FD1D811E21B127008EB854 /* Notification+Name.swift in Sources */,
