@@ -15,6 +15,7 @@
 		10DD85121E1B04430081ECAD /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD85111E1B04430081ECAD /* SharePostViewController.swift */; };
 		10FD1D811E21B127008EB854 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FD1D801E21B127008EB854 /* Notification+Name.swift */; };
 		CBBB29A49887E2D6F57721FD /* Pods_one.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA397AD4C3420AC88AEE05D9 /* Pods_one.framework */; };
+		DB1928841E284BF900F2ADD3 /* CommentViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1928831E284BF900F2ADD3 /* CommentViewCellModel.swift */; };
 		DB37518B1E24587B00D3EBDE /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37518A1E24587B00D3EBDE /* CommentViewController.swift */; };
 		DB37518D1E24591F00D3EBDE /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37518C1E24591F00D3EBDE /* CommentViewCell.swift */; };
 		DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5708831E08A31B005AA367 /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 		10FD1D801E21B127008EB854 /* Notification+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		3FD74BFA1DB80BFC214F4C5C /* Pods-one.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-one.release.xcconfig"; path = "Pods/Target Support Files/Pods-one/Pods-one.release.xcconfig"; sourceTree = "<group>"; };
 		AA397AD4C3420AC88AEE05D9 /* Pods_one.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_one.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB1928831E284BF900F2ADD3 /* CommentViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentViewCellModel.swift; path = Models/CommentViewCellModel.swift; sourceTree = "<group>"; };
 		DB37518A1E24587B00D3EBDE /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentViewController.swift; path = ViewControllers/CommentViewController.swift; sourceTree = "<group>"; };
 		DB37518C1E24591F00D3EBDE /* CommentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentViewCell.swift; path = Views/CommentViewCell.swift; sourceTree = "<group>"; };
 		DB5708801E08A31B005AA367 /* one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = one.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +227,7 @@
 				DBD444801E15CFF500BCE97A /* PostConstant.swift */,
 				DBD8D81A1E1F207C00CF6685 /* LikeConstant.swift */,
 				DBC66B911E25B02E00AF2143 /* CommentsConstant.swift */,
+				DB1928831E284BF900F2ADD3 /* CommentViewCellModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				DBD8D81B1E1F207C00CF6685 /* LikeConstant.swift in Sources */,
 				10DD850E1E188AB80081ECAD /* String+Validation.swift in Sources */,
 				DBD4447D1E15C2F100BCE97A /* UIColor+OneColor.swift in Sources */,
+				DB1928841E284BF900F2ADD3 /* CommentViewCellModel.swift in Sources */,
 				DB6240E31E1C654E000B5CA9 /* PostHeaderViewCell.swift in Sources */,
 				DBD4446C1E15C16500BCE97A /* UserInfoHelpers.swift in Sources */,
 				DBD4446A1E15C16500BCE97A /* FollowConstant.swift in Sources */,
