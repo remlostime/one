@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MJRefresh
 
 class CommentViewController: UIViewController {
 
@@ -25,16 +26,56 @@ class CommentViewController: UIViewController {
 
     var refreher: UIRefreshControl?
 
+    var commentModels: [CommentViewCellModel] = [CommentViewCellModel]()
+
+
+    @IBAction func usernameButtonTapped(_ sender: UIButton) {
+        let username = sender.title(for: .normal)
+        if username == PFUser.current()?.username {
+            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.homeViewController.rawValue)
+            self.navigationController?.pushViewController(homeVC!, animated: true)
+        } else {
+            let guestVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.guestViewController.rawValue) as? GuestCollectionViewController
+            guestVC?.guestname = username!
+            self.navigationController?.pushViewController(guestVC!, animated: true)
+
+        }
+    }
+
+    @IBAction func postButtonTapped(_ sender: UIButton) {
+        let comment = PFObject(className: Comments.modelName.rawValue)
+        let commentModel = CommentViewCellModel()
+
+        commentModel.comments = commentTextField.text
+        commentModel.username = PFUser.current()?.username
+        commentModel.createdTime = Date()
+
+        self.commentModels.append(commentModel)
+
+        commentsTableView.reloadData()
+
+        comment[Comments.comment.rawValue] = commentTextField.text
+        comment[Comments.username.rawValue] = PFUser.current()?.username
+        comment[Comments.uuid.rawValue] = commentUUID
+        comment.saveEventually()
+
+        commentTextField.text = nil
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         commentTextField.delegate = self
+        commentsTableView.delegate = self
+        commentsTableView.dataSource = self
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(endEditing))
         commentsTableView.addGestureRecognizer(tapGesture)
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name:.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDismiss(notification:)), name: .UIKeyboardWillHide, object: nil)
+
+        loadComments()
     }
 
     func endEditing() {
@@ -81,21 +122,149 @@ class CommentViewController: UIViewController {
                 return
             }
 
-            if strongSelf.countOfCommentsPerPage < count {
-                strongSelf.refreher?.addTarget(self, action: #selector(loadMoreComments), for: .valueChanged)
-                strongSelf.commentsTableView.addSubview(strongSelf.refreher!)
-            }
+//            if strongSelf.countOfCommentsPerPage < count {
+//                strongSelf.refreher?.addTarget(self, action: #selector(loadMoreComments), for: .valueChanged)
+//                strongSelf.commentsTableView.addSubview(strongSelf.refreher!)
+//            }
 
             let query = PFQuery(className: Comments.modelName.rawValue)
             query.whereKey(Comments.uuid.rawValue, equalTo: strongSelf.commentUUID!)
-            query.skip = count - strongSelf.countOfCommentsPerPage
+//            query.skip = count - strongSelf.countOfCommentsPerPage
             query.addAscendingOrder("createdAt")
-            query.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
+            query.findObjectsInBackground(block: { [weak self](objects: [PFObject]?, error: Error?) in
+                guard let strongSelf = self else {
+                    return
+                }
                 if error == nil {
-                    // Add username, profile image
+                    for object in objects! {
+                        let model = CommentViewCellModel()
+                        model.username = object.object(forKey: Comments.username.rawValue) as! String?
+                        model.comments = object.object(forKey: Comments.comment.rawValue) as! String?
+                        model.createdTime = object.createdAt
+
+                        strongSelf.commentModels.append(model)
+                    }
+
+                    strongSelf.commentsTableView.reloadData()
                 }
             })
         }
+    }
+}
+
+extension CommentViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        var actions = [UITableViewRowAction]()
+
+        let username = commentModels[indexPath.row].username
+
+        // TODO: Add If the the post belong to current user, user can delete comment
+        if username == PFUser.current()?.username {
+            actions.append(delete())
+        }
+
+        if username != PFUser.current()?.username {
+            actions.append(reply())
+            actions.append(complain())
+        }
+
+        return actions
+    }
+
+    func complain() -> UITableViewRowAction {
+        let complainAction = UITableViewRowAction(style: .normal, title: "Complain", handler: {(action: UITableViewRowAction, indexPath: IndexPath) in })
+        // TODO: Add complain logic
+
+        return complainAction
+    }
+
+    func reply() -> UITableViewRowAction {
+        let replyAction = UITableViewRowAction(style: .normal, title: "Reply", handler: { [weak self](action: UITableViewRowAction, indexPath: IndexPath) in
+            guard let strongSelf = self else {
+                return
+            }
+
+            let model = strongSelf.commentModels[indexPath.row]
+
+            strongSelf.commentTextField.text = strongSelf.commentTextField.text! + "@" + model.username!
+        })
+
+        return replyAction
+    }
+
+    func delete() -> UITableViewRowAction {
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete", handler: { [weak self](action: UITableViewRowAction, indexPath: IndexPath) in
+            guard let strongSelf = self else {
+                return
+            }
+
+            let model = strongSelf.commentModels[indexPath.row]
+
+            let query = PFQuery(className: Comments.modelName.rawValue)
+            query.whereKey(Comments.uuid.rawValue, equalTo: strongSelf.commentUUID!)
+            query.whereKey(Comments.username.rawValue, equalTo: model.username!)
+            query.whereKey(Comments.comment.rawValue, equalTo: model.comments!)
+
+            query.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
+                guard let object = objects?.first else {
+                    return
+                }
+
+                object.deleteEventually()
+            })
+
+            strongSelf.commentModels.remove(at: indexPath.row)
+
+            strongSelf.commentsTableView.deleteRows(at: [indexPath], with: .automatic)
+        })
+
+        deleteAction.backgroundColor = .red
+
+        return deleteAction
+    }
+}
+
+extension CommentViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return commentModels.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.commentViewCell.rawValue, for: indexPath) as? CommentViewCell
+
+        let model = commentModels[indexPath.row]
+
+        cell?.usernameButton.setTitle(model.username, for: .normal)
+        cell?.commentTimeLabel.text = model.createdTime?.description
+        cell?.commentLabel.text = model.comments
+
+        let user = PFUser.query()
+        user?.whereKey(User.id.rawValue, equalTo: model.username!)
+        user?.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
+            guard let objects = objects else {
+                return
+            }
+
+            let object = objects.first as? PFUser
+
+            let imageFile = object?.object(forKey: User.profileImage.rawValue) as? PFFile
+
+            imageFile?.getDataInBackground(block: { [weak cell](data: Data?, error: Error?) in
+                guard let strongCell = cell, let data = data else {
+                    return
+                }
+
+                DispatchQueue.main.async {
+                    strongCell.profileImageView.image = UIImage.init(data: data)
+                }
+            })
+        })
+
+        return cell!
     }
 }
 

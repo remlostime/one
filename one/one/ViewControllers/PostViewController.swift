@@ -86,6 +86,7 @@ class PostViewController: UITableViewController {
         if id == Identifier.commentViewController.rawValue {
             let dstVC = segue.destination as? CommentViewController
             dstVC?.hidesBottomBarWhenPushed = true
+            dstVC?.commentUUID = postUUID
         }
     }
 
