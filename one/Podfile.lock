@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - FastImageCache (1.5.1)
   - JSONModel (1.7.0)
+  - KILabel (1.0.1)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - SDWebImage (3.8.2):
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - AFNetworking
   - FastImageCache
   - JSONModel
+  - KILabel
   - MBProgressHUD
   - MJRefresh
   - SDWebImage
@@ -34,10 +36,11 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   FastImageCache: 2e7a6f677b15336eb3d1a4092a494676256c891d
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  KILabel: 4797807cdc0b4992dad8bf91175ddc973c3b569b
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
 
-PODFILE CHECKSUM: 921168c9804f16c5a8b0ec3f8962e6d6ccf411c4
+PODFILE CHECKSUM: eddef6cee8d5f9358026fbc30d1fda79bfdc1f39
 
 COCOAPODS: 1.1.1

@@ -12,5 +12,6 @@ target 'one' do
   pod 'SDWebImage'
   pod 'MBProgressHUD'
   pod 'FastImageCache'
+  pod 'KILabel'
 
 end
