@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import MJRefresh
+import KILabel
 
 class CommentViewController: UIViewController {
 
@@ -58,6 +59,18 @@ class CommentViewController: UIViewController {
         comment[Comments.username.rawValue] = PFUser.current()?.username
         comment[Comments.uuid.rawValue] = commentUUID
         comment.saveEventually()
+
+        let text: [String] = (commentTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines))!
+        for word in text {
+            if word.hasPrefix("#") {
+                let object = PFObject(className: Hashtag.modelName.rawValue)
+                object[Hashtag.hashtag.rawValue] = word
+                object[Hashtag.username.rawValue] = PFUser.current()?.username!
+                object[Hashtag.postid.rawValue] = commentUUID!
+
+                object.saveEventually()
+            }
+        }
 
         commentTextField.text = nil
     }
@@ -239,8 +252,20 @@ extension CommentViewController: UITableViewDataSource {
         let model = commentModels[indexPath.row]
 
         cell?.usernameButton.setTitle(model.username, for: .normal)
-        cell?.commentTimeLabel.text = model.createdTime?.description
+//        cell?.commentTimeLabel.text = model.createdTime?.description
+        cell?.delegate = self
         cell?.commentLabel.text = model.comments
+
+        cell?.commentLabel.userHandleLinkTapHandler = { label, handle, range in
+            let index = handle.index(handle.startIndex, offsetBy: 1)
+            let username = handle.substring(from: index)
+
+            self.navigateToUser(username)
+        }
+
+        cell?.commentLabel.hashtagLinkTapHandler = { label, hashtag, range in
+            NSLog("Hashtah \(hashtag) tapped")
+        }
 
         let user = PFUser.query()
         user?.whereKey(User.id.rawValue, equalTo: model.username!)
@@ -276,5 +301,14 @@ extension CommentViewController: UITextFieldDelegate {
         } else {
             postButton.isEnabled = true
         }
+    }
+}
+
+extension CommentViewController: CommentViewCellDelegate {
+    func navigateToUser(_ username: String?) {
+        let guestVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.guestViewController.rawValue) as? GuestCollectionViewController
+        guestVC?.guestname = username!
+
+        self.navigationController?.pushViewController(guestVC!, animated: true)
     }
 }
