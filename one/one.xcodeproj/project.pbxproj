@@ -36,6 +36,7 @@
 		DB5708AD1E08A504005AA367 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5708AB1E08A504005AA367 /* Parse.framework */; };
 		DB6240E11E1C623D000B5CA9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6240E01E1C623D000B5CA9 /* PostViewController.swift */; };
 		DB6240E31E1C654E000B5CA9 /* PostHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6240E21E1C654E000B5CA9 /* PostHeaderViewCell.swift */; };
+		DB68AE631E2EF21200852BAE /* HashtagConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68AE621E2EF21200852BAE /* HashtagConstant.swift */; };
 		DBC66B921E25B02E00AF2143 /* CommentsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC66B911E25B02E00AF2143 /* CommentsConstant.swift */; };
 		DBD444641E15C15D00BCE97A /* FollowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444611E15C15D00BCE97A /* FollowViewCell.swift */; };
 		DBD444651E15C15D00BCE97A /* HomeHeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444621E15C15D00BCE97A /* HomeHeaderCollectionView.swift */; };
@@ -90,6 +91,7 @@
 		DB5708AB1E08A504005AA367 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		DB6240E01E1C623D000B5CA9 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ViewControllers/PostViewController.swift; sourceTree = "<group>"; };
 		DB6240E21E1C654E000B5CA9 /* PostHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostHeaderViewCell.swift; path = Views/PostHeaderViewCell.swift; sourceTree = "<group>"; };
+		DB68AE621E2EF21200852BAE /* HashtagConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashtagConstant.swift; path = Models/HashtagConstant.swift; sourceTree = "<group>"; };
 		DBC66B911E25B02E00AF2143 /* CommentsConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsConstant.swift; path = Models/CommentsConstant.swift; sourceTree = "<group>"; };
 		DBD444611E15C15D00BCE97A /* FollowViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FollowViewCell.swift; path = Views/FollowViewCell.swift; sourceTree = "<group>"; };
 		DBD444621E15C15D00BCE97A /* HomeHeaderCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeHeaderCollectionView.swift; path = Views/HomeHeaderCollectionView.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				DBD8D81A1E1F207C00CF6685 /* LikeConstant.swift */,
 				DBC66B911E25B02E00AF2143 /* CommentsConstant.swift */,
 				DB1928831E284BF900F2ADD3 /* CommentViewCellModel.swift */,
+				DB68AE621E2EF21200852BAE /* HashtagConstant.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				TargetAttributes = {
 					DB57087F1E08A31B005AA367 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 24X86T8MC6;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -398,6 +402,7 @@
 				DBD4446B1E15C16500BCE97A /* InfoConstant.swift in Sources */,
 				10DD85101E188E480081ECAD /* AlertHelper.swift in Sources */,
 				DBD444781E15C16F00BCE97A /* SignInViewController.swift in Sources */,
+				DB68AE631E2EF21200852BAE /* HashtagConstant.swift in Sources */,
 				DBD8D81B1E1F207C00CF6685 /* LikeConstant.swift in Sources */,
 				10DD850E1E188AB80081ECAD /* String+Validation.swift in Sources */,
 				DBD4447D1E15C2F100BCE97A /* UIColor+OneColor.swift in Sources */,
@@ -536,6 +541,7 @@
 			baseConfigurationReference = E3C67D94383203BCBBB2626B /* Pods-one.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 24X86T8MC6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -543,7 +549,7 @@
 				INFOPLIST_FILE = one/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.one;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tripadvisor.devbuild;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -555,6 +561,7 @@
 			baseConfigurationReference = 3FD74BFA1DB80BFC214F4C5C /* Pods-one.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 24X86T8MC6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -562,7 +569,7 @@
 				INFOPLIST_FILE = one/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.one;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tripadvisor.devbuild;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

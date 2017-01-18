@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import KILabel
+
+protocol CommentViewCellDelegate {
+    func navigateToUser(_ username: String?)
+}
 
 class CommentViewCell: UITableViewCell {
 
@@ -14,13 +19,16 @@ class CommentViewCell: UITableViewCell {
 
     @IBOutlet var usernameButton: UIButton!
 
-    @IBOutlet var commentLabel: UILabel!
+    @IBOutlet var commentLabel: KILabel!
 
     @IBOutlet var commentTimeLabel: UILabel!
+
+    var delegate: CommentViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
