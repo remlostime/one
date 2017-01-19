@@ -23,4 +23,5 @@ enum Identifier: String {
     case postViewController = "PostViewController"
     case postHeaderViewCell = "PostHeaderViewCell"
     case commentViewCell = "CommentViewCell"
+    case hashtagViewController = "hashtagViewController"
 }
