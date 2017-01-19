@@ -264,7 +264,11 @@ extension CommentViewController: UITableViewDataSource {
         }
 
         cell?.commentLabel.hashtagLinkTapHandler = { label, hashtag, range in
-            NSLog("Hashtah \(hashtag) tapped")
+            let hashtagVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.hashtagViewController.rawValue) as? HashtagCollectionViewController
+
+            hashtagVC?.hashtag = hashtag
+
+            self.navigationController?.pushViewController(hashtagVC!, animated: true)
         }
 
         let user = PFUser.query()

@@ -270,7 +270,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="4nj-Mn-BLT">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="4nj-Mn-BLT">
                             <size key="itemSize" width="120" height="120"/>
                             <size key="headerReferenceSize" width="50" height="234"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -532,6 +532,54 @@
             </objects>
             <point key="canvasLocation" x="2705.5" y="50.5"/>
         </scene>
+        <!--Hashtag Collection View Controller-->
+        <scene sceneID="ZLg-tJ-R5a">
+            <objects>
+                <collectionViewController storyboardIdentifier="hashtagViewController" id="ZDV-44-gHu" customClass="HashtagCollectionViewController" customModule="one" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wUC-Je-sQU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="1" id="LRl-ip-OxU">
+                            <size key="itemSize" width="120" height="120"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictureCell" id="jIn-er-wGg" customClass="PictureCollectionViewCell" customModule="one" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bFr-oc-wUE">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="bFr-oc-wUE" firstAttribute="leading" secondItem="jIn-er-wGg" secondAttribute="leading" id="Pav-tf-eEA"/>
+                                    <constraint firstAttribute="bottom" secondItem="bFr-oc-wUE" secondAttribute="bottom" id="Ylc-Nu-nb0"/>
+                                    <constraint firstAttribute="trailing" secondItem="bFr-oc-wUE" secondAttribute="trailing" id="eUf-bo-ywX"/>
+                                    <constraint firstItem="bFr-oc-wUE" firstAttribute="top" secondItem="jIn-er-wGg" secondAttribute="top" id="fVi-Lf-k8X"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="bFr-oc-wUE" id="gCx-ch-5lA"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="ZDV-44-gHu" id="zyf-93-DHx"/>
+                            <outlet property="delegate" destination="ZDV-44-gHu" id="riE-lZ-M0f"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xG8-tE-tad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3245.5" y="52.5"/>
+        </scene>
         <!--Guest Collection View Controller-->
         <scene sceneID="Qxa-IL-4ZJ">
             <objects>
@@ -540,7 +588,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="j8u-ll-HAP">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="j8u-ll-HAP">
                             <size key="itemSize" width="120" height="120"/>
                             <size key="headerReferenceSize" width="50" height="234"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
