@@ -809,6 +809,9 @@
                                                 <constraint firstAttribute="width" constant="36" id="cdr-hr-fnn"/>
                                             </constraints>
                                             <state key="normal" image="more"/>
+                                            <connections>
+                                                <action selector="moreButtonTapped:" destination="hLA-ZO-Z4r" eventType="touchUpInside" id="ngm-ar-QBB"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiD-Bc-8SL">
                                             <rect key="frame" x="8" y="473" width="33.5" height="20.5"/>

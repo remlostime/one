@@ -11,6 +11,7 @@ import Parse
 
 protocol PostHeaderViewCellDelegate {
     func navigateToUserPage(_ username: String?)
+    func showActionSheet(_ alertController: UIAlertController?)
 }
 
 class PostHeaderViewCell: UITableViewCell {
@@ -233,5 +234,61 @@ class PostHeaderViewCell: UITableViewCell {
     @IBAction func usernameButtonTapped(_ sender: UIButton) {
         let username = sender.title(for: .normal)
         delegate?.navigateToUserPage(username)
+    }
+
+    @IBAction func moreButtonTapped(_ sender: UIButton) {
+        let deleteAction = UIAlertAction(title: "Delete", style: .default, handler: { [weak self](UIAlertAction) -> Void in
+            guard let strongSelf = self else {
+                return
+            }
+
+            strongSelf.removePost()
+
+            strongSelf.delegate?.navigateToUserPage(nil)
+        })
+
+        let alertController = UIAlertController(title: "Action", message: nil, preferredStyle: .actionSheet)
+
+        alertController.addAction(deleteAction)
+
+        self.delegate?.showActionSheet(alertController)
+    }
+
+    func removePost() {
+        let query = PFQuery(className: Post.modelName.rawValue)
+        query.whereKey(Post.uuid.rawValue, equalTo: uuid!)
+
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            for object in objects! {
+                object.deleteEventually()
+            }
+        }
+
+        let commentQuery = PFQuery(className: Comments.modelName.rawValue)
+        commentQuery.whereKey(Comments.uuid.rawValue, equalTo: uuid!)
+
+        commentQuery.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            for object in objects! {
+                object.deleteEventually()
+            }
+        }
+
+        let hashtagQuery = PFQuery(className: Hashtag.modelName.rawValue)
+        hashtagQuery.whereKey(Hashtag.postid.rawValue, equalTo: uuid!)
+
+        hashtagQuery.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            for object in objects! {
+                object.deleteEventually()
+            }
+        }
+
+        let likeQuery = PFQuery(className: Like.modelName.rawValue)
+        likeQuery.whereKey(Like.postID.rawValue, equalTo: uuid!)
+
+        likeQuery.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            for object in objects! {
+                object.deleteEventually()
+            }
+        }
     }
 }
