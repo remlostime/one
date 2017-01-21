@@ -38,6 +38,7 @@
 		DB6240E11E1C623D000B5CA9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6240E01E1C623D000B5CA9 /* PostViewController.swift */; };
 		DB6240E31E1C654E000B5CA9 /* PostHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6240E21E1C654E000B5CA9 /* PostHeaderViewCell.swift */; };
 		DB68AE631E2EF21200852BAE /* HashtagConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68AE621E2EF21200852BAE /* HashtagConstant.swift */; };
+		DBBB93501E32E1AE00D96DD4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBB934F1E32E1AE00D96DD4 /* FeedViewController.swift */; };
 		DBC66B921E25B02E00AF2143 /* CommentsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC66B911E25B02E00AF2143 /* CommentsConstant.swift */; };
 		DBD444641E15C15D00BCE97A /* FollowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444611E15C15D00BCE97A /* FollowViewCell.swift */; };
 		DBD444651E15C15D00BCE97A /* HomeHeaderCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444621E15C15D00BCE97A /* HomeHeaderCollectionView.swift */; };
@@ -94,6 +95,7 @@
 		DB6240E01E1C623D000B5CA9 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ViewControllers/PostViewController.swift; sourceTree = "<group>"; };
 		DB6240E21E1C654E000B5CA9 /* PostHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostHeaderViewCell.swift; path = Views/PostHeaderViewCell.swift; sourceTree = "<group>"; };
 		DB68AE621E2EF21200852BAE /* HashtagConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashtagConstant.swift; path = Models/HashtagConstant.swift; sourceTree = "<group>"; };
+		DBBB934F1E32E1AE00D96DD4 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = ViewControllers/FeedViewController.swift; sourceTree = "<group>"; };
 		DBC66B911E25B02E00AF2143 /* CommentsConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsConstant.swift; path = Models/CommentsConstant.swift; sourceTree = "<group>"; };
 		DBD444611E15C15D00BCE97A /* FollowViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FollowViewCell.swift; path = Views/FollowViewCell.swift; sourceTree = "<group>"; };
 		DBD444621E15C15D00BCE97A /* HomeHeaderCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeHeaderCollectionView.swift; path = Views/HomeHeaderCollectionView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				DBD8D8181E1F063500CF6685 /* TabBarController.swift */,
 				DB37518A1E24587B00D3EBDE /* CommentViewController.swift */,
 				DB1E55581E30237300D4AC26 /* HashtagCollectionViewController.swift */,
+				DBBB934F1E32E1AE00D96DD4 /* FeedViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				DBD4446C1E15C16500BCE97A /* UserInfoHelpers.swift in Sources */,
 				DBD4446A1E15C16500BCE97A /* FollowConstant.swift in Sources */,
 				DBD444651E15C15D00BCE97A /* HomeHeaderCollectionView.swift in Sources */,
+				DBBB93501E32E1AE00D96DD4 /* FeedViewController.swift in Sources */,
 				DB37518B1E24587B00D3EBDE /* CommentViewController.swift in Sources */,
 				10DD85121E1B04430081ECAD /* SharePostViewController.swift in Sources */,
 				DBD4447A1E15C16F00BCE97A /* ResetPasswordViewController.swift in Sources */,
