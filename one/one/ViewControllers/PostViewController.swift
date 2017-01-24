@@ -75,4 +75,16 @@ extension PostViewController: PostHeaderViewCellDelegate {
     func showActionSheet(_ alertController: UIAlertController?) {
         self.present(alertController!, animated: true, completion: nil)
     }
+
+    func navigateToPostPage(_ uuid: String?) {
+        guard let uuid = uuid else {
+            return
+        }
+
+        let dstVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.commentViewController.rawValue) as? CommentViewController
+        dstVC?.hidesBottomBarWhenPushed = true
+        dstVC?.commentUUID = uuid
+
+        self.navigationController?.pushViewController(dstVC!, animated: true)
+    }
 }

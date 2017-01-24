@@ -13,4 +13,5 @@ class CommentViewCellModel: NSObject {
     var username: String?
     var comments: String?
     var createdTime: Date?
+    var uuid: String?
 }

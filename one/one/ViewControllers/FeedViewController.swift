@@ -67,21 +67,6 @@ class FeedViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 600
     }
-
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier else {
-            return
-        }
-        if id == Identifier.commentViewController.rawValue {
-            let dstVC = segue.destination as? CommentViewController
-            dstVC?.hidesBottomBarWhenPushed = true
-
-//            dstVC?.commentUUID = postUUID
-        }
-    }
 }
 
 extension FeedViewController: PostHeaderViewCellDelegate {
@@ -103,5 +88,17 @@ extension FeedViewController: PostHeaderViewCellDelegate {
 
     func showActionSheet(_ alertController: UIAlertController?) {
         self.present(alertController!, animated: true, completion: nil)
+    }
+
+    func navigateToPostPage(_ uuid: String?) {
+        guard let uuid = uuid else {
+            return
+        }
+
+        let dstVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.commentViewController.rawValue) as? CommentViewController
+        dstVC?.hidesBottomBarWhenPushed = true
+        dstVC?.commentUUID = uuid
+
+        self.navigationController?.pushViewController(dstVC!, animated: true)
     }
 }

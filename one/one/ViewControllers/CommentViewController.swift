@@ -50,6 +50,7 @@ class CommentViewController: UIViewController {
         commentModel.comments = commentTextField.text
         commentModel.username = PFUser.current()?.username
         commentModel.createdTime = Date()
+        commentModel.uuid = UUID().uuidString
 
         self.commentModels.append(commentModel)
 
@@ -58,6 +59,7 @@ class CommentViewController: UIViewController {
         comment[Comments.comment.rawValue] = commentTextField.text
         comment[Comments.username.rawValue] = PFUser.current()?.username
         comment[Comments.uuid.rawValue] = commentUUID
+        comment[Comments.comment_uuid.rawValue] = commentModel.uuid
         comment.saveEventually()
 
         let text: [String] = (commentTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines))!
@@ -67,6 +69,7 @@ class CommentViewController: UIViewController {
                 object[Hashtag.hashtag.rawValue] = word
                 object[Hashtag.username.rawValue] = PFUser.current()?.username!
                 object[Hashtag.postid.rawValue] = commentUUID!
+                object[Hashtag.commentid.rawValue] = commentModel.uuid
 
                 object.saveEventually()
             }
@@ -221,6 +224,7 @@ extension CommentViewController: UITableViewDelegate {
             query.whereKey(Comments.uuid.rawValue, equalTo: strongSelf.commentUUID!)
             query.whereKey(Comments.username.rawValue, equalTo: model.username!)
             query.whereKey(Comments.comment.rawValue, equalTo: model.comments!)
+            query.whereKey(Comments.comment_uuid.rawValue, equalTo: model.uuid!)
 
             query.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
                 guard let object = objects?.first else {
@@ -233,6 +237,14 @@ extension CommentViewController: UITableViewDelegate {
             strongSelf.commentModels.remove(at: indexPath.row)
 
             strongSelf.commentsTableView.deleteRows(at: [indexPath], with: .automatic)
+
+            let hashtagQuery = PFQuery(className: Hashtag.modelName.rawValue)
+            hashtagQuery.whereKey(Hashtag.commentid.rawValue, equalTo: model.uuid!)
+            hashtagQuery.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
+                for object in objects! {
+                    object.deleteEventually()
+                }
+            })
         })
 
         deleteAction.backgroundColor = .red

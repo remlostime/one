@@ -934,7 +934,7 @@
                                             </constraints>
                                             <state key="normal" image="comment"/>
                                             <connections>
-                                                <segue destination="IjS-hX-KtC" kind="push" id="8y4-Di-Tjr"/>
+                                                <action selector="commentButtonTapped:" destination="bOc-jm-jlw" eventType="touchUpInside" id="3jS-zF-Gqc"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFs-7o-fz2">
@@ -1511,7 +1511,7 @@
         <scene sceneID="GRs-Ja-6db">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wEd-QA-e5j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="profile" id="Wq0-W1-T5v"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="home" id="Wq0-W1-T5v"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WZ1-F4-n1f">
@@ -1532,6 +1532,7 @@
         <image name="Feed" width="750" height="1334"/>
         <image name="comment" width="36" height="36"/>
         <image name="default_profile_image" width="123" height="123"/>
+        <image name="home" width="30" height="30"/>
         <image name="like" width="36" height="36"/>
         <image name="more" width="36" height="36"/>
         <image name="post" width="36" height="36"/>
@@ -1544,7 +1545,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="8y4-Di-Tjr"/>
-    </inferredMetricsTieBreakers>
 </document>
