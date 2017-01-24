@@ -12,6 +12,7 @@ import Parse
 protocol PostHeaderViewCellDelegate {
     func navigateToUserPage(_ username: String?)
     func showActionSheet(_ alertController: UIAlertController?)
+    func navigateToPostPage(_ uuid: String?)
 }
 
 class PostHeaderViewCell: UITableViewCell {
@@ -290,5 +291,9 @@ class PostHeaderViewCell: UITableViewCell {
                 object.deleteEventually()
             }
         }
+    }
+
+    @IBAction func commentButtonTapped(_ sender: UIButton) {
+        self.delegate?.navigateToPostPage(uuid)
     }
 }

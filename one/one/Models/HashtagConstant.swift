@@ -13,4 +13,5 @@ enum Hashtag: String {
     case hashtag = "hashtag"
     case username = "username"
     case postid = "post_uuid"
+    case commentid = "comment_uuid"
 }
