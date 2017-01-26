@@ -12,19 +12,19 @@ import Parse
 class SearchTableViewController: UITableViewController {
 
     var users: [String?] = []
-    let searchController = UISearchController(searchResultsController: nil)
+//    let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-
-        // Use the current view controller to update the search results.
-        searchController.searchResultsUpdater = self;
-
-        // Install the search bar as the table header.
-        tableView.tableHeaderView = searchController.searchBar;
+//        searchController.dimsBackgroundDuringPresentation = false
+//        definesPresentationContext = true
+//
+//        // Use the current view controller to update the search results.
+//        searchController.searchResultsUpdater = self;
+//
+//        // Install the search bar as the table header.
+//        tableView.tableHeaderView = searchController.searchBar;
 
         // It is usually good to set the presentation context.
 //        self.definesPresentationContext = true;
