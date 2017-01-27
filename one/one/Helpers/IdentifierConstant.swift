@@ -26,4 +26,5 @@ enum Identifier: String {
     case hashtagViewController = "hashtagViewController"
     case searchViewCell = "SearchViewCell"
     case searchTableViewController = "SearchTableViewController"
+    case notificationViewCell = "NotificationViewCell"
 }
