@@ -15,6 +15,9 @@
 		10DD85121E1B04430081ECAD /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DD85111E1B04430081ECAD /* SharePostViewController.swift */; };
 		10FD1D811E21B127008EB854 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FD1D801E21B127008EB854 /* Notification+Name.swift */; };
 		CBBB29A49887E2D6F57721FD /* Pods_one.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA397AD4C3420AC88AEE05D9 /* Pods_one.framework */; };
+		DB0663631E3AF5160004A49C /* NotificationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0663621E3AF5160004A49C /* NotificationViewCell.swift */; };
+		DB0663651E3AFAAA0004A49C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0663641E3AFAAA0004A49C /* NotificationViewController.swift */; };
+		DB0663671E3AFB9A0004A49C /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0663661E3AFB9A0004A49C /* NotificationConstant.swift */; };
 		DB1928841E284BF900F2ADD3 /* CommentViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1928831E284BF900F2ADD3 /* CommentViewCellModel.swift */; };
 		DB1E55591E30237300D4AC26 /* HashtagCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E55581E30237300D4AC26 /* HashtagCollectionViewController.swift */; };
 		DB37518B1E24587B00D3EBDE /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37518A1E24587B00D3EBDE /* CommentViewController.swift */; };
@@ -73,6 +76,9 @@
 		10FD1D801E21B127008EB854 /* Notification+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		3FD74BFA1DB80BFC214F4C5C /* Pods-one.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-one.release.xcconfig"; path = "Pods/Target Support Files/Pods-one/Pods-one.release.xcconfig"; sourceTree = "<group>"; };
 		AA397AD4C3420AC88AEE05D9 /* Pods_one.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_one.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0663621E3AF5160004A49C /* NotificationViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationViewCell.swift; path = Views/NotificationViewCell.swift; sourceTree = "<group>"; };
+		DB0663641E3AFAAA0004A49C /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationViewController.swift; path = ViewControllers/NotificationViewController.swift; sourceTree = "<group>"; };
+		DB0663661E3AFB9A0004A49C /* NotificationConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationConstant.swift; path = Models/NotificationConstant.swift; sourceTree = "<group>"; };
 		DB1928831E284BF900F2ADD3 /* CommentViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentViewCellModel.swift; path = Models/CommentViewCellModel.swift; sourceTree = "<group>"; };
 		DB1E55581E30237300D4AC26 /* HashtagCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashtagCollectionViewController.swift; path = ViewControllers/HashtagCollectionViewController.swift; sourceTree = "<group>"; };
 		DB37518A1E24587B00D3EBDE /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentViewController.swift; path = ViewControllers/CommentViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +236,7 @@
 				DBBB934F1E32E1AE00D96DD4 /* FeedViewController.swift */,
 				DBA7A2EE1E39677600244EB0 /* SearchTableViewController.swift */,
 				DBA7A2F01E399F4700244EB0 /* SearchCollectionViewController.swift */,
+				DB0663641E3AFAAA0004A49C /* NotificationViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -245,6 +252,7 @@
 				DBC66B911E25B02E00AF2143 /* CommentsConstant.swift */,
 				DB1928831E284BF900F2ADD3 /* CommentViewCellModel.swift */,
 				DB68AE621E2EF21200852BAE /* HashtagConstant.swift */,
+				DB0663661E3AFB9A0004A49C /* NotificationConstant.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -260,6 +268,7 @@
 				DB6240E21E1C654E000B5CA9 /* PostHeaderViewCell.swift */,
 				DB37518C1E24591F00D3EBDE /* CommentViewCell.swift */,
 				DBA7A2EC1E39672E00244EB0 /* SearchViewCell.swift */,
+				DB0663621E3AF5160004A49C /* NotificationViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -410,10 +419,12 @@
 				DB1E55591E30237300D4AC26 /* HashtagCollectionViewController.swift in Sources */,
 				DBD444741E15C16F00BCE97A /* FollowingViewController.swift in Sources */,
 				105977A81E16EB5700FB3E73 /* ProfileUserImageViewCell.swift in Sources */,
+				DB0663651E3AFAAA0004A49C /* NotificationViewController.swift in Sources */,
 				DBD444761E15C16F00BCE97A /* FollowersViewController.swift in Sources */,
 				DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */,
 				DBA7A2ED1E39672E00244EB0 /* SearchViewCell.swift in Sources */,
 				DBD444661E15C15D00BCE97A /* PictureCollectionViewCell.swift in Sources */,
+				DB0663631E3AF5160004A49C /* NotificationViewCell.swift in Sources */,
 				DBD444811E15CFF500BCE97A /* PostConstant.swift in Sources */,
 				DBD444641E15C15D00BCE97A /* FollowViewCell.swift in Sources */,
 				DBD4446B1E15C16500BCE97A /* InfoConstant.swift in Sources */,
@@ -423,6 +434,7 @@
 				DBA7A2F11E399F4700244EB0 /* SearchCollectionViewController.swift in Sources */,
 				DBD8D81B1E1F207C00CF6685 /* LikeConstant.swift in Sources */,
 				10DD850E1E188AB80081ECAD /* String+Validation.swift in Sources */,
+				DB0663671E3AFB9A0004A49C /* NotificationConstant.swift in Sources */,
 				DBD4447D1E15C2F100BCE97A /* UIColor+OneColor.swift in Sources */,
 				DB1928841E284BF900F2ADD3 /* CommentViewCellModel.swift in Sources */,
 				DB6240E31E1C654E000B5CA9 /* PostHeaderViewCell.swift in Sources */,
