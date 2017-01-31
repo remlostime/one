@@ -52,6 +52,13 @@ class FollowViewCell: UITableViewCell {
                     print("error:\(error?.localizedDescription)")
                 }
             })
+
+
+            let notificationObject = PFObject(className: Notifications.modelName.rawValue)
+            notificationObject[Notifications.sender.rawValue] = currentUsername
+            notificationObject[Notifications.receiver.rawValue] = usernameLabel.text!
+            notificationObject[Notifications.action.rawValue] = NotificationsAction.follow.rawValue
+            notificationObject.saveEventually()
         } else {
             configure(withState: .notFollowing)
             let query = PFQuery(className: Follow.modelName.rawValue)
@@ -88,6 +95,16 @@ class FollowViewCell: UITableViewCell {
                 }
             })
  */
+
+            let notificationQuery = PFQuery(className: Notifications.modelName.rawValue)
+            notificationQuery.whereKey(Notifications.sender.rawValue, equalTo: currentUsername)
+            notificationQuery.whereKey(Notifications.receiver.rawValue, equalTo: usernameLabel.text!)
+            notificationQuery.whereKey(Notifications.action.rawValue, equalTo: NotificationsAction.follow.rawValue)
+            notificationQuery.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
+                for object in objects! {
+                    object.deleteEventually()
+                }
+            })
         }
     }
 

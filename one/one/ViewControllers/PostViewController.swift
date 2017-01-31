@@ -49,6 +49,8 @@ class PostViewController: UITableViewController {
         }
         if id == Identifier.commentViewController.rawValue {
             let dstVC = segue.destination as? CommentViewController
+            let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? PostHeaderViewCell
+            dstVC?.postUsername = cell?.profileUsernameButton.title(for: .normal)
             dstVC?.hidesBottomBarWhenPushed = true
             dstVC?.commentUUID = postUUID
         }

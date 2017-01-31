@@ -190,6 +190,16 @@ class PostHeaderViewCell: UITableViewCell {
                     }
                 })
             })
+
+            let notificationQuery = PFQuery(className: Notifications.modelName.rawValue)
+            notificationQuery.whereKey(Notifications.sender.rawValue, equalTo: (PFUser.current()?.username)!)
+            notificationQuery.whereKey(Notifications.receiver.rawValue, equalTo: profileUsernameButton.title(for: .normal)!)
+            notificationQuery.whereKey(Notifications.action.rawValue, equalTo: NotificationsAction.like.rawValue)
+            notificationQuery.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
+                for object in objects! {
+                    object.deleteEventually()
+                }
+            })
         } else {
             // Like this post
             let object = PFObject(className: Like.modelName.rawValue)
@@ -205,6 +215,12 @@ class PostHeaderViewCell: UITableViewCell {
                     print("error:\(error?.localizedDescription)")
                 }
             })
+
+            let notificationObject = PFObject(className: Notifications.modelName.rawValue)
+            notificationObject[Notifications.sender.rawValue] = (PFUser.current()?.username)!
+            notificationObject[Notifications.receiver.rawValue] = profileUsernameButton.title(for: .normal)
+            notificationObject[Notifications.action.rawValue] = NotificationsAction.like.rawValue
+            notificationObject.saveEventually()
         }
 
     }
