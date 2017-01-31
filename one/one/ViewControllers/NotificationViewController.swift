@@ -43,20 +43,20 @@ class NotificationViewController: UITableViewController {
 
         let notification = notifications[indexPath.row]
         cell?.usernameLabel.text = notification[Notifications.sender.rawValue] as? String
-        let action = notification[Notifications.action.rawValue]!
-        var actionStr: String
+        let action = notification[Notifications.action.rawValue] as? String
+        var actionStr: String?
 
-//        if action == NotificationsAction.like {
-//            actionStr = "liked your post."
-//        } else if action == NotificationsAction.follow {
-//            actionStr = "is following you."
-//        } else if action == NotificationsAction.mention {
-//            actionStr = "mentioned you."
-//        } else {
-//            actionStr = "commented on your post."
-//        }
+        if action == NotificationsAction.like.rawValue {
+            actionStr = "liked your post."
+        } else if action == NotificationsAction.follow.rawValue {
+            actionStr = "is following you."
+        } else if action == NotificationsAction.mention.rawValue {
+            actionStr = "mentioned you."
+        } else {
+            actionStr = "commented on your post."
+        }
 
-//        cell?.actionLabel.text = actionStr
+        cell?.actionLabel.text = actionStr
 
         return cell!
     }

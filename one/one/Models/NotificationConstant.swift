@@ -15,9 +15,9 @@ enum Notifications: String {
     case action = "action"
 }
 
-enum NotificationsAction: Int {
-    case like
-    case comment
-    case follow
-    case mention
+enum NotificationsAction: String {
+    case like = "like"
+    case comment = "comment"
+    case follow = "follow"
+    case mention = "mention"
 }

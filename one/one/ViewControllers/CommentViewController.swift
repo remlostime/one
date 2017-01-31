@@ -21,6 +21,8 @@ class CommentViewController: UIViewController {
 
     @IBOutlet var commentsView: UIView!
 
+    var postUsername: String?
+
     var commentUUID: String?
 
     let countOfCommentsPerPage: Int32 = 15
@@ -62,6 +64,12 @@ class CommentViewController: UIViewController {
         comment[Comments.comment_uuid.rawValue] = commentModel.uuid
         comment.saveEventually()
 
+        let notification = PFObject(className: Notifications.modelName.rawValue)
+        notification[Notifications.sender.rawValue] = PFUser.current()?.username!
+        notification[Notifications.receiver.rawValue] = postUsername!
+        notification[Notifications.action.rawValue] = NotificationsAction.comment.rawValue
+        notification.saveEventually()
+
         let text: [String] = (commentTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines))!
         for word in text {
             if word.hasPrefix("#") {
@@ -72,6 +80,15 @@ class CommentViewController: UIViewController {
                 object[Hashtag.commentid.rawValue] = commentModel.uuid
 
                 object.saveEventually()
+            }
+
+            if word.hasPrefix("@") {
+                let notification = PFObject(className: Notifications.modelName.rawValue)
+                notification[Notifications.sender.rawValue] = PFUser.current()?.username!
+                let index = word.index(word.startIndex, offsetBy: 1)
+                notification[Notifications.receiver.rawValue] = word.substring(from: index)
+                notification[Notifications.action.rawValue] = NotificationsAction.mention.rawValue
+                notification.saveEventually()
             }
         }
 
