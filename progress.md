@@ -13,6 +13,4 @@
 * Notification of likes, comments, follows and mentions
 
 ## Timeline
-[timeline][1]
-
-[1]:	https://github.com/remlostime/one/blob/master/timeline-m0.png
+[timeline](https://github.com/remlostime/one/blob/master/timeline-m0.png)
