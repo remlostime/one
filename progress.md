@@ -15,8 +15,4 @@
 ## Timeline
 [timeline][1]
 
-<<<<<<< HEAD
 [1]:	https://github.com/remlostime/one/blob/master/timeline-m0.png
-=======
-[1]:	https://github.com/remlostime/one/blob/master/iOS-timeline-m0.png
->>>>>>> 14f87c3996573a3722483dd0ac08e54d6d83dd00
