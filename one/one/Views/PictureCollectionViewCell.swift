@@ -11,8 +11,4 @@ import UIKit
 class PictureCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
-    
-    override func prepareForReuse() {
-        imageView.image = nil
-    }
 }

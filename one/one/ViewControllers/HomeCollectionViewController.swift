@@ -16,6 +16,8 @@ class HomeCollectionViewController: UICollectionViewController {
     var uuids = [String]()
     var pictures = [PFFile]()
 
+    var imageCache = NSCache<NSString, UIImage>()
+
     var numberOfPosts = numberOfPicsPerPage
     
     var ptr: UIRefreshControl!
@@ -120,16 +122,27 @@ class HomeCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.pictureCell.rawValue, for: indexPath) as! PictureCollectionViewCell
         
         cell.tag = indexPath.row
-        
-        pictures[indexPath.row].getDataInBackground { (data: Data?, error: Error?) in
-            if error == nil {
-                DispatchQueue.main.async {
-                    if cell.tag == indexPath.row {
-                        cell.imageView.image = UIImage(data: data!)
-                    }
+
+        let key = "\(indexPath.row)"
+        if let image = imageCache.object(forKey: key as NSString) {
+            cell.imageView.image = image
+        } else {
+            pictures[indexPath.row].getDataInBackground { [weak cell, weak self](data: Data?, error: Error?) in
+                guard let strongCell = cell, let strongSelf = self else {
+                    return
                 }
-            } else {
-                print("error:\(error?.localizedDescription)")
+
+                if error == nil {
+                    DispatchQueue.main.async {
+                        if strongCell.tag == indexPath.row {
+                            let image = UIImage(data: data!)
+                            strongSelf.imageCache.setObject(image!, forKey: key as NSString)
+                            strongCell.imageView.image = image
+                        }
+                    }
+                } else {
+                    print("error:\(error?.localizedDescription)")
+                }
             }
         }
     
