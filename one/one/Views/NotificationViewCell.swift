@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol NotificationViewCellDelegate {
+    func navigateToUserPage(_ userid: String?)
+}
+
 class NotificationViewCell: UITableViewCell {
 
     @IBOutlet var profileImageView: UIImageView!
@@ -16,10 +20,18 @@ class NotificationViewCell: UITableViewCell {
 
     @IBOutlet var actionLabel: UILabel!
 
+    var delegate: NotificationViewCellDelegate?
+
+    var userid: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        let profileImageTapped = UITapGestureRecognizer(target: self, action: #selector(navigateToUserPage))
+        profileImageView.addGestureRecognizer(profileImageTapped)
+
+        let usernameTapped = UITapGestureRecognizer(target: self, action: #selector(navigateToUserPage))
+        usernameLabel.addGestureRecognizer(usernameTapped)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,4 +40,7 @@ class NotificationViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func navigateToUserPage() {
+        delegate?.navigateToUserPage(userid)
+    }
 }

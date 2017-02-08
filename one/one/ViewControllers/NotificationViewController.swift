@@ -13,6 +13,8 @@ class NotificationViewController: UITableViewController {
 
     var notifications : [PFObject] = []
 
+    var profileImageCache = NSCache<NSString, UIImage>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +44,39 @@ class NotificationViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.notificationViewCell.rawValue, for: indexPath) as? NotificationViewCell
 
         let notification = notifications[indexPath.row]
-        cell?.usernameLabel.text = notification[Notifications.sender.rawValue] as? String
+
+        guard let userid = notification[Notifications.sender.rawValue] as? String else {
+            return cell!
+        }
+
+        cell?.usernameLabel.text = userid
+        cell?.userid = userid
+        cell?.delegate = self
+
+        if let profileImage = profileImageCache.object(forKey: userid as NSString) {
+            cell?.profileImageView.image = profileImage
+        } else {
+            let userQuery = PFUser.query()
+            userQuery?.whereKey(User.id.rawValue, equalTo: userid)
+
+            userQuery?.getFirstObjectInBackground(block: { (user: PFObject?, error: Error?) in
+                let imageFile = user?[User.profileImage.rawValue] as? PFFile
+
+                imageFile?.getDataInBackground(block: { [weak cell, weak self](data: Data?, error: Error?) in
+                    guard let strongCell = cell, let strongSelf = self else {
+                        return
+                    }
+                    let image = UIImage(data: data!)
+
+                    strongSelf.profileImageCache.setObject(image!, forKey: userid as NSString)
+
+                    DispatchQueue.main.async {
+                        strongCell.profileImageView.image = image;
+                    }
+                })
+            })
+        }
+
         let action = notification[Notifications.action.rawValue] as? String
         var actionStr: String?
 
@@ -60,51 +94,22 @@ class NotificationViewController: UITableViewController {
 
         return cell!
     }
+}
 
+extension NotificationViewController: NotificationViewCellDelegate {
+    func navigateToUserPage(_ userid: String?) {
+        guard let userid = userid else {
+            return
+        }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        if userid == PFUser.current()?.username {
+            let userVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.homeViewController.rawValue)
+            self.navigationController?.pushViewController(userVC!, animated: true)
+        } else {
+            let userVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.guestViewController.rawValue) as? GuestCollectionViewController
+            userVC?.guestname = userid
+
+            self.navigationController?.pushViewController(userVC!, animated: true)
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
