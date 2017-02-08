@@ -16,6 +16,13 @@ class SignInViewController: UIViewController {
     @IBOutlet var signInButton: UIButton!
     @IBOutlet var signUpButton: UIButton!
 
+    override func viewDidLoad() {
+        signInButton.layer.borderColor = UIColor.lightGray.cgColor
+        signUpButton.layer.borderColor = UIColor.lightGray.cgColor
+        userNameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
+        passwordTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
+    }
+
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         let username = userNameTextField.text
         let password = passwordTextField.text

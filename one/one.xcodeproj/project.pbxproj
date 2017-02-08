@@ -22,6 +22,10 @@
 		DB1E55591E30237300D4AC26 /* HashtagCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E55581E30237300D4AC26 /* HashtagCollectionViewController.swift */; };
 		DB37518B1E24587B00D3EBDE /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37518A1E24587B00D3EBDE /* CommentViewController.swift */; };
 		DB37518D1E24591F00D3EBDE /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37518C1E24591F00D3EBDE /* CommentViewCell.swift */; };
+		DB42D57C1E4A92CA00506E9B /* Vonique64.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB42D5781E4A92CA00506E9B /* Vonique64.ttf */; };
+		DB42D57D1E4A92CA00506E9B /* Vonique 64 Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB42D5791E4A92CA00506E9B /* Vonique 64 Bold Italic.ttf */; };
+		DB42D57E1E4A92CA00506E9B /* Vonique 64 Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB42D57A1E4A92CA00506E9B /* Vonique 64 Bold.ttf */; };
+		DB42D57F1E4A92CA00506E9B /* Vonique 64 Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB42D57B1E4A92CA00506E9B /* Vonique 64 Italic.ttf */; };
 		DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5708831E08A31B005AA367 /* AppDelegate.swift */; };
 		DB5708891E08A31B005AA367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5708871E08A31B005AA367 /* Main.storyboard */; };
 		DB57088B1E08A31B005AA367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB57088A1E08A31B005AA367 /* Assets.xcassets */; };
@@ -83,6 +87,10 @@
 		DB1E55581E30237300D4AC26 /* HashtagCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashtagCollectionViewController.swift; path = ViewControllers/HashtagCollectionViewController.swift; sourceTree = "<group>"; };
 		DB37518A1E24587B00D3EBDE /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentViewController.swift; path = ViewControllers/CommentViewController.swift; sourceTree = "<group>"; };
 		DB37518C1E24591F00D3EBDE /* CommentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentViewCell.swift; path = Views/CommentViewCell.swift; sourceTree = "<group>"; };
+		DB42D5781E4A92CA00506E9B /* Vonique64.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Vonique64.ttf; path = Resources/Vonique64.ttf; sourceTree = "<group>"; };
+		DB42D5791E4A92CA00506E9B /* Vonique 64 Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Vonique 64 Bold Italic.ttf"; path = "Resources/Vonique 64 Bold Italic.ttf"; sourceTree = "<group>"; };
+		DB42D57A1E4A92CA00506E9B /* Vonique 64 Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Vonique 64 Bold.ttf"; path = "Resources/Vonique 64 Bold.ttf"; sourceTree = "<group>"; };
+		DB42D57B1E4A92CA00506E9B /* Vonique 64 Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Vonique 64 Italic.ttf"; path = "Resources/Vonique 64 Italic.ttf"; sourceTree = "<group>"; };
 		DB5708801E08A31B005AA367 /* one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5708831E08A31B005AA367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5708881E08A31B005AA367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +171,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DB42D5771E4A926700506E9B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB42D5781E4A92CA00506E9B /* Vonique64.ttf */,
+				DB42D5791E4A92CA00506E9B /* Vonique 64 Bold Italic.ttf */,
+				DB42D57A1E4A92CA00506E9B /* Vonique 64 Bold.ttf */,
+				DB42D57B1E4A92CA00506E9B /* Vonique 64 Italic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		DB5708771E08A31B005AA367 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +203,7 @@
 		DB5708821E08A31B005AA367 /* one */ = {
 			isa = PBXGroup;
 			children = (
+				DB42D5771E4A926700506E9B /* Resources */,
 				DBD4447B1E15C25400BCE97A /* Helpers */,
 				DBD444601E15C0C100BCE97A /* Views */,
 				DBD4445F1E15C0BA00BCE97A /* Models */,
@@ -349,7 +369,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB57088E1E08A31B005AA367 /* LaunchScreen.storyboard in Resources */,
+				DB42D57F1E4A92CA00506E9B /* Vonique 64 Italic.ttf in Resources */,
+				DB42D57E1E4A92CA00506E9B /* Vonique 64 Bold.ttf in Resources */,
 				DB57088B1E08A31B005AA367 /* Assets.xcassets in Resources */,
+				DB42D57C1E4A92CA00506E9B /* Vonique64.ttf in Resources */,
+				DB42D57D1E4A92CA00506E9B /* Vonique 64 Bold Italic.ttf in Resources */,
 				DB5708891E08A31B005AA367 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
