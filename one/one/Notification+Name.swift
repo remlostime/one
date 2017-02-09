@@ -11,4 +11,6 @@ import Foundation
 extension Notification.Name {
     
     static let newPostIsSent = Notification.Name("newPostIsSent")
+
+    static let updateUserInfo = Notification.Name("updateUserInfo")
 }

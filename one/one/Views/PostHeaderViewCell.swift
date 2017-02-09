@@ -35,6 +35,8 @@ class PostHeaderViewCell: UITableViewCell {
 
     @IBOutlet var heartImageView: UIImageView!
 
+    @IBOutlet var likeLabel: UILabel!
+    
     var delegate: PostHeaderViewCellDelegate?
 
     var isLiked: Bool?
@@ -85,6 +87,12 @@ class PostHeaderViewCell: UITableViewCell {
         self.uuid = uuid
 
         configLike()
+
+        let likesQuery = PFQuery(className: Like.modelName.rawValue)
+        likesQuery.whereKey(Like.postID.rawValue, equalTo: uuid)
+        likesQuery.countObjectsInBackground { [weak self](count: Int32, error: Error?) in
+            self?.likeLabel.text = "\(count) likes"
+        }
 
         let postQuery = PFQuery(className: Post.modelName.rawValue)
         postQuery.whereKey(Post.uuid.rawValue, equalTo: uuid)
