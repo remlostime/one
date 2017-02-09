@@ -26,6 +26,7 @@ class HomeCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .newPostIsSent, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUserInfo), name: .updateUserInfo, object: nil)
 
         self.navigationItem.title = PFUser.current()?.username
         
@@ -38,6 +39,10 @@ class HomeCollectionViewController: UICollectionViewController {
     
     func reloadData() {
         loadPosts(false)
+    }
+
+    func updateUserInfo() {
+        reloadData()
     }
     
     func pullToRefresh() {

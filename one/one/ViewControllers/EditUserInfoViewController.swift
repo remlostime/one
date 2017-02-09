@@ -117,10 +117,10 @@ class EditUserInfoViewController: UITableViewController {
                 return
             }
             
-            // TODO: NSNotification to tell home profile vc to update user info
-            
-            strongSelf.dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: .updateUserInfo, object: nil)
         })
+
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
@@ -142,6 +142,8 @@ class EditUserInfoViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.profileUserImageViewCell.rawValue, for: indexPath) as? ProfileUserImageViewCell
             // setup user image
             cell?.delegate = self
+
+            profileImageCell = cell
             
             let profileImageFile = userInfo.profileImageFile
             profileImageFile?.getDataInBackground(block: { [weak cell](data: Data?, error: Error?) in
@@ -195,8 +197,6 @@ extension EditUserInfoViewController: ProfileUserImageViewCellDelegate {
         imagePickerVC.delegate = self
         imagePickerVC.sourceType = .photoLibrary
         imagePickerVC.allowsEditing = true
-        
-        self.profileImageCell = profileImageCell
         
         present(imagePickerVC, animated: true, completion: nil)
     }
