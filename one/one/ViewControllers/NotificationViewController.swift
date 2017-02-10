@@ -14,6 +14,7 @@ class NotificationViewController: UITableViewController {
     var notifications : [PFObject] = []
 
     var profileImageCache = NSCache<NSString, UIImage>()
+    var postImageCache = NSCache<NSString, UIImage>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,31 @@ class NotificationViewController: UITableViewController {
             })
         }
 
+        if let postUUID = notification[Notifications.postUUID.rawValue] as? String {
+            cell?.postUUID = postUUID
+
+            if let postImage = postImageCache.object(forKey: postUUID as NSString) {
+                cell?.postImageView.image = postImage
+            } else {
+                let postQuery = PFQuery(className: Post.modelName.rawValue)
+                postQuery.whereKey(Post.uuid.rawValue, equalTo: postUUID)
+
+                postQuery.getFirstObjectInBackground(block: { (object: PFObject?, error: Error?) in
+                    let imageFile = object?[Post.picture.rawValue] as? PFFile
+
+                    imageFile?.getDataInBackground(block: { [weak cell, weak self](data: Data?, error: Error?) in
+                        let image = UIImage(data: data!)
+
+                        self?.postImageCache.setObject(image!, forKey: postUUID as NSString)
+
+                        DispatchQueue.main.async {
+                            cell?.postImageView.image = image;
+                        }
+                    })
+                })
+            }
+        }
+
         let action = notification[Notifications.action.rawValue] as? String
         var actionStr: String?
 
@@ -93,6 +119,14 @@ class NotificationViewController: UITableViewController {
         cell?.actionLabel.text = actionStr
 
         return cell!
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }
 
@@ -111,5 +145,17 @@ extension NotificationViewController: NotificationViewCellDelegate {
 
             self.navigationController?.pushViewController(userVC!, animated: true)
         }
+    }
+
+    func navigateToPostPage(_ postUUID: String?) {
+        guard let postUUID = postUUID else {
+            return
+        }
+
+        let postVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.postViewController.rawValue) as? PostViewController
+
+        postVC?.postUUID = postUUID
+
+        self.navigationController?.pushViewController(postVC!, animated: true)
     }
 }

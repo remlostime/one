@@ -46,6 +46,10 @@ class CommentViewController: UIViewController {
     }
 
     @IBAction func postButtonTapped(_ sender: UIButton) {
+        sendComment()
+    }
+
+    func sendComment() {
         let comment = PFObject(className: Comments.modelName.rawValue)
         let commentModel = CommentViewCellModel()
 
@@ -91,7 +95,7 @@ class CommentViewController: UIViewController {
                 notification.saveEventually()
             }
         }
-
+        
         commentTextField.text = nil
     }
 
@@ -334,6 +338,14 @@ extension CommentViewController: UITextFieldDelegate {
         } else {
             postButton.isEnabled = true
         }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+
+        sendComment()
+
+        return true
     }
 }
 
