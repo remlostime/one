@@ -286,7 +286,7 @@
         <scene sceneID="tJy-Tr-Uw1">
             <objects>
                 <collectionViewController storyboardIdentifier="homeVC" id="kXB-iV-UEx" customClass="HomeCollectionViewController" customModule="one" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pRB-29-ONP">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="pRB-29-ONP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -557,7 +557,7 @@
         <scene sceneID="ZLg-tJ-R5a">
             <objects>
                 <collectionViewController storyboardIdentifier="hashtagViewController" id="ZDV-44-gHu" customClass="HashtagCollectionViewController" customModule="one" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wUC-Je-sQU">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="wUC-Je-sQU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -605,7 +605,7 @@
         <scene sceneID="Qxa-IL-4ZJ">
             <objects>
                 <collectionViewController storyboardIdentifier="guestVC" id="8Ly-6N-fWe" customClass="GuestCollectionViewController" customModule="one" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fLD-mL-ll3">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="fLD-mL-ll3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1415,7 +1415,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rbk-Qt-0rv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" id="jNc-uP-uHy"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d2z-gY-Mn1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d2z-gY-Mn1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1440,9 +1440,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OgR-wo-NbW">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="OgR-wo-NbW">
                                 <rect key="frame" x="16" y="72" width="100" height="100"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="HCa-9M-yFn"/>
                                     <constraint firstAttribute="height" constant="100" id="UHa-Rf-xiG"/>
@@ -1507,7 +1508,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cU1-hw-8Tf" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wQJ-5a-12F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wQJ-5a-12F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1526,7 +1527,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xQJ-qm-VNg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Post" image="post" id="DIK-d5-a4C"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EEi-PG-kw4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EEi-PG-kw4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1605,7 +1606,7 @@
                     <tabBarItem key="tabBarItem" title="Feed" image="home" id="Wq0-W1-T5v"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WZ1-F4-n1f">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WZ1-F4-n1f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1624,7 +1625,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SYA-WC-irg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="Search" id="Fvj-5t-8CU"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oji-zV-XUB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Oji-zV-XUB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1710,7 +1711,7 @@
         <scene sceneID="Poa-Sj-UI5">
             <objects>
                 <collectionViewController id="Mcr-qS-0h5" customClass="SearchCollectionViewController" customModule="one" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UIP-Qf-4kn">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="UIP-Qf-4kn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1761,7 +1762,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WfI-Sp-9iz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notification" image="unlike" id="G5w-c2-0ba"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BnT-aF-ADZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BnT-aF-ADZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1776,6 +1777,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Camera" width="250" height="250"/>
         <image name="Search" width="36" height="36"/>
         <image name="comment" width="36" height="36"/>
         <image name="default_profile_image" width="123" height="123"/>
