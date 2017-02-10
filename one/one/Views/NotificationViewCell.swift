@@ -10,6 +10,8 @@ import UIKit
 
 protocol NotificationViewCellDelegate {
     func navigateToUserPage(_ userid: String?)
+
+    func navigateToPostPage(_ postUUID: String?)
 }
 
 class NotificationViewCell: UITableViewCell {
@@ -20,9 +22,13 @@ class NotificationViewCell: UITableViewCell {
 
     @IBOutlet var actionLabel: UILabel!
 
+    @IBOutlet var postImageView: UIImageView!
+
     var delegate: NotificationViewCellDelegate?
 
     var userid: String?
+
+    var postUUID: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +38,9 @@ class NotificationViewCell: UITableViewCell {
 
         let usernameTapped = UITapGestureRecognizer(target: self, action: #selector(navigateToUserPage))
         usernameLabel.addGestureRecognizer(usernameTapped)
+
+        let postImageTapped = UITapGestureRecognizer(target: self, action: #selector(navigateToPostPage))
+        postImageView.addGestureRecognizer(postImageTapped)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,5 +51,9 @@ class NotificationViewCell: UITableViewCell {
 
     func navigateToUserPage() {
         delegate?.navigateToUserPage(userid)
+    }
+
+    func navigateToPostPage() {
+        delegate?.navigateToPostPage(postUUID)
     }
 }

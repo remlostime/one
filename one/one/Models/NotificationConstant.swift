@@ -13,6 +13,7 @@ enum Notifications: String {
     case sender = "sender"
     case receiver = "receiver"
     case action = "action"
+    case postUUID = "post_uuid"
 }
 
 enum NotificationsAction: String {
