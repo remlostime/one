@@ -18,6 +18,8 @@ class NotificationViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "One"
 
         let username = PFUser.current()?.username
         let query = PFQuery(className: Notifications.modelName.rawValue)
