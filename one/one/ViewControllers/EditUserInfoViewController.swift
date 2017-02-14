@@ -40,9 +40,9 @@ class EditUserInfoViewController: UITableViewController {
         genderPickerView.backgroundColor = UIColor.groupTableViewBackground
         genderPickerView.showsSelectionIndicator = true
 
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
 
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
     }
     
     // MARK: Action
