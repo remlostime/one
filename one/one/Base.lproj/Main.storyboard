@@ -1179,11 +1179,13 @@
             </objects>
             <point key="canvasLocation" x="241.5" y="-314.5"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="FhA-kM-PGv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rbk-Qt-0rv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="jNc-uP-uHy"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="jNc-uP-uHy">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d2z-gY-Mn1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1273,11 +1275,13 @@
             </objects>
             <point key="canvasLocation" x="1676" y="902"/>
         </scene>
-        <!--Post-->
+        <!--Navigation Controller-->
         <scene sceneID="p4w-y6-xWV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xQJ-qm-VNg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Post" image="post" id="DIK-d5-a4C"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="post" id="DIK-d5-a4C">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EEi-PG-kw4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1355,11 +1359,13 @@
             </objects>
             <point key="canvasLocation" x="1676" y="1684"/>
         </scene>
-        <!--Feed-->
+        <!--Navigation Controller-->
         <scene sceneID="GRs-Ja-6db">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wEd-QA-e5j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="home" id="Wq0-W1-T5v"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="Wq0-W1-T5v">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WZ1-F4-n1f">
@@ -1379,11 +1385,13 @@
             </objects>
             <point key="canvasLocation" x="1214.5" y="-709.5"/>
         </scene>
-        <!--Search-->
+        <!--Navigation Controller-->
         <scene sceneID="Gea-Mw-Y7s">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SYA-WC-irg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="Search" id="Fvj-5t-8CU"/>
+                    <tabBarItem key="tabBarItem" title="" image="Search" id="Fvj-5t-8CU">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Oji-zV-XUB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1530,11 +1538,13 @@
             </objects>
             <point key="canvasLocation" x="2161" y="1684"/>
         </scene>
-        <!--Notification-->
+        <!--Navigation Controller-->
         <scene sceneID="zUM-Ra-FGP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WfI-Sp-9iz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notification" image="unlike" id="G5w-c2-0ba"/>
+                    <tabBarItem key="tabBarItem" title="" image="unlike" id="G5w-c2-0ba">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BnT-aF-ADZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
