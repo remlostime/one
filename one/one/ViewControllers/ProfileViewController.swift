@@ -261,7 +261,8 @@ class ProfileViewController: UICollectionViewController {
 extension ProfileViewController: HomeHeaderCollectionViewDelegate {
     func navigateToEditPage() {
         let editVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.editUserInfoViewController.rawValue) as? EditUserInfoViewController
+        let navigationVC = UINavigationController(rootViewController: editVC!)
 
-        self.navigationController?.pushViewController(editVC!, animated: true)
+        present(navigationVC, animated: true, completion: nil)
     }
 }

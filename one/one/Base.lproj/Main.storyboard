@@ -448,7 +448,7 @@
             </objects>
             <point key="canvasLocation" x="1675.5" y="50.5"/>
         </scene>
-        <!--Edit Profile-->
+        <!--Edit User Info View Controller-->
         <scene sceneID="UrZ-AG-n6e">
             <objects>
                 <tableViewController storyboardIdentifier="editUserInfoViewController" id="616-Vk-cBa" customClass="EditUserInfoViewController" customModule="one" customModuleProvider="target" sceneMemberID="viewController">
@@ -536,10 +536,6 @@
                             <outlet property="delegate" destination="616-Vk-cBa" id="huS-G1-dyd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit Profile" id="pBo-6w-X0l">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oHk-sb-lsb"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Bic-M1-tcH"/>
-                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anR-HG-xn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
