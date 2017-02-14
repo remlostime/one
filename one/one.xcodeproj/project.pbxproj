@@ -60,7 +60,6 @@
 		DBD4446C1E15C16500BCE97A /* UserInfoHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444691E15C16500BCE97A /* UserInfoHelpers.swift */; };
 		DBD444771E15C16F00BCE97A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444701E15C16F00BCE97A /* SignUpViewController.swift */; };
 		DBD444781E15C16F00BCE97A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444711E15C16F00BCE97A /* SignInViewController.swift */; };
-		DBD444791E15C16F00BCE97A /* GuestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444721E15C16F00BCE97A /* GuestCollectionViewController.swift */; };
 		DBD4447A1E15C16F00BCE97A /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444731E15C16F00BCE97A /* ResetPasswordViewController.swift */; };
 		DBD4447D1E15C2F100BCE97A /* UIColor+OneColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4447C1E15C2F100BCE97A /* UIColor+OneColor.swift */; };
 		DBD4447F1E15CA4200BCE97A /* IdentifierConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4447E1E15CA4200BCE97A /* IdentifierConstant.swift */; };
@@ -126,7 +125,6 @@
 		DBD444691E15C16500BCE97A /* UserInfoHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoHelpers.swift; path = Models/UserInfoHelpers.swift; sourceTree = "<group>"; };
 		DBD444701E15C16F00BCE97A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ViewControllers/SignUpViewController.swift; sourceTree = "<group>"; };
 		DBD444711E15C16F00BCE97A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
-		DBD444721E15C16F00BCE97A /* GuestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuestCollectionViewController.swift; path = ViewControllers/GuestCollectionViewController.swift; sourceTree = "<group>"; };
 		DBD444731E15C16F00BCE97A /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = ViewControllers/ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DBD4447C1E15C2F100BCE97A /* UIColor+OneColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+OneColor.swift"; path = "Helpers/UIColor+OneColor.swift"; sourceTree = "<group>"; };
 		DBD4447E1E15CA4200BCE97A /* IdentifierConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdentifierConstant.swift; path = Helpers/IdentifierConstant.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 			children = (
 				DB6216531E527CA500A8C255 /* FollowViewController.swift */,
 				DBCFB7861E529FA1008182A1 /* ProfileViewController.swift */,
-				DBD444721E15C16F00BCE97A /* GuestCollectionViewController.swift */,
 				DBD444701E15C16F00BCE97A /* SignUpViewController.swift */,
 				DBD444711E15C16F00BCE97A /* SignInViewController.swift */,
 				DBD444731E15C16F00BCE97A /* ResetPasswordViewController.swift */,
@@ -434,7 +431,6 @@
 				DB6240E11E1C623D000B5CA9 /* PostViewController.swift in Sources */,
 				DBD8D8191E1F063500CF6685 /* TabBarController.swift in Sources */,
 				DBD4447F1E15CA4200BCE97A /* IdentifierConstant.swift in Sources */,
-				DBD444791E15C16F00BCE97A /* GuestCollectionViewController.swift in Sources */,
 				DBD444771E15C16F00BCE97A /* SignUpViewController.swift in Sources */,
 				DB1E55591E30237300D4AC26 /* HashtagCollectionViewController.swift in Sources */,
 				105977A81E16EB5700FB3E73 /* ProfileUserImageViewCell.swift in Sources */,

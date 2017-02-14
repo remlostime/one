@@ -16,7 +16,7 @@ class FeedViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "One"
+        self.navigationItem.title = "One"
 
         loadPosts()
     }

@@ -19,7 +19,7 @@ class SharePostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "One"
+        self.navigationItem.title = "One"
         
         let imageViewTap = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         imageView.addGestureRecognizer(imageViewTap)
