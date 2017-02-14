@@ -66,7 +66,7 @@ extension PostViewController: PostHeaderViewCellDelegate {
         }
 
         if username == PFUser.current()?.username! {
-            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.homeViewController.rawValue) as? HomeCollectionViewController
+            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.profileViewController.rawValue) as? ProfileViewController
             self.navigationController?.pushViewController(homeVC!, animated: true)
         } else {
             let guestVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.guestViewController.rawValue)

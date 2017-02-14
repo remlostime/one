@@ -9,6 +9,10 @@
 import UIKit
 import Parse
 
+protocol HomeHeaderCollectionViewDelegate {
+    func navigateToEditPage()
+}
+
 class HomeHeaderCollectionView: UICollectionReusableView {
         
     @IBOutlet var profileImageView: UIImageView!
@@ -19,16 +23,18 @@ class HomeHeaderCollectionView: UICollectionReusableView {
     @IBOutlet var followingNumLabel: UILabel!
     @IBOutlet var editButton: UIButton!
 
-    var guestname: String = ""
+    var username: String = ""
+
+    var delegate: HomeHeaderCollectionViewDelegate?
 
     let currentUsername = PFUser.current()?.username
 
     func config() {
-        if guestname.isEmpty {
+        if username == currentUsername {
             editButton.layer.borderWidth = 1
             editButton.layer.borderColor = UIColor.lightGray.cgColor
         } else {
-            configButton(currentUsername, toUser: guestname)
+            configButton(currentUsername, toUser: username)
         }
         editButton.layer.cornerRadius = 3
     }
@@ -71,12 +77,17 @@ class HomeHeaderCollectionView: UICollectionReusableView {
     }
 
     @IBAction func buttonTapped(_ sender: UIButton) {
+        if username == currentUsername {
+            delegate?.navigateToEditPage()
+            return
+        }
+
         let title = editButton.title(for: .normal)
         
         if title == FollowUI.followButtonText.rawValue {
             let object = PFObject(className: Follow.modelName.rawValue)
             object[Follow.follower.rawValue] = (PFUser.current()?.username)!
-            object[Follow.following.rawValue] = guestname
+            object[Follow.following.rawValue] = username
             object.saveInBackground(block: { [weak self](success: Bool, error: Error?) in
                 guard let strongSelf = self else {
                     return
@@ -91,7 +102,7 @@ class HomeHeaderCollectionView: UICollectionReusableView {
         } else if title == FollowUI.followingButtonText.rawValue {
             let query = PFQuery(className: Follow.modelName.rawValue)
             query.whereKey(Follow.follower.rawValue, equalTo: (PFUser.current()?.username)!)
-            query.whereKey(Follow.following.rawValue, equalTo: guestname)
+            query.whereKey(Follow.following.rawValue, equalTo: username)
             query.findObjectsInBackground(block: { [weak self](objects: [PFObject]?, error: Error?) in
                 guard let strongSelf = self else {
                     return

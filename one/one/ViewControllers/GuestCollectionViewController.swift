@@ -97,7 +97,7 @@ class GuestCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Identifier.homeHeaderView.rawValue, for: indexPath) as? HomeHeaderCollectionView
 
-        headerView?.guestname = guestname
+//        headerView?.guestname = guestname
         headerView?.config()
         
         let query = PFUser.query()
@@ -171,13 +171,15 @@ class GuestCollectionViewController: UICollectionViewController {
     }
     
     func followerTapped() {
-        let followerVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.followerVC.rawValue) as? FollowersViewController
+        let followerVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.followVC.rawValue) as? FollowViewController
+        followerVC?.status = .Followers
         
         self.navigationController?.pushViewController(followerVC!, animated: true)
     }
     
     func followingTapped() {
-        let followingVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.followingVC.rawValue) as? FollowingViewController
+        let followingVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.followVC.rawValue) as? FollowViewController
+        followingVC?.status = .Following
         self.navigationController?.pushViewController(followingVC!, animated: true)
     }
 }

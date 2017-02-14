@@ -48,16 +48,10 @@ class SearchTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = users[indexPath.row]
-        var dstVC: UIViewController?
+        let username = users[indexPath.row]
 
-        if user == PFUser.current()?.username {
-            dstVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.homeViewController.rawValue)
-        } else {
-            let guestVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.guestViewController.rawValue) as? GuestCollectionViewController
-            guestVC?.guestname = user!
-            dstVC = guestVC
-        }
+        let dstVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.profileViewController.rawValue) as? ProfileViewController
+        dstVC?.userid = username
         self.navigationController?.pushViewController(dstVC!, animated: true)
     }
 
