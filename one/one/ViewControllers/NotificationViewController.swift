@@ -138,15 +138,9 @@ extension NotificationViewController: NotificationViewCellDelegate {
             return
         }
 
-        if userid == PFUser.current()?.username {
-            let userVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.homeViewController.rawValue)
-            self.navigationController?.pushViewController(userVC!, animated: true)
-        } else {
-            let userVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.guestViewController.rawValue) as? GuestCollectionViewController
-            userVC?.guestname = userid
-
-            self.navigationController?.pushViewController(userVC!, animated: true)
-        }
+        let userVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.profileViewController.rawValue) as? ProfileViewController
+        userVC?.userid = userid
+        self.navigationController?.pushViewController(userVC!, animated: true)
     }
 
     func navigateToPostPage(_ postUUID: String?) {

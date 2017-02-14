@@ -10,12 +10,11 @@ import Foundation
 
 enum Identifier: String {
     case followViewCell = "followViewCell"
-    case homeViewController = "homeVC"
+    case profileViewController = "profileViewController"
     case guestViewController = "guestVC"
     case homeHeaderView = "homeHeaderView"
     case pictureCell = "pictureCell"
-    case followingVC = "followingVC"
-    case followerVC = "followerVC"
+    case followVC = "followVC"
     case signInViewController = "signInVC"
     case commentViewController = "CommentViewController"
     case profileUserImageViewCell = "profileUserImageViewCell"
@@ -27,4 +26,5 @@ enum Identifier: String {
     case searchViewCell = "SearchViewCell"
     case searchTableViewController = "SearchTableViewController"
     case notificationViewCell = "NotificationViewCell"
+    case editUserInfoViewController = "editUserInfoViewController"
 }

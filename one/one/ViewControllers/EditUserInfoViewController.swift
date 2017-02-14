@@ -39,15 +39,19 @@ class EditUserInfoViewController: UITableViewController {
         genderPickerView.delegate = self
         genderPickerView.backgroundColor = UIColor.groupTableViewBackground
         genderPickerView.showsSelectionIndicator = true
+
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
+
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
     }
     
     // MARK: Action
     
-    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+    func cancelButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+    func doneButtonTapped() {
         // TODO: We should setup listener in email field to get email when user is done with it
         let emailIndexPath = IndexPath(row: 0, section: 1)
         let emailCell = tableView.cellForRow(at: emailIndexPath) as? UserInfoViewCell

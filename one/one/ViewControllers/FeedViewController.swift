@@ -78,14 +78,9 @@ extension FeedViewController: PostHeaderViewCellDelegate {
             return
         }
 
-        if username == PFUser.current()?.username! {
-            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.homeViewController.rawValue) as? HomeCollectionViewController
-            self.navigationController?.pushViewController(homeVC!, animated: true)
-        } else {
-            let guestVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.guestViewController.rawValue) as? GuestCollectionViewController
-            guestVC?.guestname = username
-            self.navigationController?.pushViewController(guestVC!, animated: true)
-        }
+        let homeVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.profileViewController.rawValue) as? ProfileViewController
+        homeVC?.userid = username
+        self.navigationController?.pushViewController(homeVC!, animated: true)
     }
 
     func showActionSheet(_ alertController: UIAlertController?) {
