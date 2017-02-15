@@ -1,5 +1,9 @@
 language: objective-c  
-osx_image: xcode8.0 
+osx_image: xcode8.1
 xcode_workspace: one/one.xcworkspace
-xcode_scheme: one/one
-xcode_sdk: iphonesimulator9.3
+xcode_scheme: one
+<<<<<<< cf343d882e30a93ce719db497eb46f83b6068b13
+xcode_sdk: iphonesimulator10.1
+=======
+xcode_sdk: iphonesimulator10.0
+>>>>>>> Fix Travis
