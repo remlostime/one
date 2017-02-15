@@ -11,5 +11,6 @@ target 'one' do
   pod 'FastImageCache'
   pod 'KILabel'
   pod 'CocoaLumberjack/Swift'
+  pod 'ActiveLabel'
 
 end
