@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import CocoaLumberjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let username = UserDefaults.standard.string(forKey: User.id.rawValue)
         login(withUserName: username)
+
+        DDLog.add(DDTTYLogger.sharedInstance()) // TTY = Xcode console
+        DDLog.add(DDASLLogger.sharedInstance()) // ASL = Apple System Logs
+
+        DDTTYLogger.sharedInstance().setForegroundColor(.red, backgroundColor: .black, for: .debug)
+
+        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
+        fileLogger.rollingFrequency = TimeInterval(60*60*24)  // 24 hours
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
+        DDLog.add(fileLogger)
+
+        DDLogDebug("CK")
 
         return true
     }
