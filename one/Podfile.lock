@@ -14,6 +14,13 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - CocoaLumberjack/Core (3.0.0)
+  - CocoaLumberjack/Default (3.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (3.0.0):
+    - CocoaLumberjack/Default
+  - CocoaLumberjack/Swift (3.0.0):
+    - CocoaLumberjack/Extensions
   - FastImageCache (1.5.1)
   - JSONModel (1.7.0)
   - KILabel (1.0.1)
@@ -25,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - CocoaLumberjack/Swift
   - FastImageCache
   - JSONModel
   - KILabel
@@ -34,6 +42,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   FastImageCache: 2e7a6f677b15336eb3d1a4092a494676256c891d
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   KILabel: 4797807cdc0b4992dad8bf91175ddc973c3b569b
@@ -41,6 +50,6 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
 
-PODFILE CHECKSUM: eddef6cee8d5f9358026fbc30d1fda79bfdc1f39
+PODFILE CHECKSUM: c77321a8e7832b6ecb5cf77be9ef441233bb9616
 
 COCOAPODS: 1.1.1
