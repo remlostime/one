@@ -39,37 +39,45 @@ class SharePostViewController: UIViewController {
         pickerVC.sourceType = .photoLibrary
         present(pickerVC, animated: true, completion: nil)
     }
-    
-    @IBAction func sharePostButtonTapped(_ sender: UIButton) {
+
+    func postImage() {
         let object = PFObject(className: Post.modelName.rawValue)
         object[User.id.rawValue] = PFUser.current()?.username
         object[User.profileImage.rawValue] = PFUser.current()?.value(forKey: User.profileImage.rawValue) as? PFFile
-        
+
         if (contentTextField.text?.isEmpty)! {
             object[Post.title.rawValue] = ""
         } else {
             object[Post.title.rawValue] = contentTextField.text?.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         }
-        
+
         let imageData = UIImagePNGRepresentation(imageView.image!)
         let imageFile = PFFile(name: "post.png", data: imageData!)
         object[Post.picture.rawValue] = imageFile
 
         object[Post.uuid.rawValue] = UUID().uuidString
-        
+
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        
+
         object.saveInBackground { [weak self](success: Bool, error: Error?) in
             guard let strongSelf = self else {
                 return
             }
-            
+
             if error == nil {
                 MBProgressHUD.hide(for: strongSelf.view, animated: true)
                 NotificationCenter.default.post(name: .newPostIsSent, object: nil)
                 strongSelf.tabBarController?.selectedIndex = 0
             }
         }
+    }
+
+    @IBAction func topRightPostButtonTapped(_ sender: UIBarButtonItem) {
+        postImage()
+    }
+    
+    @IBAction func sharePostButtonTapped(_ sender: UIButton) {
+        postImage()
     }
     
     @IBAction func removeButtonTapped(_ sender: UIButton) {
