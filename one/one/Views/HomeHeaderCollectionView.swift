@@ -36,7 +36,7 @@ class HomeHeaderCollectionView: UICollectionReusableView {
         } else {
             configButton(currentUsername, toUser: username)
         }
-        editButton.layer.cornerRadius = 3
+        editButton.layer.cornerRadius = 2
     }
 
     func configFollowButtonStyle() {
