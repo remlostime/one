@@ -52,7 +52,7 @@ class PostViewController: UITableViewController {
             let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? PostHeaderViewCell
             dstVC?.postUsername = cell?.profileUsernameButton.title(for: .normal)
             dstVC?.hidesBottomBarWhenPushed = true
-            dstVC?.commentUUID = postUUID
+            dstVC?.postUUID = postUUID
         }
     }
 
@@ -85,7 +85,7 @@ extension PostViewController: PostHeaderViewCellDelegate {
 
         let dstVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.commentViewController.rawValue) as? CommentViewController
         dstVC?.hidesBottomBarWhenPushed = true
-        dstVC?.commentUUID = uuid
+        dstVC?.postUUID = uuid
 
         self.navigationController?.pushViewController(dstVC!, animated: true)
     }

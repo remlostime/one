@@ -10,8 +10,8 @@ import Foundation
 
 enum Comments: String {
     case modelName = "Comments"
-    case uuid = "comment_uuid"
-    case comment_uuid = "uuid"
+    case post_uuid = "post_uuid"
+    case uuid = "uuid"
     case username = "username"
     case comment = "comment"
 }

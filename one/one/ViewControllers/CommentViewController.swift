@@ -23,7 +23,7 @@ class CommentViewController: UIViewController {
 
     var postUsername: String?
 
-    var commentUUID: String?
+    var postUUID: String?
 
     let countOfCommentsPerPage: Int32 = 15
 
@@ -58,8 +58,8 @@ class CommentViewController: UIViewController {
 
         comment[Comments.comment.rawValue] = commentTextField.text
         comment[Comments.username.rawValue] = PFUser.current()?.username
-        comment[Comments.uuid.rawValue] = commentUUID
-        comment[Comments.comment_uuid.rawValue] = commentModel.uuid
+        comment[Comments.post_uuid.rawValue] = postUUID
+        comment[Comments.uuid.rawValue] = commentModel.uuid
         comment.saveEventually()
 
         let notification = PFObject(className: Notifications.modelName.rawValue)
@@ -72,9 +72,10 @@ class CommentViewController: UIViewController {
         for word in text {
             if word.hasPrefix("#") {
                 let object = PFObject(className: Hashtag.modelName.rawValue)
-                object[Hashtag.hashtag.rawValue] = word
+                let startIndex = word.index(word.startIndex, offsetBy: 1)
+                object[Hashtag.hashtag.rawValue] = word.substring(from: startIndex)
                 object[Hashtag.username.rawValue] = PFUser.current()?.username!
-                object[Hashtag.postid.rawValue] = commentUUID!
+                object[Hashtag.postid.rawValue] = postUUID!
                 object[Hashtag.commentid.rawValue] = commentModel.uuid
 
                 object.saveEventually()
@@ -147,7 +148,7 @@ class CommentViewController: UIViewController {
 
     func loadComments() {
         let countQuery = PFQuery(className: Comments.modelName.rawValue)
-        countQuery.whereKey(Comments.uuid.rawValue, equalTo: commentUUID!)
+        countQuery.whereKey(Comments.post_uuid.rawValue, equalTo: postUUID!)
         countQuery.countObjectsInBackground { [weak self](count: Int32, error: Error?) in
             guard let strongSelf = self else {
                 return
@@ -159,7 +160,7 @@ class CommentViewController: UIViewController {
 //            }
 
             let query = PFQuery(className: Comments.modelName.rawValue)
-            query.whereKey(Comments.uuid.rawValue, equalTo: strongSelf.commentUUID!)
+            query.whereKey(Comments.post_uuid.rawValue, equalTo: strongSelf.postUUID!)
 //            query.skip = count - strongSelf.countOfCommentsPerPage
             query.addAscendingOrder("createdAt")
             query.findObjectsInBackground(block: { [weak self](objects: [PFObject]?, error: Error?) in
@@ -236,10 +237,10 @@ extension CommentViewController: UITableViewDelegate {
             let model = strongSelf.commentModels[indexPath.row]
 
             let query = PFQuery(className: Comments.modelName.rawValue)
-            query.whereKey(Comments.uuid.rawValue, equalTo: strongSelf.commentUUID!)
+            query.whereKey(Comments.post_uuid.rawValue, equalTo: strongSelf.postUUID!)
             query.whereKey(Comments.username.rawValue, equalTo: model.username!)
             query.whereKey(Comments.comment.rawValue, equalTo: model.comments!)
-            query.whereKey(Comments.comment_uuid.rawValue, equalTo: model.uuid!)
+            query.whereKey(Comments.uuid.rawValue, equalTo: model.uuid!)
 
             query.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
                 guard let object = objects?.first else {
@@ -266,6 +267,10 @@ extension CommentViewController: UITableViewDelegate {
 
         return deleteAction
     }
+
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 }
 
 extension CommentViewController: UITableViewDataSource {
@@ -284,7 +289,9 @@ extension CommentViewController: UITableViewDataSource {
         cell?.commentLabel.text = model.comments
 
         cell?.commentLabel.enabledTypes = [.mention, .hashtag, .url]
-        
+        cell?.commentLabel.hashtagColor = .cyan
+        cell?.commentLabel.mentionColor = .cyan
+
         cell?.commentLabel.handleHashtagTap({ (hashtag: String) in
             let hashtagVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.hashtagViewController.rawValue) as? HashtagCollectionViewController
             
@@ -296,20 +303,6 @@ extension CommentViewController: UITableViewDataSource {
         cell?.commentLabel.handleMentionTap({ (username: String) in
             self.navigateToUser(username)
         })
-//        cell?.commentLabel.userHandleLinkTapHandler = { label, handle, range in
-//            let index = handle.index(handle.startIndex, offsetBy: 1)
-//            let username = handle.substring(from: index)
-//
-//            self.navigateToUser(username)
-//        }
-//
-//        cell?.commentLabel.hashtagLinkTapHandler = { label, hashtag, range in
-//            let hashtagVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.hashtagViewController.rawValue) as? HashtagCollectionViewController
-//
-//            hashtagVC?.hashtag = hashtag
-//
-//            self.navigationController?.pushViewController(hashtagVC!, animated: true)
-//        }
 
         let user = PFUser.query()
         user?.whereKey(User.id.rawValue, equalTo: model.username!)

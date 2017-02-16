@@ -94,7 +94,7 @@ extension FeedViewController: PostHeaderViewCellDelegate {
 
         let dstVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.commentViewController.rawValue) as? CommentViewController
         dstVC?.hidesBottomBarWhenPushed = true
-        dstVC?.commentUUID = uuid
+        dstVC?.postUUID = uuid
 
         self.navigationController?.pushViewController(dstVC!, animated: true)
     }
