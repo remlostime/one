@@ -1,4 +1,5 @@
 PODS:
+  - ActiveLabel (0.7.0)
   - AFNetworking (3.1.0):
     - AFNetworking/NSURLSession (= 3.1.0)
     - AFNetworking/Reachability (= 3.1.0)
@@ -23,33 +24,35 @@ PODS:
     - CocoaLumberjack/Extensions
   - FastImageCache (1.5.1)
   - JSONModel (1.7.0)
-  - KILabel (1.0.1)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
+  - SCLAlertView (0.7.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
+  - ActiveLabel
   - AFNetworking
   - CocoaLumberjack/Swift
   - FastImageCache
   - JSONModel
-  - KILabel
   - MBProgressHUD
   - MJRefresh
+  - SCLAlertView
   - SDWebImage
 
 SPEC CHECKSUMS:
+  ActiveLabel: eb405c5b99275be52fac161f7a55cab1dd672c54
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   FastImageCache: 2e7a6f677b15336eb3d1a4092a494676256c891d
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
-  KILabel: 4797807cdc0b4992dad8bf91175ddc973c3b569b
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
 
-PODFILE CHECKSUM: c77321a8e7832b6ecb5cf77be9ef441233bb9616
+PODFILE CHECKSUM: 44250368adc69f6435b36b66b550a9608dc4f52b
 
 COCOAPODS: 1.1.1
