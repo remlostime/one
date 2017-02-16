@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 import MJRefresh
-import KILabel
+import ActiveLabel
 
 class CommentViewController: UIViewController {
 
@@ -283,20 +283,33 @@ extension CommentViewController: UITableViewDataSource {
         cell?.delegate = self
         cell?.commentLabel.text = model.comments
 
-        cell?.commentLabel.userHandleLinkTapHandler = { label, handle, range in
-            let index = handle.index(handle.startIndex, offsetBy: 1)
-            let username = handle.substring(from: index)
-
-            self.navigateToUser(username)
-        }
-
-        cell?.commentLabel.hashtagLinkTapHandler = { label, hashtag, range in
+        cell?.commentLabel.enabledTypes = [.mention, .hashtag, .url]
+        
+        cell?.commentLabel.handleHashtagTap({ (hashtag: String) in
             let hashtagVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.hashtagViewController.rawValue) as? HashtagCollectionViewController
-
+            
             hashtagVC?.hashtag = hashtag
-
+            
             self.navigationController?.pushViewController(hashtagVC!, animated: true)
-        }
+        })
+        
+        cell?.commentLabel.handleMentionTap({ (username: String) in
+            self.navigateToUser(username)
+        })
+//        cell?.commentLabel.userHandleLinkTapHandler = { label, handle, range in
+//            let index = handle.index(handle.startIndex, offsetBy: 1)
+//            let username = handle.substring(from: index)
+//
+//            self.navigateToUser(username)
+//        }
+//
+//        cell?.commentLabel.hashtagLinkTapHandler = { label, hashtag, range in
+//            let hashtagVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.hashtagViewController.rawValue) as? HashtagCollectionViewController
+//
+//            hashtagVC?.hashtag = hashtag
+//
+//            self.navigationController?.pushViewController(hashtagVC!, animated: true)
+//        }
 
         let user = PFUser.query()
         user?.whereKey(User.id.rawValue, equalTo: model.username!)

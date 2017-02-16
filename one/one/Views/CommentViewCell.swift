@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import KILabel
+import ActiveLabel
 
 protocol CommentViewCellDelegate {
     func navigateToUser(_ username: String?)
@@ -19,7 +19,7 @@ class CommentViewCell: UITableViewCell {
 
     @IBOutlet var usernameButton: UIButton!
 
-    @IBOutlet var commentLabel: KILabel!
+    @IBOutlet var commentLabel: ActiveLabel!
 
     @IBOutlet var commentTimeLabel: UILabel!
 
