@@ -9,8 +9,8 @@ target 'one' do
   pod 'SDWebImage'
   pod 'MBProgressHUD'
   pod 'FastImageCache'
-  pod 'KILabel'
   pod 'CocoaLumberjack/Swift'
   pod 'ActiveLabel'
+  pod 'SCLAlertView'
 
 end
