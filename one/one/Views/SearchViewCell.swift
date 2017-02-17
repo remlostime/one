@@ -41,8 +41,12 @@ class SearchViewCell: UITableViewCell {
                 let profileFile = object[User.profileImage.rawValue] as? PFFile
 
                 profileFile?.getDataInBackground(block: { (data: Data?, error: Error?) in
+                    guard let data = data else {
+                        return
+                    }
+
                     DispatchQueue.main.async {
-                        let image = UIImage(data: data!)
+                        let image = UIImage(data: data)
 
                         strongSelf.profielImageView.image = image
                     }

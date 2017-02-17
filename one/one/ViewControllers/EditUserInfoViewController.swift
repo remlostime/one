@@ -177,7 +177,7 @@ class EditUserInfoViewController: UITableViewController {
         if section == 0 {
             return nil
         } else {
-            return "PRIVATE INFORMATION"
+            return "Private Information"
         }
     }
     

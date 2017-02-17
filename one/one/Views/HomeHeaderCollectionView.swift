@@ -29,6 +29,8 @@ class HomeHeaderCollectionView: UICollectionReusableView {
 
     let currentUsername = PFUser.current()?.username
 
+    // MARK: Helpers
+
     func config() {
         if username == currentUsername {
             editButton.layer.borderWidth = 1
@@ -39,14 +41,14 @@ class HomeHeaderCollectionView: UICollectionReusableView {
         editButton.layer.cornerRadius = 2
     }
 
-    func configFollowButtonStyle() {
+    private func configFollowButtonStyle() {
         editButton.backgroundColor = .followButtonLightBlue
         editButton.setTitle(FollowUI.followButtonText.rawValue, for: .normal)
         editButton.setTitleColor(.white, for: .normal)
         editButton.layer.borderWidth = 0
     }
 
-    func configFollowingButtonStyle() {
+    private func configFollowingButtonStyle() {
         editButton.layer.borderWidth = 1
         editButton.layer.borderColor = UIColor.lightGray.cgColor
         editButton.backgroundColor = .white
@@ -55,7 +57,7 @@ class HomeHeaderCollectionView: UICollectionReusableView {
     }
 
     // Show current user follow the guest or not
-    func configButton(_ fromUser: String?, toUser: String?) {
+    private func configButton(_ fromUser: String?, toUser: String?) {
         if let fromUser = fromUser, let toUser = toUser {
             let followQuery = PFQuery(className: Follow.modelName.rawValue)
             followQuery.whereKey(Follow.follower.rawValue, equalTo: fromUser)
@@ -76,6 +78,7 @@ class HomeHeaderCollectionView: UICollectionReusableView {
         }
     }
 
+    // MARK: Actions
     @IBAction func buttonTapped(_ sender: UIButton) {
         if username == currentUsername {
             delegate?.navigateToEditPage()
@@ -118,8 +121,6 @@ class HomeHeaderCollectionView: UICollectionReusableView {
                             }
                         })
                     }
-                } else {
-                    
                 }
             })
         }

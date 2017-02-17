@@ -64,7 +64,6 @@
 		DBD4447D1E15C2F100BCE97A /* UIColor+OneColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4447C1E15C2F100BCE97A /* UIColor+OneColor.swift */; };
 		DBD4447F1E15CA4200BCE97A /* IdentifierConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4447E1E15CA4200BCE97A /* IdentifierConstant.swift */; };
 		DBD444811E15CFF500BCE97A /* PostConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD444801E15CFF500BCE97A /* PostConstant.swift */; };
-		DBD8D8191E1F063500CF6685 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD8D8181E1F063500CF6685 /* TabBarController.swift */; };
 		DBD8D81B1E1F207C00CF6685 /* LikeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD8D81A1E1F207C00CF6685 /* LikeConstant.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,7 +128,6 @@
 		DBD4447C1E15C2F100BCE97A /* UIColor+OneColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+OneColor.swift"; path = "Helpers/UIColor+OneColor.swift"; sourceTree = "<group>"; };
 		DBD4447E1E15CA4200BCE97A /* IdentifierConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdentifierConstant.swift; path = Helpers/IdentifierConstant.swift; sourceTree = "<group>"; };
 		DBD444801E15CFF500BCE97A /* PostConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostConstant.swift; path = Models/PostConstant.swift; sourceTree = "<group>"; };
-		DBD8D8181E1F063500CF6685 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = ViewControllers/TabBarController.swift; sourceTree = "<group>"; };
 		DBD8D81A1E1F207C00CF6685 /* LikeConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikeConstant.swift; path = Models/LikeConstant.swift; sourceTree = "<group>"; };
 		E3C67D94383203BCBBB2626B /* Pods-one.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-one.debug.xcconfig"; path = "Pods/Target Support Files/Pods-one/Pods-one.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,7 +242,6 @@
 				105977A91E16EC4D00FB3E73 /* EditUserInfoViewController.swift */,
 				10DD85111E1B04430081ECAD /* SharePostViewController.swift */,
 				DB6240E01E1C623D000B5CA9 /* PostViewController.swift */,
-				DBD8D8181E1F063500CF6685 /* TabBarController.swift */,
 				DB37518A1E24587B00D3EBDE /* CommentViewController.swift */,
 				DB1E55581E30237300D4AC26 /* HashtagCollectionViewController.swift */,
 				DBBB934F1E32E1AE00D96DD4 /* FeedViewController.swift */,
@@ -429,7 +426,6 @@
 			files = (
 				DB37518D1E24591F00D3EBDE /* CommentViewCell.swift in Sources */,
 				DB6240E11E1C623D000B5CA9 /* PostViewController.swift in Sources */,
-				DBD8D8191E1F063500CF6685 /* TabBarController.swift in Sources */,
 				DBD4447F1E15CA4200BCE97A /* IdentifierConstant.swift in Sources */,
 				DBD444771E15C16F00BCE97A /* SignUpViewController.swift in Sources */,
 				DB1E55591E30237300D4AC26 /* HashtagCollectionViewController.swift in Sources */,

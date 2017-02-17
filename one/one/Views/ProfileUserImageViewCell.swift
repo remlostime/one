@@ -24,12 +24,6 @@ class ProfileUserImageViewCell: UITableViewCell {
         profileImageView.addGestureRecognizer(profileImageTap)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     @IBAction func changedProfileImageButtonTapped(_ sender: UIButton) {
         profileImageTapped()
     }
