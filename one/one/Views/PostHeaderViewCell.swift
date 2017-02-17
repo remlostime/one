@@ -38,10 +38,10 @@ class PostHeaderViewCell: UITableViewCell {
     @IBOutlet var likeLabel: UILabel!
     
     var delegate: PostHeaderViewCellDelegate?
-
     var isLiked: Bool?
     var uuid: String?
 
+    // MARK: Lifecyle
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -50,31 +50,25 @@ class PostHeaderViewCell: UITableViewCell {
         postImageView.addGestureRecognizer(doubleTapLikeGesture)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    // MARK: Helpers
+    private func configLike() {
+        guard let uuid = uuid, let username = PFUser.current()?.username else {
+            return
+        }
 
-        // Configure the view for the selected state
-    }
-
-    func configLike() {
         isLiked = false
 
         likeButton.setImage(UIImage(imageLiteralResourceName: "unlike"), for: .normal)
 
         let query = PFQuery(className: Like.modelName.rawValue)
         query.whereKey(Like.postID.rawValue, equalTo: uuid)
-        let username = PFUser.current()?.username!
         query.whereKey(Like.username.rawValue, equalTo: username)
         query.findObjectsInBackground(block: { [weak self](objects: [PFObject]?, error: Error?) in
             guard error == nil else {
                 return
             }
 
-            guard let strongSelf = self else {
-                return
-            }
-
-            guard let _ = objects?.first else {
+            guard let strongSelf = self, let _ = objects?.first else {
                 return
             }
 
@@ -180,7 +174,11 @@ class PostHeaderViewCell: UITableViewCell {
             // Unlike this post
             let query = PFQuery(className: Like.modelName.rawValue)
             query.whereKey(Like.postID.rawValue, equalTo: uuid)
-            let username = PFUser.current()?.username!
+            
+            guard let username = PFUser.current()?.username else {
+                return
+            }
+
             query.whereKey(Like.username.rawValue, equalTo: username)
 
             query.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in

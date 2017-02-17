@@ -22,6 +22,8 @@ class FollowViewCell: UITableViewCell {
     @IBOutlet weak var followingButton: UIButton!
 
     let currentUsername = (PFUser.current()?.username)!
+
+    // MARK: Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,9 +33,7 @@ class FollowViewCell: UITableViewCell {
         followingButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+    // MARK: Actions
 
     @IBAction func followingButtonTapped(_ sender: UIButton) {
         let title = sender.title(for: .normal)
@@ -49,6 +49,8 @@ class FollowViewCell: UITableViewCell {
                 }
                 if !success {
                     strongSelf.configure(withState: .notFollowing)
+
+                    // TODO: pop an error message
                     print("error:\(error?.localizedDescription)")
                 }
             })
@@ -85,16 +87,6 @@ class FollowViewCell: UITableViewCell {
                     print("error:\(error?.localizedDescription)")
                 }
             })
-            /*
-            object.findObj(block: { (success: Bool, error: Error?) in
-                if success {
-                    self.followingButton.setTitle("following", for: .normal)
-                    self.followingButton.backgroundColor = .blue
-                } else {
-                    print("error:\(error?.localizedDescription)")
-                }
-            })
- */
 
             let notificationQuery = PFQuery(className: Notifications.modelName.rawValue)
             notificationQuery.whereKey(Notifications.sender.rawValue, equalTo: currentUsername)
@@ -109,6 +101,7 @@ class FollowViewCell: UITableViewCell {
     }
 
     // MARK: Helpers
+
     func configure(withState state: FollowState) {
         switch state {
         case .following:

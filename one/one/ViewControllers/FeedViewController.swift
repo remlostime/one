@@ -74,7 +74,6 @@ class FeedViewController: UITableViewController {
 extension FeedViewController: PostHeaderViewCellDelegate {
     func navigateToUserPage(_ username: String?) {
         guard let username = username else {
-            self.navigationController?.popViewController(animated: true)
             return
         }
 

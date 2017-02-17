@@ -24,6 +24,12 @@ class ProfileViewController: UICollectionViewController {
 
     var userid = PFUser.current()?.username
 
+    // MARK: Lifecyle
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,20 +45,6 @@ class ProfileViewController: UICollectionViewController {
         ptr = UIRefreshControl()
         ptr.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         collectionView?.addSubview(ptr)
-
-        loadPosts(false)
-    }
-
-    func reloadData() {
-        loadPosts(false)
-    }
-
-    func updateUserInfo() {
-        reloadData()
-    }
-
-    func pullToRefresh() {
-        ptr.endRefreshing()
 
         loadPosts(false)
     }
@@ -255,6 +247,20 @@ class ProfileViewController: UICollectionViewController {
                 print(error!.localizedDescription)
             }
         }
+    }
+
+    func reloadData() {
+        loadPosts(false)
+    }
+
+    func updateUserInfo() {
+        reloadData()
+    }
+
+    func pullToRefresh() {
+        ptr.endRefreshing()
+
+        loadPosts(false)
     }
 }
 

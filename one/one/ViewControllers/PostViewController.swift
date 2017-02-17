@@ -61,17 +61,12 @@ class PostViewController: UITableViewController {
 extension PostViewController: PostHeaderViewCellDelegate {
     func navigateToUserPage(_ username: String?) {
         guard let username = username else {
-            self.navigationController?.popViewController(animated: true)
             return
         }
 
-        if username == PFUser.current()?.username! {
-            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.profileViewController.rawValue) as? ProfileViewController
-            self.navigationController?.pushViewController(homeVC!, animated: true)
-        } else {
-            let guestVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.guestViewController.rawValue)
-            self.navigationController?.pushViewController(guestVC!, animated: true)
-        }
+        let homeVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.profileViewController.rawValue) as? ProfileViewController
+        homeVC?.userid = username
+        self.navigationController?.pushViewController(homeVC!, animated: true)
     }
 
     func showActionSheet(_ alertController: UIAlertController?) {

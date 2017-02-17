@@ -11,7 +11,6 @@ import Foundation
 enum Identifier: String {
     case followViewCell = "followViewCell"
     case profileViewController = "profileViewController"
-    case guestViewController = "guestVC"
     case homeHeaderView = "homeHeaderView"
     case pictureCell = "pictureCell"
     case followVC = "followVC"

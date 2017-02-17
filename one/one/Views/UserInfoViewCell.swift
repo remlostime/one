@@ -20,20 +20,11 @@ class UserInfoViewCell: UITableViewCell {
     
     var userInfo: UserInfo?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    // MARK: Helpers
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func config(_ indexPath: IndexPath, userInfo: UserInfo) {
         self.userInfo = userInfo
-        
+
         if let info = cellInfo(indexPath) {
             if let imageName = info[imageName] {
                 iconImageView.image = UIImage(named: imageName!)
@@ -46,10 +37,8 @@ class UserInfoViewCell: UITableViewCell {
             }
         }
     }
-    
-    // MARK: Helpers
-    
-    func cellInfo(_ forIndexPath: IndexPath) -> [String: String?]? {
+
+    private func cellInfo(_ forIndexPath: IndexPath) -> [String: String?]? {
         if forIndexPath.section == 0 {
             switch forIndexPath.row {
             case 1:
