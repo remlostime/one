@@ -12,5 +12,7 @@ target 'one' do
   pod 'CocoaLumberjack/Swift'
   pod 'ActiveLabel'
   pod 'SCLAlertView'
+  pod 'RandomColorSwift'
+  pod 'SwiftLint'
 
 end
