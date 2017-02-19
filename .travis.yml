@@ -3,3 +3,5 @@ osx_image: xcode8.1
 xcode_workspace: one/one.xcworkspace
 xcode_scheme: one
 xcode_sdk: iphonesimulator10.0
+script:
+  - xcodebuild clean build -sdk iphonesimulator10.0 -workspace one/one.xcworkspace -scheme one CODE_SIGNING_REQUIRED=NO
