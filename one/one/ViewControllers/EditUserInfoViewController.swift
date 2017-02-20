@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import SCLAlertView
 
 class EditUserInfoViewController: UITableViewController {
     
@@ -59,9 +60,7 @@ class EditUserInfoViewController: UITableViewController {
         
         if let email = email {
             if !email.isValidEmail() {
-                let alert = AlertHelper.init("Incorrect Email", message: "Please provoide correct email.", delegate: self)
-                alert.show()
-                
+                SCLAlertView().showError("Incorrect Email", subTitle: "Please provoide correct email.")
                 return
             }
         }
@@ -73,8 +72,7 @@ class EditUserInfoViewController: UITableViewController {
         
         if let website = website {
             if !website.isValidWebsite() {
-                let alert = AlertHelper.init("Incorrect Website", message: "Please provide correct website", delegate: self)
-                alert.show()
+                SCLAlertView().showError("Incorrect Website", subTitle: "Please provide correct website")
                 
                 return
             }
@@ -110,14 +108,9 @@ class EditUserInfoViewController: UITableViewController {
         let profileImageFile = PFFile(name: "profile_image.png", data: profileImageData!)
         user?[User.profileImage.rawValue] = profileImageFile
         
-        user?.saveInBackground(block: { [weak self](success: Bool, error: Error?) in
-            guard let strongSelf = self else {
-                return
-            }
-            
+        user?.saveInBackground(block: { (success: Bool, error: Error?) in
             guard !success else {
-                let alert = AlertHelper.init("Save Error", message: "Can not save, please try again!", delegate: strongSelf)
-                alert.show()
+                SCLAlertView().showError("Save Error", subTitle: "Can not save, please try again!")
                 return
             }
             
@@ -240,8 +233,3 @@ extension EditUserInfoViewController: UIPickerViewDataSource {
     }
 }
 
-extension EditUserInfoViewController: AlertHelperDelegate {
-    func show(_ alertViewController: UIAlertController) {
-        present(alertViewController, animated: true, completion: nil)
-    }
-}
