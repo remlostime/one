@@ -25,6 +25,7 @@
 		DB42D57D1E4A92CA00506E9B /* Vonique 64 Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB42D5791E4A92CA00506E9B /* Vonique 64 Bold Italic.ttf */; };
 		DB42D57E1E4A92CA00506E9B /* Vonique 64 Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB42D57A1E4A92CA00506E9B /* Vonique 64 Bold.ttf */; };
 		DB42D57F1E4A92CA00506E9B /* Vonique 64 Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB42D57B1E4A92CA00506E9B /* Vonique 64 Italic.ttf */; };
+		DB46FD621E5CB06700827E9D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB46FD611E5CB06700827E9D /* SettingsViewController.swift */; };
 		DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5708831E08A31B005AA367 /* AppDelegate.swift */; };
 		DB5708891E08A31B005AA367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5708871E08A31B005AA367 /* Main.storyboard */; };
 		DB57088B1E08A31B005AA367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB57088A1E08A31B005AA367 /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		DB42D5791E4A92CA00506E9B /* Vonique 64 Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Vonique 64 Bold Italic.ttf"; path = "Resources/Vonique 64 Bold Italic.ttf"; sourceTree = "<group>"; };
 		DB42D57A1E4A92CA00506E9B /* Vonique 64 Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Vonique 64 Bold.ttf"; path = "Resources/Vonique 64 Bold.ttf"; sourceTree = "<group>"; };
 		DB42D57B1E4A92CA00506E9B /* Vonique 64 Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Vonique 64 Italic.ttf"; path = "Resources/Vonique 64 Italic.ttf"; sourceTree = "<group>"; };
+		DB46FD611E5CB06700827E9D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		DB5708801E08A31B005AA367 /* one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5708831E08A31B005AA367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5708881E08A31B005AA367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				DBA7A2EE1E39677600244EB0 /* SearchTableViewController.swift */,
 				DBA7A2F01E399F4700244EB0 /* SearchCollectionViewController.swift */,
 				DB0663641E3AFAAA0004A49C /* NotificationViewController.swift */,
+				DB46FD611E5CB06700827E9D /* SettingsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				DBD4447F1E15CA4200BCE97A /* IdentifierConstant.swift in Sources */,
 				DBD444771E15C16F00BCE97A /* SignUpViewController.swift in Sources */,
 				DB1E55591E30237300D4AC26 /* HashtagCollectionViewController.swift in Sources */,
+				DB46FD621E5CB06700827E9D /* SettingsViewController.swift in Sources */,
 				105977A81E16EB5700FB3E73 /* ProfileUserImageViewCell.swift in Sources */,
 				DB0663651E3AFAAA0004A49C /* NotificationViewController.swift in Sources */,
 				DB5708841E08A31B005AA367 /* AppDelegate.swift in Sources */,
