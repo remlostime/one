@@ -32,6 +32,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        signUpButton.layer.borderColor = UIColor.lightGray.cgColor
+        cancelButton.layer.borderColor = UIColor.lightGray.cgColor
+
         scrollView.frame = CGRect(x: 0,
                                   y: 0,
                                   width: self.view.frame.width,

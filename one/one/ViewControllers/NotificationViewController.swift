@@ -22,7 +22,7 @@ class NotificationViewController: UITableViewController {
         
         self.navigationItem.title = "One"
 
-        let username = PFUser.current()?.username
+        let username = PFUser.current()?.objectId
         let query = PFQuery(className: Notifications.modelName.rawValue)
 
         query.whereKey(Notifications.receiver.rawValue, equalTo: username!)
@@ -149,7 +149,6 @@ class NotificationViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notifications.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.notificationViewCell.rawValue, for: indexPath) as? NotificationViewCell
