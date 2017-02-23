@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let AppID = "one4ig_appid_1234567890"
+    let ClientKey = "one4ig_masterkey_1234567890"
+    let Server = "http://one4ig.herokuapp.com/parse"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,10 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let parseConfig = ParseClientConfiguration { (ParseMutableClientConfiguration) in
 
             // accessing Heroku App via id & keys
-            ParseMutableClientConfiguration.applicationId = "one4ig_appid_1234567890"
-            ParseMutableClientConfiguration.clientKey = "one4ig_masterkey_1234567890"
-            ParseMutableClientConfiguration.server = "http://one4ig.herokuapp.com/parse"
-
+            ParseMutableClientConfiguration.applicationId = self.AppID
+            ParseMutableClientConfiguration.clientKey = self.ClientKey
+            ParseMutableClientConfiguration.server = self.Server
         }
 
         Parse.initialize(with: parseConfig)

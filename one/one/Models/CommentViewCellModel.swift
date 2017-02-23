@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 
 class CommentViewCellModel: NSObject {
     var username: String?
