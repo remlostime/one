@@ -14,5 +14,6 @@ target 'one' do
   pod 'SCLAlertView'
   pod 'RandomColorSwift'
   pod 'SwiftLint'
+  pod 'SwiftDate'
 
 end

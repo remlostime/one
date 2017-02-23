@@ -31,6 +31,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SwiftDate (4.0.11)
   - SwiftLint (0.16.0)
 
 DEPENDENCIES:
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - RandomColorSwift
   - SCLAlertView
   - SDWebImage
+  - SwiftDate
   - SwiftLint
 
 SPEC CHECKSUMS:
@@ -57,8 +59,9 @@ SPEC CHECKSUMS:
   RandomColorSwift: 9f85058b721665d52d239ca166a913e083506444
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  SwiftDate: a36d5ce7c86bed3ed92b583ccbf15045f374ac65
   SwiftLint: 90665265ae50b58167c674a11c680bbabe9d6513
 
-PODFILE CHECKSUM: 1978333ebf8708aa9b2452199d2da0b02c38a9b2
+PODFILE CHECKSUM: 10cfdb96ce0d2de634e0e03b39e3c8287b9d2351
 
 COCOAPODS: 1.1.1

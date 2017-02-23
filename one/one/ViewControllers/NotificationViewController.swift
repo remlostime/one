@@ -22,7 +22,7 @@ class NotificationViewController: UITableViewController {
         
         self.navigationItem.title = "One"
 
-        let username = PFUser.current()?.objectId
+        let username = PFUser.current()?.username
         let query = PFQuery(className: Notifications.modelName.rawValue)
 
         query.whereKey(Notifications.receiver.rawValue, equalTo: username!)
