@@ -80,13 +80,13 @@ class PostHeaderViewCell: UITableViewCell {
     func config(_ uuid: String) {
         self.uuid = uuid
 
-//        configLike()
+        configLike()
 
-//        let likesQuery = PFQuery(className: Like.modelName.rawValue)
-//        likesQuery.whereKey(Like.postID.rawValue, equalTo: uuid)
-//        likesQuery.countObjectsInBackground { [weak self](count: Int32, error: Error?) in
-////            self?.likeLabel.text = "\(count) likes"
-//        }
+        let likesQuery = PFQuery(className: Like.modelName.rawValue)
+        likesQuery.whereKey(Like.postID.rawValue, equalTo: uuid)
+        likesQuery.countObjectsInBackground { [weak self](count: Int32, error: Error?) in
+            self?.likeLabel.text = "\(count) likes"
+        }
 
         let postQuery = PFQuery(className: Post.modelName.rawValue)
         postQuery.whereKey(Post.uuid.rawValue, equalTo: uuid)
@@ -142,22 +142,22 @@ class PostHeaderViewCell: UITableViewCell {
         }
 
         if diff.minute == 0 {
-            return "\(diff.second)s"
+            return "\(diff.second!)s"
         }
 
         if diff.hour == 0 {
-            return "\(diff.minute)m"
+            return "\(diff.minute!)m"
         }
 
         if diff.day == 0 {
-            return "\(diff.hour)h"
+            return "\(diff.hour!)h"
         }
 
         if diff.weekOfMonth == 0 {
-            return "\(diff.day)d"
+            return "\(diff.day!)d"
         }
 
-        return "\(diff.weekOfMonth)w"
+        return "\(diff.weekOfMonth!)w"
     }
 
     // MARK: Actions

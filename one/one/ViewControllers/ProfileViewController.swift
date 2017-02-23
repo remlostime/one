@@ -49,6 +49,12 @@ class ProfileViewController: UICollectionViewController {
         loadPosts(false)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16)]
+    }
+
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y >= scrollView.contentSize.height - self.view.frame.size.height {
             loadPosts(true)

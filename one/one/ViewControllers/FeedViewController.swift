@@ -21,6 +21,13 @@ class FeedViewController: UITableViewController {
         loadPosts()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSFontAttributeName: UIFont(name: "Vonique64-Bold", size: 26)!]
+    }
+
     func loadPosts() {
         let userid = PFUser.current()?.username
 
@@ -45,8 +52,10 @@ class FeedViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+    }
 
-
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 
     // MARK: - Table view data source
