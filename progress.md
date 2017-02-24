@@ -63,7 +63,7 @@
 *  Fix all optional, guard let, force unwrapped issue - 1 day
 
 ## Timeline
-[][2]
+![M1 Timeline](https://github.com/remlostime/one/blob/master/m1/m1-timeline.jpg)
 
 # Milestone-0
 > **Done** : Dec 19, 2016  - Jan 31, 2017
