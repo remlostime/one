@@ -1,6 +1,10 @@
 # One
 My Instagram iOS app. 
 
+## [Demo][1]
+
+## Screenshot
+
 ## Features
 * New user sign up, login, reset password
 * User profile and picture gallery
@@ -18,13 +22,4 @@ My Instagram iOS app.
 - Leverage Heroku platform as backend service. 
 - Hook Heroku with Parse API. Then in code level, I can use Parse library to leverage all Parse functions.
 
-## Milestone-0
-> Dec 19, 2016 ~ Jan 31, 2017
-> 44 days
-
-### [Demo Video](https://www.dropbox.com/sc/ah188uqe2zzetdp/AAD3rS-hC2c1pT1PTuUf3UHQa)
-
-### Screenshot
-![Profile](https://github.com/remlostime/one/blob/master/one-profile.png)
-
-![Post](https://github.com/remlostime/one/blob/master/one-post.png)
+[1]:	https://www.dropbox.com/s/ehqcouevj9lubiq/one-m1.mov?dl=0
