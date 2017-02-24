@@ -4,6 +4,20 @@ My Instagram iOS app.
 ## [Demo][1]
 
 ## Screenshot
+### Main Screens
+![Feed](https://github.com/remlostime/one/blob/master/m1/feed.png)
+![Search](https://github.com/remlostime/one/blob/master/m1/search.png)
+![Post](https://github.com/remlostime/one/blob/master/m1/post.png)
+![Notification](https://github.com/remlostime/one/blob/master/m1/notification.png)
+![Profile](https://github.com/remlostime/one/blob/master/m1/profile.png)
+
+### Other Screens
+![Alert](https://github.com/remlostime/one/blob/master/m1/alert.png)
+![Edit Profile](https://github.com/remlostime/one/blob/master/m1/edit_profile.png)
+![Follow](https://github.com/remlostime/one/blob/master/m1/follow.png)
+![Settings](https://github.com/remlostime/one/blob/master/m1/settings.png)
+![Sign Up](https://github.com/remlostime/one/blob/master/m1/signup.png)
+
 
 ## Features
 * New user sign up, login, reset password
