@@ -331,7 +331,7 @@
 				TargetAttributes = {
 					DB57087F1E08A31B005AA367 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 24X86T8MC6;
+						DevelopmentTeam = 5WDN96EM72;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -585,7 +585,7 @@
 			baseConfigurationReference = E3C67D94383203BCBBB2626B /* Pods-one.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 24X86T8MC6;
+				DEVELOPMENT_TEAM = 5WDN96EM72;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -593,7 +593,7 @@
 				INFOPLIST_FILE = one/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tripadvisor.devbuild;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaichen.one;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -605,7 +605,7 @@
 			baseConfigurationReference = 3FD74BFA1DB80BFC214F4C5C /* Pods-one.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 24X86T8MC6;
+				DEVELOPMENT_TEAM = 5WDN96EM72;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -613,7 +613,7 @@
 				INFOPLIST_FILE = one/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tripadvisor.devbuild;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaichen.one;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
