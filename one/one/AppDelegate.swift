@@ -20,11 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let Server = "http://one4ig.herokuapp.com/parse"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-
+        // TODO(kai) - Clean up the code
         // Configuration of using Parse code in Heroku
         let parseConfig = ParseClientConfiguration { (ParseMutableClientConfiguration) in
-
             // accessing Heroku App via id & keys
             ParseMutableClientConfiguration.applicationId = self.AppID
             ParseMutableClientConfiguration.clientKey = self.ClientKey
